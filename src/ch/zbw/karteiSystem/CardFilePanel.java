@@ -30,7 +30,7 @@ public class CardFilePanel extends JPanel implements EventListener, ActionListen
 	
 	public CardFilePanel(MainFrame mainFrame){
 		
-		strings = new Strings();
+		strings = mainFrame.getStrings();
 		this.setBackground(Color.decode("#52787b"));
 		this.setLayout( new BorderLayout());
 		this.mainFrame = mainFrame;

@@ -62,6 +62,7 @@ public class BigButton extends JPanel implements MouseListener{
 	paintComponent();
 	setName(name);
 	
+	
 	}
 
 
