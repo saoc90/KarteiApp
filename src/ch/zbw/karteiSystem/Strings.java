@@ -3,6 +3,7 @@ package ch.zbw.karteiSystem;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -26,6 +27,7 @@ public class Strings extends CsvReader {
 	private ArrayList<JTextField> JTextfieldList;
 	private ArrayList<BigButton> bigButtonList;
 	private ArrayList<JLabel> JLabelList;
+	private ArrayList<JButton> JButtonList;
 	
 	
 	public Strings() {
@@ -33,6 +35,7 @@ public class Strings extends CsvReader {
 		JTextfieldList = new ArrayList<>();
 		bigButtonList = new ArrayList<>();
 		JLabelList = new ArrayList<>();
+		JButtonList= new ArrayList<>();
 		list = new ArrayList<>();
 		generateTokens(readFile("Strings.csv"));
 	}
@@ -87,6 +90,8 @@ public class Strings extends CsvReader {
 			return bigButtonList.add((BigButton)(obj));
 		} else if(obj instanceof JLabel){
 			return JLabelList.add((JLabel)(obj));
+		} else if(obj instanceof JButton){
+			return JButtonList.add((JButton)(obj));
 		}
 		return false;
 	}
@@ -101,6 +106,10 @@ public class Strings extends CsvReader {
 		 tmp.setText(text);
 	 }
 	 for(BigButton tmp:bigButtonList){
+		 String text = getString(languageCode, tmp.getName());
+		 tmp.setText(text);
+	 }
+	 for(JButton tmp:JButtonList){
 		 String text = getString(languageCode, tmp.getName());
 		 tmp.setText(text);
 	 }
