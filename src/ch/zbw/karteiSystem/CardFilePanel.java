@@ -26,6 +26,7 @@ public class CardFilePanel extends JPanel implements EventListener, ActionListen
 	private static final long serialVersionUID = 1L;
 	private static MainFrame mainFrame;
 	private Strings strings;
+	private JButton button1;
 	
 	
 	public CardFilePanel(MainFrame mainFrame){
@@ -35,15 +36,19 @@ public class CardFilePanel extends JPanel implements EventListener, ActionListen
 		this.setLayout( new BorderLayout());
 		this.mainFrame = mainFrame;
 		this.setVisible(false);
+		button1 = new JButton();
+		button1.setText(strings.getString(MainFrame.languageCode, "language_test"));
 		paint();
 		
 	}
 	
 	
 	public void paint(){
-		JButton button1 = new JButton();
-		button1.setText(strings.getString(MainFrame.languageCode, "language_test"));
+		
+		
 		button1.addActionListener( this);
+		button1.setName("language_test");
+		strings.add(button1);
 		
 		add(button1);
 		setVisible(false);
@@ -56,7 +61,7 @@ public class CardFilePanel extends JPanel implements EventListener, ActionListen
 	public void actionPerformed(ActionEvent e) {
 
 		try {
-			mainFrame.changeFrameTo("toStartPage");
+			mainFrame.changeFrameTo("toStartPanel");
 			validate();
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block

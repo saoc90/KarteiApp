@@ -136,21 +136,20 @@ private JPanel getPanel(String panelName)throws Exception{
 		
 		switch (buttonName){
 		
-		case "toStartPage" :
+		case "toStartPanel" :
 			cardLayout.show(container, startPanel.getName());
 			validate();
 			break;
 		
-		case "toLearnPage" : 
+		case "toCardFilePanel" : 
 			//hidePanels();
 			cardLayout.show(container, cardFilePanel.getName());
 			break;
 			
-		case "toStatsPage" :
+		case "toStatsPanel" :
 			cardLayout.show(container, startPanel.getName());
 			MainFrame.languageCode = "en";
-			validate();
-			startPanel.validate();
+			strings.changeLanguage(Strings.ENGLISH);
 			break;
 			
 			

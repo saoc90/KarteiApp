@@ -94,7 +94,7 @@ public class BigButton extends JPanel implements MouseListener{
 	
 	public void setText(String text){
 		
-	title1 = new JLabel(text, icon, SwingConstants.LEFT);	
+	title1.setText(text);
 		
 	}
 	
