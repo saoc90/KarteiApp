@@ -1,8 +1,5 @@
-package src.ch.zbw.karteiSystem;
+package ch.zbw.karteiSystem;
 import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
-
-import ch.zbw.karteiSystem.MainFrame;
 
 /**
  * 
@@ -12,6 +9,7 @@ import ch.zbw.karteiSystem.MainFrame;
  * @author samuelochsner
  *
  */
+
 public class App {
 
 	/**
