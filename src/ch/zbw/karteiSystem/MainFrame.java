@@ -30,11 +30,13 @@ public class MainFrame extends JFrame {
 	private Container container;
 	private JPanel statsPanel;
 	private CardLayout cardLayout;
+	private Strings strings;
 	
 	public MainFrame(){
 		
 		super("Kartei System");
 		setLayout(null);
+		strings = new Strings();
 		container = this.getContentPane();
 		cardLayout = new CardLayout();
 		container.setLayout(cardLayout);
@@ -81,6 +83,11 @@ public class MainFrame extends JFrame {
 		container.add(panel, panelName);
 	
 		
+	}
+	
+	public Strings getStrings(){
+		
+		return strings;
 	}
 	
 	
