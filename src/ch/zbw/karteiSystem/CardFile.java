@@ -34,15 +34,16 @@ public class CardFile extends JPanel implements ActionListener {
 	private String label;
 	private JLabel title;
 	private JLabel languages;
-	private JLabel stats;
-	private JLabel workingHours;
+	private JLabel cards;
+	private JLabel progress;
 	private JLabel changeLanguages;
+	private JLabel settingsLabel;
 	private Font titleFont;
 	private String language1;
 	private String language2;
 	private Border borderTitle;
 	private Border borderContent;
-	private String progress;
+	private String progressString = "60% Abgeschlossen";
 	private int cardsInCardFile;
 	private Icon languagesIcon;
 	private Icon statsIcon;
@@ -72,10 +73,14 @@ public class CardFile extends JPanel implements ActionListener {
 	
 	public void paint(){
 		//Add Titel JLabel//
-		gc.gridwidth = GridBagConstraints.REMAINDER;
+		//gc.gridwidth = 5;
+		gc.weighty = 0.5;
+		gc.weightx = 0.5;
 		gc.gridheight = 2;
+		gc.ipadx = 5;
+		gc.ipady = 5;
 		gc.gridy = 0;
-		gc.insets = new Insets(5,20,5,20);
+		gc.gridx = 1;
 		title = new JLabel("Lernkartei 1 Name");
 		title.setFont(titleFont);
 		title.setBorder(borderTitle);
@@ -83,24 +88,20 @@ public class CardFile extends JPanel implements ActionListener {
 		
 		// Add Langugages //
 		
-		gc.gridwidth = 3;
+		gc.gridwidth = 5;
 		gc.gridheight = 1;
-		gc.gridy = 3;
+		gc.gridy = 2;
 		gc.gridx = 0;
-		gc.anchor = GridBagConstraints.WEST;
-		gc.insets = new Insets (0,0,0,0);
 		languages = new JLabel("Language 1 - Language 2");
 		add(languages, gc);
 		
 		
 		// Add Change Icon ///
 		
-		gc.gridwidth = 2;
+		gc.gridwidth = 1;
 		gc.gridheight = 1;
-		gc.gridy = 3;
-		gc.gridx = 3;
-		gc.fill = GridBagConstraints.RELATIVE;
-		gc.anchor = GridBagConstraints.EAST;
+		gc.gridy = 2;
+		gc.gridx = 5;
 		changeLanguages = new JLabel(changeLanguagesIcon);
 		changeLanguages.addMouseListener(new MouseListener() {
 			
@@ -136,6 +137,36 @@ public class CardFile extends JPanel implements ActionListener {
 		});
 		add(changeLanguages, gc);
 		
+		
+		//Add Cards in Cardfiles label////
+		
+		gc.gridy = 3;
+		gc.gridx = 0;
+		gc.gridwidth = 6;
+		gc.gridheight = 1;
+		cards = new JLabel("60 Karten");
+		add(cards, gc);
+		
+		
+		//Add Progress Indicator Label//
+		
+		gc.gridy = 4;
+		gc.gridx = 0;
+		gc.gridwidth = 5;
+		gc.gridheight = 1;
+		progress = new JLabel("20% abbgeschlossen"	);
+		add(progress, gc);
+		
+		
+		//Settings Icon
+		
+		gc.gridy = 4;
+		gc.gridx = 5;
+		gc.gridwidth = 1;
+		gc.gridheight = 1;
+		settings = new ImageIcon ("png/settingssmall.png");
+		settingsLabel = new JLabel(settings);
+		add(settingsLabel, gc);
 		
 	}
 	
