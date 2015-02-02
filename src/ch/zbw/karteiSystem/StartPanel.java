@@ -61,7 +61,7 @@ public class StartPanel extends JPanel implements ActionListener {
 		gc.insets = new Insets(1,1,1,1);
 		
 		/// Lernen Button ///////
-		lernen = new BigButton("toCardFilePanel", strings.getString(MainFrame.languageCode, "toCardFilePanel"),new ImageIcon("png/learn.png"),370,70,Color.decode("#ead177"));
+		lernen = new BigButton("toCardFilePanel", strings.getString("toCardFilePanel"),new ImageIcon("png/learn.png"),370,70,Color.decode("#ead177"));
 		lernen.addActionListener(this);
 		strings.add(lernen);
 		this.add(lernen, gc);
@@ -74,7 +74,7 @@ public class StartPanel extends JPanel implements ActionListener {
 		gc.gridy = 1;
 		
 		/// Lernen Button ///////
-				stats = new BigButton("toStatsPanel" , strings.getString(MainFrame.languageCode, "toStatsPanel"),new ImageIcon("png/stats.png"),370,70,Color.decode("#d95b45"));
+				stats = new BigButton("toStatsPanel" , strings.getString("toStatsPanel"),new ImageIcon("png/stats.png"),370,70,Color.decode("#d95b45"));
 				stats.addActionListener(this);
 				strings.add(stats);
 				this.add(stats, gc);
@@ -85,7 +85,7 @@ public class StartPanel extends JPanel implements ActionListener {
 			
 			gc.gridy = 2;
 				
-						settings = new BigButton("toSettingsPanel", strings.getString(MainFrame.languageCode, "toSettingsPanel"),new ImageIcon("png/settings.png"),370,70,Color.decode("#c12940"));
+						settings = new BigButton("toSettingsPanel", strings.getString("toSettingsPanel"),new ImageIcon("png/settings.png"),370,70,Color.decode("#c12940"));
 						settings.addActionListener(this);
 						strings.add(settings);
 						this.add(settings, gc);
@@ -95,7 +95,7 @@ public class StartPanel extends JPanel implements ActionListener {
 						
 						gc.gridy = 3;
 						
-						exit = new BigButton("closeApp", strings.getString(MainFrame.languageCode, "closeApp"),new ImageIcon("png/exit.png"),370,70,Color.decode("#552437"));
+						exit = new BigButton("closeApp", strings.getString("closeApp"),new ImageIcon("png/exit.png"),370,70,Color.decode("#552437"));
 						exit.addActionListener(this);
 						strings.add(exit);
 						this.add(exit, gc);

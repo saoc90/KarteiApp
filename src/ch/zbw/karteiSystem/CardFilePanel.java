@@ -39,7 +39,7 @@ public class CardFilePanel extends JPanel implements EventListener, ActionListen
 		this.mainFrame = mainFrame;
 		this.setVisible(false);
 		button1 = new JButton();
-		button1.setText(strings.getString(MainFrame.languageCode, "language_test"));
+		button1.setText(strings.getString("language_test"));
 		paint();
 		
 	}
