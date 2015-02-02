@@ -24,6 +24,8 @@ public class Strings extends CsvReader {
 	public static final String ITALIAN="it";
 	public static final String RUSSIAN="ru";
 	
+	private String choosenLanguageCode;
+	
 	private ArrayList<JTextField> JTextfieldList;
 	private ArrayList<BigButton> bigButtonList;
 	private ArrayList<JLabel> JLabelList;
@@ -42,13 +44,13 @@ public class Strings extends CsvReader {
 	
 	
 	/**
-	 * @param languageCode language code for chosen language. The  
+	 * @param languageCode language code for chosen language. 
 	 * @param id the word in the first column of the csv File.
 	 * @return the chosen String. If the value of the parameters incorrect, it will return unknown.
 	 */
-	public String getString(String languageCode,String id){
+	public String getString(String id){
 		int i=0;
-		switch (languageCode) {
+		switch (choosenLanguageCode) {
 		case ENGLISH: i=1; break;
 		case GERMAN: i=2; break;
 		case FRENCH: i=3; break;
@@ -97,23 +99,42 @@ public class Strings extends CsvReader {
 	}
 	
 	public void changeLanguage(String languageCode){
-	 for(JTextField tmp: JTextfieldList){
-		 String text = getString(languageCode, tmp.getName());
+		this.choosenLanguageCode = languageCode;
+		for(JTextField tmp: JTextfieldList){
+		 String text = getString(tmp.getName());
 		 tmp.setText(text);
 	 }
 	 for(JLabel tmp: JLabelList){
-		 String text = getString(languageCode, tmp.getName());
+		 String text = getString(tmp.getName());
 		 tmp.setText(text);
 	 }
 	 for(BigButton tmp:bigButtonList){
-		 String text = getString(languageCode, tmp.getName());
+		 String text = getString(tmp.getName());
 		 System.out.println(tmp.getName()+languageCode);
 		 tmp.setText(text);
 		 tmp.repaint();
 	 }
 	 for(JButton tmp:JButtonList){
-		 String text = getString(languageCode, tmp.getName());
+		 String text = getString(tmp.getName());
 		 tmp.setText(text);
 	 }
 	 }
+
+
+	/**
+	 * @return the choosenLanguageCode
+	 */
+	public String getChoosenLanguageCode() {
+		return choosenLanguageCode;
+	}
+
+
+	/**
+	 * @param choosenLanguageCode the choosenLanguageCode to set
+	 */
+	public void setChoosenLanguageCode(String choosenLanguageCode) {
+		this.choosenLanguageCode = choosenLanguageCode;
+	}
+	
+	
 }
