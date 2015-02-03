@@ -1,5 +1,6 @@
 package ch.zbw.karteiSystem;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -32,8 +33,7 @@ public class Strings extends CsvReader {
 	private ArrayList<JButton> JButtonList;
 	
 	
-	public Strings() {
-		super();
+	public Strings() throws FileNotFoundException {
 		JTextfieldList = new ArrayList<>();
 		bigButtonList = new ArrayList<>();
 		JLabelList = new ArrayList<>();

@@ -26,7 +26,7 @@ public class CsvReader {
 	 * @param url place where the file is saved.
 	 * @return ArrayList with Strings.
 	 */
-	public ArrayList<String> readFile(String url) {
+	public ArrayList<String> readFile(String url) throws FileNotFoundException{
 		ArrayList<String> temp = new ArrayList<>();
 		BufferedReader reader;
 		try {
