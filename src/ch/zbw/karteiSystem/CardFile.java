@@ -52,6 +52,7 @@ public class CardFile extends JPanel implements ActionListener {
 	private Icon settings;
 	private Dimension dimension;
 	private GridBagConstraints gc;
+	private Insets  insetLeft, insetTop, insetRight, insetButtomLeft,insetButtomRight;
 
 	/**
 	 * 
@@ -66,6 +67,11 @@ public class CardFile extends JPanel implements ActionListener {
 		titleFont = new Font("LucidaBright",Font.BOLD,20);
 		borderTitle = BorderFactory.createLineBorder(MainFrame.COLOR5);
 		changeLanguagesIcon = new ImageIcon("png/changeLanguageIcon.png");
+		insetTop = new Insets(5,20,5,20);
+		insetLeft = new Insets(5,20,5,5);
+		insetRight = new Insets(5,5,5,20);
+		insetButtomLeft = new Insets(5,20,15,5);
+		insetButtomRight = new Insets(5,5,15,20);
 		paint();
 		
 	}
@@ -74,7 +80,7 @@ public class CardFile extends JPanel implements ActionListener {
 	public void paint(){
 		//Add Titel JLabel//
 		gc.gridwidth = 5;
-		gc.insets = new Insets (5,5,5,5);
+		gc.insets = insetTop;
 		gc.anchor = GridBagConstraints.PAGE_START;
 		gc.weighty = 1;
 		gc.weightx = 1;
@@ -90,6 +96,7 @@ public class CardFile extends JPanel implements ActionListener {
 		
 		// Add Langugages //
 		gc.anchor = GridBagConstraints.LINE_START;
+		gc.insets = insetLeft;
 		gc.gridwidth = 6;
 		gc.gridheight = 1;
 		gc.gridy = 2;
@@ -102,6 +109,7 @@ public class CardFile extends JPanel implements ActionListener {
 		
 		// Add Change Icon ///
 		gc.anchor = GridBagConstraints.LINE_END;
+		gc.insets = insetRight;
 		gc.gridwidth = 1;
 		gc.gridheight = 1;
 		gc.gridy = 2;
@@ -144,6 +152,7 @@ public class CardFile extends JPanel implements ActionListener {
 		
 		//Add Cards in Cardfiles label////
 		gc.anchor = GridBagConstraints.LINE_START;
+		gc.insets = insetLeft;
 		gc.gridy = 3;
 		gc.gridx = 0;
 		gc.gridwidth = 6;
@@ -154,9 +163,10 @@ public class CardFile extends JPanel implements ActionListener {
 		
 		//Add Progress Indicator Label//
 		gc.anchor = GridBagConstraints.LINE_START;
+		gc.insets = insetButtomLeft;
 		gc.gridy = 4;
 		gc.gridx = 0;
-		gc.gridwidth = 5;
+		gc.gridwidth = 6;
 		gc.gridheight = 1;
 		progress = new JLabel("20% abbgeschlossen"	);
 		add(progress, gc);
@@ -167,6 +177,7 @@ public class CardFile extends JPanel implements ActionListener {
 		gc.gridy = 4;
 		gc.gridx = 5;
 		gc.anchor = GridBagConstraints.LINE_END;
+		gc.insets = insetButtomRight;
 		gc.gridwidth = 1;
 		gc.gridheight = 1;
 		settings = new ImageIcon ("png/settingssmall.png");
