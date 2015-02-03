@@ -6,6 +6,8 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.io.FileNotFoundException;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -36,7 +38,12 @@ public class MainFrame extends JFrame {
 		
 		super("Kartei System");
 		setLayout(null);
-		strings = new Strings();
+		try {
+			strings = new Strings();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		container = this.getContentPane();
 		cardLayout = new CardLayout();
 		container.setLayout(cardLayout);
