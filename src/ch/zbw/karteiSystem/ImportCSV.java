@@ -1,10 +1,13 @@
 package ch.zbw.karteiSystem;
 
-import java.io.FileNotFoundException;
+import java.io.FileFilter;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.StringTokenizer;
 
+import javax.swing.JComponent;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 public class ImportCSV extends CsvReader{
@@ -32,12 +35,14 @@ public class ImportCSV extends CsvReader{
 	 */
 	private String choose(Strings s, MainFrame main){
 		JFileChooser chooser = new JFileChooser();
-	//	chooser.setDialogTitle(dialogTitle);
-		int wert =chooser.showDialog(main, s.getString("openDialog"));		
-		if(wert==JFileChooser.APPROVE_OPTION){
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("csv", 
+	            "csv");
+		chooser.setFileFilter(filter);
+		int value =chooser.showOpenDialog(main);	
+		
+		if(value==JFileChooser.APPROVE_OPTION){
 		
 		String path = chooser.getSelectedFile().getPath();
-		if(path.endsWith("csv")) 
 			return path;
 		}
 		
