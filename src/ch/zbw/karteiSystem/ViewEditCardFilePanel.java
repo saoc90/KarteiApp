@@ -17,7 +17,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-public class ViewEditCardFilePanel {
+
+/*
+ * @author Martin Thomann
+ */
+
+public class ViewEditCardFilePanel extends JPanel implements EventListener, ActionListener {
 
 	
 	private static final long serialVersionUID = 1L;
@@ -27,7 +32,7 @@ public class ViewEditCardFilePanel {
 	private ViewCardFile cardFile;
 	
 	
-	public CardFilePanel(ViewMainFrame mainFrame){
+	public ViewEditCardFilePanel(ViewMainFrame mainFrame){
 		
 		strings = mainFrame.getStrings();
 		this.setBackground(Color.decode("#52787b"));
