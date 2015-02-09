@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+
 /**
  * @author samuelochsner
  *
@@ -31,6 +32,7 @@ public class ViewMainFrame extends JFrame {
 	public static String languageCode = "de";
 	private ViewStartPanel startPanel;
 	private ViewCardFilePanel cardFilePanel;
+	private ViewEditCardFilePanel editCardFilePanel;
 	private Container container;
 	private JPanel statsPanel;
 	private CardLayout cardLayout;
@@ -56,15 +58,18 @@ public class ViewMainFrame extends JFrame {
 		
 		startPanel = new ViewStartPanel(this);
 		cardFilePanel = new ViewCardFilePanel(this);
+		editCardFilePanel = new ViewEditCardFilePanel(this);
 		statsPanel = new JPanel();
 		statsPanel.setBackground(COLOR1);
 		statsPanel.setVisible(false);
 		addPanel(startPanel,"startPanel");
 		addPanel(cardFilePanel, "cardFilePanel");
+		addPanel(editCardFilePanel, "editCardFilePanel");
 		
 		addPanel(statsPanel,"statsPanel");
 		
 		cardLayout.show(container, startPanel.getName());
+		
 	
 		
 		validate();
@@ -153,6 +158,11 @@ private JPanel getPanel(String panelName)throws Exception{
 		case "toCardFilePanel" : 
 			//hidePanels();
 			cardLayout.show(container, cardFilePanel.getName());
+			break;
+			
+		case "toEditCardFilePanel" : 
+			//hidePanels();
+			cardLayout.show(container, editCardFilePanel.getName());
 			break;
 			
 		case "toStatsPanel" :
