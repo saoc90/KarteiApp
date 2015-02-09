@@ -8,6 +8,7 @@ public class Card
 	private int boxNr;
 	private int wrongAnswer;
 	private int rightAnswer;
+	
 	/**
 	 * @param word1
 	 * @param word2

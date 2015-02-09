@@ -106,6 +106,7 @@ public class CardFile
 			if(wordList.get(i).getBoxNr() == BoxNr)
 				cardZaehler++;
 		}
+		
 		return cardZaehler;
 	}
 	
