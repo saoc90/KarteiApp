@@ -15,6 +15,7 @@ public class Card
 	 * @param wrongAnswer
 	 * @param rightAnswer
 	 */
+	
 	public Card(String word1, String word2, int boxNr, int wrongAnswer, int rightAnswer)
 	{
 		super();
