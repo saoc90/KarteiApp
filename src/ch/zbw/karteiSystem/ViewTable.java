@@ -20,29 +20,32 @@ public class ViewTable extends JPanel {
     
 	
 	private static final long serialVersionUID = 1L;
-	private boolean DEBUG = false;
+//	private boolean DEBUG = false;
+	private String language1;
+	private String language2;
  
     public ViewTable() {
         super(new GridLayout(1,0));
  
-        String[] columnNames = {"Deutsch", "Englisch"};
+        
+        createTable();  
+    }
  
+    
+    //Tablle erstellen
+    public void createTable(){
+    	String[] columnNames = {"Deutsch", "Englisch"};
+    	 
         Object[][] data = {
         {"Hallo", "hello"},
         {"Haus", "house"},
         {"Tür", "door"}};
- 
-        final JTable table = new JTable(data, columnNames);
+        
+    	
+    	
+    	JTable table = new JTable(data, columnNames);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         table.setFillsViewportHeight(true);
- 
-        if (DEBUG) {
-            table.addMouseListener(new MouseAdapter() {
-                public void mouseClicked(MouseEvent e) {
-                    printDebugData(table);
-                }
-            });
-        }
  
         //Scrollleiste erzeugen
         JScrollPane scrollPane = new JScrollPane(table);
@@ -50,23 +53,9 @@ public class ViewTable extends JPanel {
         //Scrollleiste hinzufügen
         add(scrollPane);
     }
- 
-    private void printDebugData(JTable table) {
-        int numRows = table.getRowCount();
-        int numCols = table.getColumnCount();
-        javax.swing.table.TableModel model = table.getModel();
- 
-        System.out.println("Value of data: ");
-        for (int i=0; i < numRows; i++) {
-            System.out.print("    row " + i + ":");
-            for (int j=0; j < numCols; j++) {
-                System.out.print("  " + model.getValueAt(i, j));
-            }
-            System.out.println();
-        }
-        System.out.println("--------------------------");
-    }
- 
+    
+    
+    
     //GUI zeichnen
     private static void createAndShowGUI() {
         //Fenster erstellen

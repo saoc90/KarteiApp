@@ -110,9 +110,8 @@ public class Strings extends CsvReader {
 	 }
 	 for(ViewBigButton tmp:bigButtonList){
 		 String text = getString(tmp.getName());
-		 System.out.println(tmp.getName()+languageCode);
 		 tmp.setText(text);
-		 tmp.repaint();
+
 	 }
 	 for(JButton tmp:JButtonList){
 		 String text = getString(tmp.getName());

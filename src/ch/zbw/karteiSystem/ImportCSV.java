@@ -21,8 +21,8 @@ public class ImportCSV extends CsvReader{
 	 * @return returns a 2 Dimensional ArrayList filled with Strings. The first Index are the words, the second are the two different languages.
 	 * @throws Exception If the Tokenizer fails, it will throw a Exception with Message TokenizerException.
 	 */
-	public ArrayList<ArrayList<String>> importList(Strings s,ViewMainFrame main) throws Exception{
-		String path = choose(s, main);
+	public ArrayList<ArrayList<String>> importList(ViewMainFrame main) throws Exception{
+		String path = choose(main);
 		if(path==null){
 			return null;
 		}
@@ -33,7 +33,7 @@ public class ImportCSV extends CsvReader{
 	/**
 	 * @return The filepath of the choosen file.
 	 */
-	private String choose(Strings s, ViewMainFrame main){
+	private String choose(ViewMainFrame main){
 		JFileChooser chooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("csv", 
 	            "csv");
