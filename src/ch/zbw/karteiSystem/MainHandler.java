@@ -2,7 +2,7 @@ package ch.zbw.karteiSystem;
 
 import java.util.ArrayList;
 
-import ch.zbw.karteiSystem.ViewCardFile;
+import ch.zbw.karteiSystem.CardFile;
 import ch.zbw.karteiSystem.ViewMainFrame;
 
 /**
@@ -12,7 +12,7 @@ import ch.zbw.karteiSystem.ViewMainFrame;
 public class MainHandler
 {
 	
-	private ArrayList<ViewCardFile> cardfiles;
+	private ArrayList<CardFile> cardfiles;
 	private String initLanguage;
 	private int score;
 	
@@ -21,7 +21,7 @@ public class MainHandler
 	 * @param initLanguage
 	 * @param score
 	 */
-	public MainHandler(ArrayList<ViewCardFile> cardfiles, String initLanguage,
+	public MainHandler(ArrayList<CardFile> cardfiles, String initLanguage,
 			int score)
 	{
 		super();
@@ -30,13 +30,13 @@ public class MainHandler
 		this.score = score;
 	}
 	
-	public ViewCardFile getCardFile(String _CardFileID)
+	public CardFile getCardFile(String _CardFileID)
 	{
 		
 		return null;
 	}
 	
-	public ArrayList<ViewCardFile> getAllCardFiles()
+	public ArrayList<CardFile> getAllCardFiles()
 	{
 		return this.cardfiles;
 	}
@@ -49,13 +49,13 @@ public class MainHandler
 		return true;
 	}
 	
-	public void addCardFile(ViewCardFile file)
+	public void addCardFile(CardFile file)
 	{
 		// 	adds a CardFile to Collection
  
 	}
 	
-	public void removeCardFile(ViewCardFile ID)
+	public void removeCardFile(CardFile ID)
 	{
 	   //	removesd
 	}
