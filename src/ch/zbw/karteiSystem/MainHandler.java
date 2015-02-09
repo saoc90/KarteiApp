@@ -16,6 +16,7 @@ public class MainHandler
 	private String initLanguage;
 	private int score;
 	
+	
 	/**
 	 * @param cardfiles
 	 * @param initLanguage
