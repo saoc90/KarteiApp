@@ -61,12 +61,7 @@ public class Table extends JPanel {
         Object[][] data = {
         {"Hallo", "hello"},
         {"Haus", "house"},
-        {"Tür", "door"},
-        {"Jane", "White",
-         "Speed reading", new Integer(20), new Boolean(true)},
-        {"Joe", "Brown",
-         "Pool", new Integer(10), new Boolean(false)}
-        };
+        {"Tür", "door"}};
  
         final JTable table = new JTable(data, columnNames);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
@@ -110,7 +105,7 @@ public class Table extends JPanel {
      */
     private static void createAndShowGUI() {
         //Create and set up the window.
-        JFrame frame = new JFrame("SimpleTableDemo");
+        JFrame frame = new JFrame("Wortlisten");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //Create and set up the content pane.
