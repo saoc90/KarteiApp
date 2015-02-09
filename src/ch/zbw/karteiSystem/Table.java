@@ -56,19 +56,12 @@ public class Table extends JPanel {
     public Table() {
         super(new GridLayout(1,0));
  
-        String[] columnNames = {"First Name",
-                                "Last Name",
-                                "Sport",
-                                "# of Years",
-                                "Vegetarian"};
+        String[] columnNames = {"Deutsch", "Englisch"};
  
         Object[][] data = {
-        {"Kathy", "Smith",
-         "Snowboarding", new Integer(5), new Boolean(false)},
-        {"John", "Doe",
-         "Rowing", new Integer(3), new Boolean(true)},
-        {"Sue", "Black",
-         "Knitting", new Integer(2), new Boolean(false)},
+        {"Hallo", "hello"},
+        {"Haus", "house"},
+        {"Tür", "door"},
         {"Jane", "White",
          "Speed reading", new Integer(20), new Boolean(true)},
         {"Joe", "Brown",
