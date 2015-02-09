@@ -97,6 +97,7 @@ public class CardFile
 		return this.wordList;
 	}
 	
+	
 	public int getNrOfCardsOfBox(int BoxNr)
 	{
 		int cardZaehler = 0;
