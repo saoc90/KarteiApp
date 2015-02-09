@@ -70,6 +70,7 @@ public class CardFile
 	
 	public int getNumberOfCards()
 	{
+		
 		// return number of all cards
 		return 500;
 	}
@@ -100,9 +101,10 @@ public class CardFile
 	public int getNrOfCardsOfBox(int BoxNr)
 	{
 		int cardZaehler = 0;
-//		if(this.wordList(boxNr == 4)
+		for(int i = 0; i < wordList.size(); i++)
 		{
-			
+			if(wordList.get(i).getBoxNr() == BoxNr)
+				cardZaehler++;
 		}
 		return cardZaehler;
 	}

@@ -28,12 +28,16 @@ public class Card
 	public Card(String word1, String word2)
 	{
 		super(); //für import
+		this.boxNr = 1;
+		this.word1 = word1;
+		this.word2 = word2;
+		this.wrongAnswer = 0;
+		this.wrongAnswer = 0;
 	}
 
 	
 	public String getWord1()
 	{
-		
 		return "";
 	}
 	public String getWord2()
@@ -43,8 +47,7 @@ public class Card
 
 	public int getBoxNr()
 	{
-		// 	returnsBoxNr:int
-		return 0;
+		return this.boxNr;
 	}
 	
 	public void setBoxNr (int _BoxNr)
@@ -67,33 +70,37 @@ public class Card
 		// counts +1 to the right Answer
 
 	}
-	
+
 	public int getWrongAnswers()
 	{
 		return this.wrongAnswer;
 	}
+
 	public int getRightAnswers()
 	{
 		return this.rightAnswer;
 	}
-	
+
 	public void reset()
 	{
 		// 	set all counters back to zero.
 	}
-	
+
 	public void setWord1(String word)
 	{
 		this.word1 = word;
 	}
+
 	public void setWord2(String word)
 	{
 		this.word2 = word;
 	}
+
 	public void setRightAnswer(int number)
 	{
 		//
 	}
+
 	public void setWrongAnswer(int number)
 	{
 
