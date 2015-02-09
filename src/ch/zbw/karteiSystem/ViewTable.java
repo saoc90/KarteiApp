@@ -28,7 +28,7 @@ public class ViewTable extends JPanel {
         String[] columnNames = {"Deutsch", "Englisch"};
  
         Object[][] data = {
-        {"Hallo", "helloo"},
+        {"Hallo", "hello"},
         {"Haus", "house"},
         {"Tür", "door"}};
  
@@ -47,7 +47,7 @@ public class ViewTable extends JPanel {
         //Scrollleiste erzeugen
         JScrollPane scrollPane = new JScrollPane(table);
  
-        //Add the scroll pane to this panel.
+        //Scrollleiste hinzufügen
         add(scrollPane);
     }
  
@@ -67,33 +67,29 @@ public class ViewTable extends JPanel {
         System.out.println("--------------------------");
     }
  
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
+    //GUI zeichnen
     private static void createAndShowGUI() {
         //Fenster erstellen
         JFrame frame = new JFrame("Wortlisten");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
-        //Create and set up the content pane.
+        //Inhalt erstellen
         ViewTable newContentPane = new ViewTable();
-        newContentPane.setOpaque(true); //content panes must be opaque
+        newContentPane.setOpaque(true); 
         frame.setContentPane(newContentPane);
  
-        //Display the window.
+        //Fenster anzeigen
         frame.pack();
         frame.setVisible(true);
     }
  
-    public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
-    }
+//    public static void main(String[] args) {
+//        //Schedule a job for the event-dispatching thread:
+//        //creating and showing this application's GUI.
+//        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+//            public void run() {
+//                createAndShowGUI();
+//            }
+//        });
+//    }
 }
