@@ -37,6 +37,7 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 	private JButton button1;
 	private ViewCardFile cardFile;
 	private GridBagConstraints gc;
+	private ViewPanelTitleBar titleBar;
 	
 	
 	public ViewCardFilePanel(ViewMainFrame mainFrame){
@@ -45,6 +46,7 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 		this.setBackground(Color.decode("#52787b"));
 		this.setLayout(new GridBagLayout());
 		gc = new GridBagConstraints();
+		titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR1,"ViewCardFile_title", mainFrame	);
 		this.mainFrame = mainFrame;
 		this.setVisible(false);
 		button1 = new JButton();
