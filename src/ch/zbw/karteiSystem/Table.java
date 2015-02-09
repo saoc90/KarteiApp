@@ -59,7 +59,7 @@ public class Table extends JPanel {
         String[] columnNames = {"Deutsch", "Englisch"};
  
         Object[][] data = {
-        {"Hallo", "hello"},
+        {"Hallo", "helloo"},
         {"Haus", "house"},
         {"Tür", "door"}};
  
