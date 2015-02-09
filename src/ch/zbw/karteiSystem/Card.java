@@ -39,11 +39,11 @@ public class Card
 	
 	public String getWord1()
 	{
-		return "";
+		return this.word1;
 	}
 	public String getWord2()
 	{
-		return "";
+		return this.word2;
 	}
 
 	public int getBoxNr()
@@ -99,11 +99,12 @@ public class Card
 
 	public void setRightAnswer(int number)
 	{
+		this.rightAnswer = number;
 		//
 	}
 
 	public void setWrongAnswer(int number)
 	{
-
+		this.wrongAnswer = number;
 	}
 }
