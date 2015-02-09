@@ -1,4 +1,4 @@
-package ch.zbw.it1316.personenverwaltung;
+package ch.zbw.karteiSystem;
 
 public class Word
 {
