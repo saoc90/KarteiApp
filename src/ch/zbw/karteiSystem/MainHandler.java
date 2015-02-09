@@ -46,7 +46,7 @@ public class MainHandler
 		// 	speichert alle Daten ins XML
 		// 	Holt aus mainfraim languageCode
 		// return true falls erfolgreich
-		return false;
+		return true;
 	}
 	
 	public void addCardFile(CardFile file)
@@ -62,10 +62,10 @@ public class MainHandler
 	
 	public int getPercentOfRights()
 	{
-		return 0;
+		return 80;
 	}
 	
-	public ArrayList<Word> getMostWrongWords()
+	public ArrayList<Card> getMostWrongWords()
 	{
 		// 	returns the most wrong answered words:ArrayList<Word>
 		return null;
@@ -73,13 +73,13 @@ public class MainHandler
 	
 	public int getScore()
 	{
-		return 0;
+		return 55;
 	}
 	
 	public String getInitLanguage()
 	{
 		// 	returns the last used languageCode:
-		return "";
+		return this.initLanguage;
 	}
 	
 	public void setInitLanguage(String languageCode)
