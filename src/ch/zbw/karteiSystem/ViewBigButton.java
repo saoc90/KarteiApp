@@ -30,7 +30,7 @@ import javax.swing.border.EmptyBorder;
  * @author samuelochsner
  *
  */
-public class BigButton extends JPanel implements MouseListener{
+public class ViewBigButton extends JPanel implements MouseListener{
 	
 	
 
@@ -50,7 +50,7 @@ public class BigButton extends JPanel implements MouseListener{
 	
 	
 	
-	public BigButton (String name, String title ,ImageIcon imageIcon,int x, int y,Color color){
+	public ViewBigButton (String name, String title ,ImageIcon imageIcon,int x, int y,Color color){
 	super();
 	this.title = title;
 	listeners = new Vector<ActionListener>();

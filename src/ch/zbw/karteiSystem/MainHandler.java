@@ -2,8 +2,8 @@ package ch.zbw.karteiSystem;
 
 import java.util.ArrayList;
 
-import ch.zbw.karteiSystem.CardFile;
-import ch.zbw.karteiSystem.MainFrame;
+import ch.zbw.karteiSystem.ViewCardFile;
+import ch.zbw.karteiSystem.ViewMainFrame;
 
 /**
  * @author riedener
@@ -12,7 +12,7 @@ import ch.zbw.karteiSystem.MainFrame;
 public class MainHandler
 {
 	
-	private ArrayList<CardFile> cardfiles;
+	private ArrayList<ViewCardFile> cardfiles;
 	private String initLanguage;
 	private int score;
 	
@@ -21,7 +21,7 @@ public class MainHandler
 	 * @param initLanguage
 	 * @param score
 	 */
-	public MainHandler(ArrayList<CardFile> cardfiles, String initLanguage,
+	public MainHandler(ArrayList<ViewCardFile> cardfiles, String initLanguage,
 			int score)
 	{
 		super();
@@ -30,18 +30,18 @@ public class MainHandler
 		this.score = score;
 	}
 	
-	public CardFile getCardFile(String _CardFileID)
+	public ViewCardFile getCardFile(String _CardFileID)
 	{
 		
 		return null;
 	}
 	
-	public ArrayList<CardFile> getAllCardFiles()
+	public ArrayList<ViewCardFile> getAllCardFiles()
 	{
 		return this.cardfiles;
 	}
 	
-	public boolean saveCardFiles(MainFrame main)
+	public boolean saveCardFiles(ViewMainFrame main)
 	{
 		// 	speichert alle Daten ins XML
 		// 	Holt aus mainfraim languageCode
@@ -49,13 +49,13 @@ public class MainHandler
 		return true;
 	}
 	
-	public void addCardFile(CardFile file)
+	public void addCardFile(ViewCardFile file)
 	{
 		// 	adds a CardFile to Collection
  
 	}
 	
-	public void removeCardFile(CardFile ID)
+	public void removeCardFile(ViewCardFile ID)
 	{
 	   //	removesd
 	}

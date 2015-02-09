@@ -26,7 +26,7 @@ import javax.swing.border.Border;
  * @author samuelochsner
  *
  */
-public class CardFile extends JPanel implements ActionListener {
+public class ViewCardFile extends JPanel implements ActionListener {
 	
 	
 	
@@ -57,15 +57,15 @@ public class CardFile extends JPanel implements ActionListener {
 	/**
 	 * 
 	 */
-	public CardFile() {
+	public ViewCardFile() {
 	
 		dimension = new Dimension(340,120);
 		setPreferredSize(dimension);
-		setBackground(MainFrame.COLOR2);
+		setBackground(ViewMainFrame.COLOR2);
 		setLayout(new GridBagLayout());
 		gc = new GridBagConstraints();
 		titleFont = new Font("LucidaBright",Font.BOLD,20);
-		borderTitle = BorderFactory.createLineBorder(MainFrame.COLOR5);
+		borderTitle = BorderFactory.createLineBorder(ViewMainFrame.COLOR5);
 		changeLanguagesIcon = new ImageIcon("png/changeLanguageIcon.png");
 		insetTop = new Insets(5,20,5,20);
 		insetLeft = new Insets(5,20,5,5);
@@ -227,7 +227,7 @@ public class CardFile extends JPanel implements ActionListener {
 	/**
 	 * @param layout
 	 */
-	public CardFile(LayoutManager layout) {
+	public ViewCardFile(LayoutManager layout) {
 		super(layout);
 		// TODO Auto-generated constructor stub
 	}
@@ -235,7 +235,7 @@ public class CardFile extends JPanel implements ActionListener {
 	/**
 	 * @param isDoubleBuffered
 	 */
-	public CardFile(boolean isDoubleBuffered) {
+	public ViewCardFile(boolean isDoubleBuffered) {
 		super(isDoubleBuffered);
 		// TODO Auto-generated constructor stub
 	}
@@ -244,7 +244,7 @@ public class CardFile extends JPanel implements ActionListener {
 	 * @param layout
 	 * @param isDoubleBuffered
 	 */
-	public CardFile(LayoutManager layout, boolean isDoubleBuffered) {
+	public ViewCardFile(LayoutManager layout, boolean isDoubleBuffered) {
 		super(layout, isDoubleBuffered);
 		// TODO Auto-generated constructor stub
 	}

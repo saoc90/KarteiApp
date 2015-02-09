@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  * @author samuelochsner
  *
  */
-public class MainFrame extends JFrame {
+public class ViewMainFrame extends JFrame {
 
 	/**
 	 * 
@@ -27,14 +27,14 @@ public class MainFrame extends JFrame {
 	public final static Color COLOR4 = Color.decode("#552437");
 	public final static Color COLOR5 = Color.decode("#52787b");
 	public static String languageCode = "de";
-	private StartPanel startPanel;
-	private CardFilePanel cardFilePanel;
+	private ViewStartPanel startPanel;
+	private ViewCardFilePanel cardFilePanel;
 	private Container container;
 	private JPanel statsPanel;
 	private CardLayout cardLayout;
 	private Strings strings;
 	
-	public MainFrame(){
+	public ViewMainFrame(){
 		
 		super("Kartei System");
 		setLayout(null);
@@ -52,8 +52,8 @@ public class MainFrame extends JFrame {
 		//container.setBackground(MainFrame.COLOR5);
 	
 		
-		startPanel = new StartPanel(this);
-		cardFilePanel = new CardFilePanel(this);
+		startPanel = new ViewStartPanel(this);
+		cardFilePanel = new ViewCardFilePanel(this);
 		statsPanel = new JPanel();
 		statsPanel.setBackground(COLOR1);
 		statsPanel.setVisible(false);
@@ -155,7 +155,7 @@ private JPanel getPanel(String panelName)throws Exception{
 			
 		case "toStatsPanel" :
 			cardLayout.show(container, startPanel.getName());
-			MainFrame.languageCode = "en";
+			ViewMainFrame.languageCode = "en";
 			strings.changeLanguage(Strings.ENGLISH);
 			break;
 			

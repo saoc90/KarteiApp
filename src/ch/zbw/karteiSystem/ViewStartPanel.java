@@ -26,13 +26,13 @@ import javax.swing.JPanel;
  * @author samuelochsner
  *
  */
-public class StartPanel extends JPanel implements ActionListener {
+public class ViewStartPanel extends JPanel implements ActionListener {
 
-	private static MainFrame mainFrame;
+	private static ViewMainFrame mainFrame;
 	private Strings strings;
-	private BigButton lernen, stats, settings, exit;
+	private ViewBigButton lernen, stats, settings, exit;
 	
-	public StartPanel(MainFrame mainFrame){
+	public ViewStartPanel(ViewMainFrame mainFrame){
 		
 		this.setBackground(Color.decode("#52787b"));
 		this.setLayout( new GridBagLayout());
@@ -62,7 +62,7 @@ public class StartPanel extends JPanel implements ActionListener {
 		gc.insets = new Insets(1,1,1,1);
 		
 		/// Lernen Button ///////
-		lernen = new BigButton("toCardFilePanel", strings.getString("toCardFilePanel"),new ImageIcon("png/learn.png"),370,70,Color.decode("#ead177"));
+		lernen = new ViewBigButton("toCardFilePanel", strings.getString("toCardFilePanel"),new ImageIcon("png/learn.png"),370,70,Color.decode("#ead177"));
 		lernen.addActionListener(this);
 		strings.add(lernen);
 		this.add(lernen, gc);
@@ -75,7 +75,7 @@ public class StartPanel extends JPanel implements ActionListener {
 		gc.gridy = 1;
 		
 		/// Lernen Button ///////
-				stats = new BigButton("toStatsPanel" , strings.getString("toStatsPanel"),new ImageIcon("png/stats.png"),370,70,Color.decode("#d95b45"));
+				stats = new ViewBigButton("toStatsPanel" , strings.getString("toStatsPanel"),new ImageIcon("png/stats.png"),370,70,Color.decode("#d95b45"));
 				stats.addActionListener(this);
 				strings.add(stats);
 				this.add(stats, gc);
@@ -86,7 +86,7 @@ public class StartPanel extends JPanel implements ActionListener {
 			
 			gc.gridy = 2;
 				
-						settings = new BigButton("toSettingsPanel", strings.getString("toSettingsPanel"),new ImageIcon("png/settings.png"),370,70,Color.decode("#c12940"));
+						settings = new ViewBigButton("toSettingsPanel", strings.getString("toSettingsPanel"),new ImageIcon("png/settings.png"),370,70,Color.decode("#c12940"));
 						settings.addActionListener(this);
 						strings.add(settings);
 						this.add(settings, gc);
@@ -96,7 +96,7 @@ public class StartPanel extends JPanel implements ActionListener {
 						
 						gc.gridy = 3;
 						
-						exit = new BigButton("closeApp", strings.getString("closeApp"),new ImageIcon("png/exit.png"),370,70,Color.decode("#552437"));
+						exit = new ViewBigButton("closeApp", strings.getString("closeApp"),new ImageIcon("png/exit.png"),370,70,Color.decode("#552437"));
 						exit.addActionListener(this);
 						strings.add(exit);
 						this.add(exit, gc);
@@ -111,7 +111,7 @@ public class StartPanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		try {
-			mainFrame.changeFrameTo(((BigButton) e.getSource()).getName());
+			mainFrame.changeFrameTo(((ViewBigButton) e.getSource()).getName());
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			new JOptionPane(e1.getMessage());

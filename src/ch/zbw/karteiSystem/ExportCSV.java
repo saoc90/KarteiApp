@@ -18,7 +18,7 @@ public class ExportCSV {
 	 * @return true if it works.
 	 * @throws IOException if an Error happens during writing the File.
 	 */
-	public boolean exportList(ArrayList<ArrayList<String>> list, MainFrame main) throws IOException {
+	public boolean exportList(ArrayList<ArrayList<String>> list, ViewMainFrame main) throws IOException {
 		ArrayList<String> textList = genarateText(list);
 		String path = chooser(main);
 		writeFile(path, textList);
@@ -40,7 +40,7 @@ public class ExportCSV {
 		return textList;
 	}
 	
-	private String chooser(MainFrame main){
+	private String chooser(ViewMainFrame main){
 		JFileChooser chooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("csv", 
 	            "csv");

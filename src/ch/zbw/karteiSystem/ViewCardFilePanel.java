@@ -24,19 +24,19 @@ import javax.swing.ScrollPaneConstants;
  * @author samuelochsner
  *
  */
-public class CardFilePanel extends JPanel implements EventListener, ActionListener {
+public class ViewCardFilePanel extends JPanel implements EventListener, ActionListener {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static MainFrame mainFrame;
+	private static ViewMainFrame mainFrame;
 	private Strings strings;
 	private JButton button1;
-	private CardFile cardFile;
+	private ViewCardFile cardFile;
 	
 	
-	public CardFilePanel(MainFrame mainFrame){
+	public ViewCardFilePanel(ViewMainFrame mainFrame){
 		
 		strings = mainFrame.getStrings();
 		this.setBackground(Color.decode("#52787b"));
@@ -57,7 +57,7 @@ public class CardFilePanel extends JPanel implements EventListener, ActionListen
 		button1.addActionListener( this);
 		button1.setName("language_test");
 		strings.add(button1);
-		cardFile = new CardFile ();
+		cardFile = new ViewCardFile ();
 		cardFile.setVisible(true);
 		//add(cardFile);
 		
@@ -73,9 +73,9 @@ public class CardFilePanel extends JPanel implements EventListener, ActionListen
 		
 		
 	    JPanel p = new JPanel(new GridLayout(0,1,0,20));
-	    p.setBackground(MainFrame.COLOR5);
+	    p.setBackground(ViewMainFrame.COLOR5);
 	    JScrollPane jsp = new JScrollPane(p);
-	    jsp.setBackground(MainFrame.COLOR5);
+	    jsp.setBackground(ViewMainFrame.COLOR5);
 	   
 
 	    jsp.setPreferredSize(new Dimension(360,600));
@@ -83,7 +83,7 @@ public class CardFilePanel extends JPanel implements EventListener, ActionListen
 	    jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
 	    for (int i = 0; i < 100; i++) {
-	        CardFile card = new CardFile();
+	        ViewCardFile card = new ViewCardFile();
 	        p.add(card);
 	    }
 

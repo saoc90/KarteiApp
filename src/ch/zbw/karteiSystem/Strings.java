@@ -28,7 +28,7 @@ public class Strings extends CsvReader {
 	private String choosenLanguageCode;
 	
 	private ArrayList<JTextField> JTextfieldList;
-	private ArrayList<BigButton> bigButtonList;
+	private ArrayList<ViewBigButton> bigButtonList;
 	private ArrayList<JLabel> JLabelList;
 	private ArrayList<JButton> JButtonList;
 	
@@ -88,8 +88,8 @@ public class Strings extends CsvReader {
 	public boolean add(Object obj){
 		if(obj instanceof JTextField){
 			return JTextfieldList.add((JTextField)(obj));
-		} else if(obj instanceof BigButton){
-			return bigButtonList.add((BigButton)(obj));
+		} else if(obj instanceof ViewBigButton){
+			return bigButtonList.add((ViewBigButton)(obj));
 		} else if(obj instanceof JLabel){
 			return JLabelList.add((JLabel)(obj));
 		} else if(obj instanceof JButton){
@@ -108,7 +108,7 @@ public class Strings extends CsvReader {
 		 String text = getString(tmp.getName());
 		 tmp.setText(text);
 	 }
-	 for(BigButton tmp:bigButtonList){
+	 for(ViewBigButton tmp:bigButtonList){
 		 String text = getString(tmp.getName());
 		 System.out.println(tmp.getName()+languageCode);
 		 tmp.setText(text);
