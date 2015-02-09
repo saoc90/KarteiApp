@@ -1,5 +1,6 @@
 package ch.zbw.karteiSystem;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
@@ -38,11 +39,17 @@ public class ExportCSV {
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("csv", 
 	            "csv");
 		chooser.setFileFilter(filter);
-		
+		File f = new File(main.getStrings().getString("unknownFilename"));
+		chooser.setSelectedFile(f);
 		
 		int value = chooser.showSaveDialog(main);
 		if(value==JFileChooser.APPROVE_OPTION){
-			return chooser.getSelectedFile().getPath();
+			String path = chooser.getSelectedFile().getPath();
+			if(path.endsWith(".csv")){
+				return path;
+			} else {
+				return path +".csv";
+			}
 		}
 		return null;
 		
