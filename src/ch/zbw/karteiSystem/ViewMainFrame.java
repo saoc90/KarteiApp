@@ -6,6 +6,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Font;
 import java.io.FileNotFoundException;
 
 import javax.swing.JFrame;
@@ -26,6 +27,7 @@ public class ViewMainFrame extends JFrame {
 	public final static Color COLOR3 = Color.decode("#c12940");
 	public final static Color COLOR4 = Color.decode("#552437");
 	public final static Color COLOR5 = Color.decode("#52787b");
+	public final static Font FONT1 = new Font("LucidaBright",Font.BOLD,20);
 	public static String languageCode = "de";
 	private ViewStartPanel startPanel;
 	private ViewCardFilePanel cardFilePanel;

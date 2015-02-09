@@ -7,8 +7,10 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.EventListener;
@@ -34,13 +36,15 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 	private Strings strings;
 	private JButton button1;
 	private ViewCardFile cardFile;
+	private GridBagConstraints gc;
 	
 	
 	public ViewCardFilePanel(ViewMainFrame mainFrame){
 		
 		strings = mainFrame.getStrings();
 		this.setBackground(Color.decode("#52787b"));
-		this.setLayout(new FlowLayout());
+		this.setLayout(new GridBagLayout());
+		gc = new GridBagConstraints();
 		this.mainFrame = mainFrame;
 		this.setVisible(false);
 		button1 = new JButton();
@@ -52,6 +56,9 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 	
 	
 	public void paint(){
+		// Title Panel Hinzufügen
+		gc.anchor = GridBagConstraints.PAGE_START;
+		gc.insets = new Insets(20,0,0,0);
 		
 		
 		button1.addActionListener( this);
