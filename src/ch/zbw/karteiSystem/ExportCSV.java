@@ -1,6 +1,10 @@
 package ch.zbw.karteiSystem;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
@@ -12,10 +16,12 @@ public class ExportCSV {
 	 * this methode opens a Filechooser where you can select and export a word list.
 	 * @param list A two dimensional ArrayList filled with Strings
 	 * @return true if it works.
+	 * @throws IOException if an Error happens during writing the File.
 	 */
-	public boolean exportList(ArrayList<ArrayList<String>> list, MainFrame main) {
+	public boolean exportList(ArrayList<ArrayList<String>> list, MainFrame main) throws IOException {
 		ArrayList<String> textList = genarateText(list);
-		System.out.println(chooser(main));
+		String path = chooser(main);
+		writeFile(path, textList);
 		return true;
 	}
 
@@ -28,7 +34,7 @@ public class ExportCSV {
 		ArrayList<String> textList = new ArrayList<>();
 		for (ArrayList<String> tmp : list) {
 			String text = tmp.get(0)+";";//semicolon is the delemiter
-			text = tmp.get(1);
+			text = text+tmp.get(1);
 			textList.add(text);
 		}
 		return textList;
@@ -53,5 +59,14 @@ public class ExportCSV {
 		}
 		return null;
 		
+	}
+	
+	private void writeFile(String path, ArrayList<String> list) throws IOException {
+		PrintWriter pWriter = null; 
+            pWriter = new PrintWriter(new BufferedWriter(new FileWriter(path))); 
+            for (int i = 0; i < list.size(); i++) {
+            	pWriter.println(list.get(i));
+            } 
+     pWriter.close();       
 	}
 }
