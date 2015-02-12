@@ -59,13 +59,13 @@ public class ViewCardFile extends JPanel implements ActionListener {
 	 */
 	public ViewCardFile() {
 	
-		dimension = new Dimension(340,120);
+		dimension = new Dimension(340,140);
 		setPreferredSize(dimension);
 		setBackground(ViewMainFrame.COLOR2);
 		setLayout(new GridBagLayout());
 		gc = new GridBagConstraints();
 		titleFont = new Font("LucidaBright",Font.BOLD,20);
-		borderTitle = BorderFactory.createLineBorder(ViewMainFrame.COLOR5);
+		//borderTitle = BorderFactory.createLineBorder(ViewMainFrame.COLOR1);
 		changeLanguagesIcon = new ImageIcon("png/changeLanguageIcon.png");
 		insetTop = new Insets(5,20,5,20);
 		insetLeft = new Insets(5,20,5,5);
@@ -73,6 +73,36 @@ public class ViewCardFile extends JPanel implements ActionListener {
 		insetButtomLeft = new Insets(5,20,15,5);
 		insetButtomRight = new Insets(5,5,15,20);
 		paint();
+		addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				setBorder(null);				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 	}
 	
@@ -80,13 +110,15 @@ public class ViewCardFile extends JPanel implements ActionListener {
 	public void paint(){
 		//Add Titel JLabel//
 		gc.gridwidth = 5;
+		gc.weightx = 1;
+		gc.weighty = 1;
 		gc.insets = insetTop;
 		gc.anchor = GridBagConstraints.PAGE_START;
 		gc.weighty = 1;
 		gc.weightx = 1;
 		gc.gridheight = 2;
 		gc.ipadx = 5;
-		gc.ipady = 5;
+		gc.ipady = 30;
 		gc.gridy = 0;
 		gc.gridx = 1;
 		title = new JLabel("Lernkartei 1 Name");
@@ -100,6 +132,7 @@ public class ViewCardFile extends JPanel implements ActionListener {
 		gc.gridwidth = 6;
 		gc.gridheight = 1;
 		gc.gridy = 2;
+		gc.ipady = 24;
 		gc.gridx = 0;
 		languages = new JLabel("Language 1 - Language 2");
 		languages.setPreferredSize(new Dimension(250,16));
@@ -112,6 +145,7 @@ public class ViewCardFile extends JPanel implements ActionListener {
 		gc.insets = insetRight;
 		gc.gridwidth = 1;
 		gc.gridheight = 1;
+		gc.ipady = 24;
 		gc.gridy = 2;
 		gc.gridx = 5;
 		changeLanguages = new JLabel(changeLanguagesIcon);
@@ -131,13 +165,12 @@ public class ViewCardFile extends JPanel implements ActionListener {
 			
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
+				changeLanguages.setBorder(null);
 			}
 			
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
+				changeLanguages.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
 				
 			}
 			
@@ -155,6 +188,7 @@ public class ViewCardFile extends JPanel implements ActionListener {
 		gc.insets = insetLeft;
 		gc.gridy = 3;
 		gc.gridx = 0;
+		gc.ipady = 20;
 		gc.gridwidth = 6;
 		gc.gridheight = 1;
 		cards = new JLabel("60 Karten");
@@ -176,6 +210,7 @@ public class ViewCardFile extends JPanel implements ActionListener {
 		
 		gc.gridy = 4;
 		gc.gridx = 5;
+		gc.ipady = 24;
 		gc.anchor = GridBagConstraints.LINE_END;
 		gc.insets = insetButtomRight;
 		gc.gridwidth = 1;
@@ -198,14 +233,13 @@ public class ViewCardFile extends JPanel implements ActionListener {
 			
 			@Override
 			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
+				settingsLabel.setBorder(null);
 				
 			}
 			
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
+				settingsLabel.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
 			}
 			
 			@Override
@@ -217,6 +251,13 @@ public class ViewCardFile extends JPanel implements ActionListener {
 		
 	}
 	
+	
+	public void changeLangugaes(boolean isCrossed){
+		
+		languages.setText(language1+language2);
+		
+		
+	}
 	
 	
 	
