@@ -8,6 +8,7 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Font;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -37,6 +38,8 @@ public class ViewMainFrame extends JFrame {
 	private JPanel statsPanel;
 	private CardLayout cardLayout;
 	private Strings strings;
+	private MainHandler mainHandler;
+	private HelpCardFile helpCardFile;
 	
 	public ViewMainFrame(){
 		
@@ -48,19 +51,19 @@ public class ViewMainFrame extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		helpCardFile = new HelpCardFile();
+		mainHandler = new MainHandler(helpCardFile.getCardFile(),"en",0);
 		container = this.getContentPane();
 		cardLayout = new CardLayout();
 		container.setLayout(cardLayout);
 
-		//container.setPreferredSize(new Dimension(this.getSize()));
-		//container.setBackground(MainFrame.COLOR5);
 	
-		
+		HelpCardFile helpCardFile = new HelpCardFile();
 		startPanel = new ViewStartPanel(this);
 		cardFilePanel = new ViewCardFilePanel(this);
 		editCardFilePanel = new ViewEditCardFilePanel(this);
 		statsPanel = new JPanel();
-		statsPanel.setBackground(COLOR1);
+		statsPanel.setBackground(COLOR1); 
 		statsPanel.setVisible(false);
 		addPanel(startPanel,"startPanel");
 		addPanel(cardFilePanel, "cardFilePanel");
@@ -73,8 +76,6 @@ public class ViewMainFrame extends JFrame {
 	
 		
 		validate();
-		//addPanel(new JPanel().setVisible(false), "statsPanel",BorderLayout.CENTER);
-	
 		
 	}
 	
@@ -104,36 +105,12 @@ public class ViewMainFrame extends JFrame {
 		return strings;
 	}
 	
-	
-	private void hidePanels(){
+	public MainHandler getMainHandler(){
 		
-	for (Component component : container.getComponents()){
-		
-		component.setVisible(false);
-		
-		
+			return mainHandler;
 	}
 		
-	}
 	
-/*	
-private JPanel getPanel(String panelName)throws Exception{
-	
-	int pnCnt = container.getRootPane().getComponentCount();
-	
-	for (int i = 0; i< pnCnt;i++){
-		
-		JPanel panel = (JPanel) container.getRootPane().getComponent(i);
-		
-		if(panel.getName().equals(panelName))
-			return panel;
-	}
-		throw (new Exception("Panel in MainFrame not found"));
-		
-	
-}
-*/
-
 
 	/**
 	 *
@@ -156,13 +133,14 @@ private JPanel getPanel(String panelName)throws Exception{
 			break;
 		
 		case "toCardFilePanel" : 
-			//hidePanels();
+			
+			cardFilePanel.refreshAllViewCardFiles();
 			cardLayout.show(container, cardFilePanel.getName());
 			break;
 			
 		case "toEditCardFilePanel" : 
-			//hidePanels();
 			cardLayout.show(container, editCardFilePanel.getName());
+			
 			break;
 			
 		case "toStatsPanel" :

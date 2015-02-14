@@ -15,7 +15,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import java.util.EventListener;
+import java.util.Iterator;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -37,7 +39,7 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static ViewMainFrame mainFrame;
+
 	private Strings strings;
 	private JButton button1;
 	private ViewCardFile cardFile;
@@ -45,17 +47,23 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 	private ViewPanelTitleBar titleBar;
 	private JLabel backButton;
 	private Icon backButtonIcon;
+	private ArrayList<CardFile> cardFiles;
+	private ArrayList<ViewCardFile> viewCardFiles;
+	private static ViewMainFrame viewMainFrame;
+	private MainHandler mainHandler;
 	
 	
-	public ViewCardFilePanel(ViewMainFrame mainFrame){
+	public ViewCardFilePanel(ViewMainFrame viewMainFrame){
 		
-		strings = mainFrame.getStrings();
+		this.viewMainFrame = viewMainFrame;
+		strings = viewMainFrame.getStrings();
+		mainHandler = viewMainFrame.getMainHandler();
+		this.cardFiles = mainHandler.getAllCardFiles();
+		viewCardFiles = new ArrayList<ViewCardFile>();
 		this.setBackground(Color.decode("#52787b"));
 		this.setLayout(new GridBagLayout());
 		gc = new GridBagConstraints();
-		titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR1,"viewCardFile_title", mainFrame	);
-		this.mainFrame = mainFrame;
-		this.setVisible(false);
+		titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR1,"viewCardFile_title", viewMainFrame	);
 		button1 = new JButton();
 		button1.setText(strings.getString("language_test"));
 		backButtonIcon = new ImageIcon("png/back.png");
@@ -71,7 +79,7 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 			@Override
 			public void mousePressed(MouseEvent e) {
 				try {
-					ViewCardFilePanel.mainFrame.changeFrameTo("toStartPanel");
+					ViewCardFilePanel.viewMainFrame.changeFrameTo("toStartPanel");
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -97,7 +105,6 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 			}
 		});
 		paint();
-		fillScrollPane();
 		
 	}
 	
@@ -118,8 +125,8 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 		button1.addActionListener( this);
 		button1.setName("language_test");
 		strings.add(button1);
-		cardFile = new ViewCardFile ();
-		cardFile.setVisible(true);
+		//cardFile = new ViewCardFile ();
+		//cardFile.setVisible(true);
 		//add(cardFile);
 		
 		//add(backButton);
@@ -149,7 +156,7 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 	}
 	
 	
-	public void fillScrollPane(){
+	private void fillScrollPane(){
 		
 		
 		
@@ -164,11 +171,13 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 	    //jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 	    jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-	    for (int i = 0; i < 3; i++) {
-	        ViewCardFile card = new ViewCardFile();
-	        p.add(card);
-	    }
-
+	    for (Iterator<CardFile> iterator = cardFiles.iterator(); iterator
+				.hasNext();) {
+			CardFile tmpCardFile = iterator.next();
+			p.add(createViewCardFiles(tmpCardFile));
+			
+		}
+	    p.add(createLastViewCardFile());
 	    add(jsp,gc);
 	    setVisible(true);
 	    
@@ -179,11 +188,51 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 	}
 	
 	
+	/*creates a ViewCardFile with the data out of the given cardfiel
+	 * 
+	 * @param tmpCardFile Must be an object of Cardfile
+	 * 
+	 */
+	
+	public ViewCardFile createViewCardFiles(CardFile tmpCardFile){
+		
+		ViewCardFile panel = new ViewCardFile(tmpCardFile,strings);
+		viewCardFiles.add(panel);
+		return panel;
+		
+		
+	}
+	
+	public ViewCardFile createLastViewCardFile(){
+		
+		ViewCardFile panel = new ViewCardFile(true,strings);
+		return panel;
+		
+	}
+	
+	/*
+	 * This methode iterrates through all ViewCardFiles and refreshes all paramtet on UI
+	 * 
+	 * 
+	 */
+	
+	public void refreshAllViewCardFiles(){
+		
+		Iterator<ViewCardFile> it = viewCardFiles.iterator();
+		while(it.hasNext()){
+		ViewCardFile tmp =	it.next();
+		tmp.refresh();
+			
+		}
+		
+		
+	}
+	
 
 	public void actionPerformed(ActionEvent e) {
 
 		try {
-			mainFrame.changeFrameTo("toStartPanel");
+			viewMainFrame.changeFrameTo("toStartPanel");
 			validate();
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
