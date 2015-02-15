@@ -26,19 +26,19 @@ public class ViewEditCardFilePanel extends JPanel implements EventListener, Acti
 
 	
 	private static final long serialVersionUID = 1L;
-	private static ViewMainFrame mainFrame;
+	private static ViewMainFrame mainframe;
 	private Strings strings;
 	private JButton button1;
 	private JButton button2;
 	private ViewTable table;
 	
-	
-	public ViewEditCardFilePanel(ViewMainFrame mainFrame){
+	//Konstruktor
+	public ViewEditCardFilePanel(ViewMainFrame mainframe){
 		
-		strings = mainFrame.getStrings();
+		strings = mainframe.getStrings();
 		this.setBackground(Color.decode("#52787b"));
 		this.setLayout(new FlowLayout());
-		this.mainFrame = mainFrame;
+		this.mainframe = mainframe;
 		this.setVisible(false);
 		button1 = new JButton();
 		button2 = new JButton();
@@ -46,62 +46,56 @@ public class ViewEditCardFilePanel extends JPanel implements EventListener, Acti
 		button1.setText("import");
 		paint();
 		fillScrollPane();
-		
-		
 	}
 	
 	
+	
+	
+	
+	
+	
+	//GUI zeichnen
 	public void paint(){
-		
-		
 		button1.addActionListener( this);
 		button1.setName("language_test");
 		button2.addActionListener(this);
 		button2.setName("import");
 		strings.add(button1);
 		strings.add(button2);
-		table = new ViewTable();
+		try {
+			table = new ViewTable();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		table.setVisible(true);
 		//add(cardFile);
 		
 		add(button1);
 		add(button2);
-		setVisible(false);
-		
-		
+		setVisible(true);
 	}
 	
 	
 	public void fillScrollPane(){
 		
-		
-		
 	    JPanel p = new JPanel(new GridLayout(0,1,0,20));
 	    p.setBackground(ViewMainFrame.COLOR5);
-//	    JScrollPane jsp = new JScrollPane(p);
-//	    jsp.setBackground(ViewMainFrame.COLOR5);
-//	   
-//
-//	    jsp.setPreferredSize(new Dimension(360,600));
-//	    //jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-//	    jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-//
-//	    for (int i = 0; i < 100; i++) {
-//	        ViewCardFile card = new ViewCardFile();
-//	        p.add(card);
-//	    }
-	    p.setPreferredSize(new Dimension(360,600));
-	    ViewTable table = new ViewTable();
-	    p.add(table);
+
+	    
+	    p.setPreferredSize(new Dimension(360,400));
+	    try{
+	    	ViewTable table = new ViewTable();
+		    p.add(table);
+	    }
+	    catch(Exception e){
+	    	e.printStackTrace();
+	    }
+	    
 	    
 	    add(p);
-	    setLocation(340, 600);
+	    setLocation(360, 400);
 	    setVisible(true);
-	    
-		
-		
-		
-		
 	}
 	
 	
@@ -109,8 +103,8 @@ public class ViewEditCardFilePanel extends JPanel implements EventListener, Acti
 	public void actionPerformed(ActionEvent e) {
 
 		try {
-			ImportCSV impC= new ImportCSV();
-			impC.importList(mainFrame);
+			ViewTable table = new ViewTable();
+			table.takeList();
 //			mainFrame.changeFrameTo("toStartPanel");
 			validate();
 		} catch (Exception e1) {
