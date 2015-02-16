@@ -144,6 +144,7 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 		//CardFiles hinzufügen
 		
 		gc.anchor = GridBagConstraints.LINE_START;
+		gc.fill = GridBagConstraints.VERTICAL;
 		gc.insets = new Insets(0,0,0,0);
 		gc.gridx = 1;
 		gc.gridy = 1;
