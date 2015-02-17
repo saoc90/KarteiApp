@@ -5,6 +5,7 @@ public class Card
 	
 	private String word1;
 	private String word2;
+	private String title;
 	private int boxNr;
 	private int wrongAnswer;
 	private int rightAnswer;
@@ -28,7 +29,7 @@ public class Card
 	}
 	public Card(String word1, String word2)
 	{
-		super(); //für import
+		super(); //fï¿½r import
 		this.boxNr = 1;
 		this.word1 = word1;
 		this.word2 = word2;
