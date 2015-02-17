@@ -28,10 +28,14 @@ public class XmlReader {
 	private ArrayList<Card> CardList;
 	private ArrayList<CardFile> CardFileList;
 	
-	public MainHandler readFile() throws ParserConfigurationException, SAXException, IOException{
-		read();
-		getData();
-		return null;
+	
+	public MainHandler readFile(){
+		try {
+			read();
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			return new MainHandler(new ArrayList<CardFile>(), Strings.ENGLISH, 0); // if no file attatched.
+		}
+		return getData();
 	}
 
 	 private boolean read() throws ParserConfigurationException, SAXException, IOException{
@@ -44,8 +48,7 @@ public class XmlReader {
 			 return true;
 	 }
 		
-	 private boolean getData(){
-			 System.out.println("root of xml file" + doc.getDocumentElement().getNodeName());
+	 private MainHandler getData(){
 			 NodeList nodes = doc.getElementsByTagName("data");
 			 String language ="";
 			 int score =0;
@@ -55,12 +58,11 @@ public class XmlReader {
 			 language = getValue("language", element);
 			 score = parseInt(getValue("score", element));
 			 }
-			 System.out.println(language + score);
 			 for(int i =1;i<nodes.getLength();i++){
 				 CardFileList.add(generateCardFileList(nodes.item(i)));
 			 }
 			 
-			 return true;
+			 return new MainHandler(CardFileList, language, score);
 			 }
 
 	
@@ -74,12 +76,50 @@ public class XmlReader {
 
 
 	 private CardFile generateCardFileList(Node node){
-		 
+		 ArrayList<Card> cardList = new ArrayList<>();
+		 String title="";//for title of Cardfile
+		 String l1="";//for language 1 of CardFile
+		 String l2="";//for language 2 of CardFile
+		 int id=-1;//for id of Cardfile.
+		 boolean languageSwitched = false;
 		 if (node.getNodeType() == Node.ELEMENT_NODE){
 			 Element element = (Element) node;
+			 title = getValue("title", element);
+			 l1 = getValue("title", element);
+			 l2 = getValue("language1",element);
+			 id = parseInt(getValue("id", element));
+			 int tmp = parseInt(getValue("languageSwitched", element));
+			 if(tmp==1){
+				 languageSwitched=true;
+			 } else if(tmp==0){
+				 languageSwitched=false;
+			 }
 			 
+			 NodeList nodes = element.getElementsByTagName("card");
+			 for(int i= 0;i<nodes.getLength();i++){
+				 CardList.add(genarateCard(nodes.item(i)));
+			 }
+			
 		 }
-		 return null;
+		
+		 return new CardFile(cardList, title, l1, l2, id, languageSwitched);
+	 }
+	 
+	 private Card genarateCard(Node node){
+		 String word1 = "";
+		 String word2 = "";
+		 int wrongAnswer = 0;
+		 int rightAnswer = 0;
+		 int boxNr = 0;
+		 if(node.getNodeType() == Node.ELEMENT_NODE){
+			 Element element = (Element) node;
+			 word1 = getValue("word1", element);
+			 word2 = getValue("word2", element);
+			 wrongAnswer = parseInt(getValue("wrongAnswers", element));
+			 rightAnswer = parseInt(getValue("wrongAnswers", element));
+			 boxNr = parseInt(getValue("boxNr", element));
+		 }
+		 return new Card(word1, word2, boxNr, wrongAnswer, rightAnswer);
 	 }
 	 
 	 

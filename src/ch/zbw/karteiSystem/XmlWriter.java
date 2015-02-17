@@ -39,6 +39,9 @@ public class XmlWriter {
 	 * @return true if it worked else false.
 	 */
 	public boolean save(MainHandler mainHandler){
+		if(mainHandler==null){
+			return false;
+		}
 		boolean worked = false;
 		this.mainHandler=mainHandler;
 		worked=createDoc();
@@ -89,6 +92,9 @@ public class XmlWriter {
 	 * Writes all CardFiles to the document.
 	 */
 	private void addCardFiles() {
+		if(mainHandler.getAllCardFiles()==null){
+			return;
+		}
 		ArrayList<CardFile> cardFileList = mainHandler.getAllCardFiles();
 		for(CardFile cardFile : cardFileList){
 			Element cardFileElement = doc.createElement("cardFile");
@@ -131,9 +137,12 @@ public class XmlWriter {
 	 * @param cardFileElement Element of the given Cardfile.
 	 */
 	private void addCards(ArrayList<Card> cardList, Element cardFileElement) {
+		if(cardList==null){
+			return;
+		}
 		for(int i=0;i<cardList.size();i++){
 			Element card = doc.createElement("card");
-			card.appendChild(card);
+			cardFileElement.appendChild(card);
 			
 			Element word1 = doc.createElement("word1");
 			card.appendChild(word1);
