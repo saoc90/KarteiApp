@@ -6,7 +6,7 @@ package ch.zbw.karteiSystem;
 import java.util.ArrayList;
 
 /**
- * @author M. Riedener
+ * @author M.Riedener
  *
  */
 public class CardFile
@@ -17,6 +17,7 @@ public class CardFile
 	private String language2;
 	private int id;
 	private boolean languageSwitched;
+	
 	/**
 	 * @param wordList
 	 * @param titel
