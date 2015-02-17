@@ -236,6 +236,8 @@ public class ViewCardFile extends JPanel implements ActionListener {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				cardFile.setLanguageSwitched();
+				refresh();
+				
 				System.out.println("Language Changed");
 			}
 		});
