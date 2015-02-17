@@ -87,11 +87,11 @@ public class CardFile
 	public void setLanguageSwitched()
 	{
 		String lang = this.language1;
+		this.language1 = this.language2;
+		this.language2 = lang;
 
 		this.languageSwitched = !this.languageSwitched;
 
-		this.language1 = this.language2;
-		this.language2 = lang;
 	}
 	
 	public Card getCard(int boxNr)
