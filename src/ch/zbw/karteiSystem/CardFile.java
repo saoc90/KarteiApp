@@ -6,7 +6,7 @@ package ch.zbw.karteiSystem;
 import java.util.ArrayList;
 
 /**
- * @author riedener
+ * @author M. Riedener
  *
  */
 public class CardFile
