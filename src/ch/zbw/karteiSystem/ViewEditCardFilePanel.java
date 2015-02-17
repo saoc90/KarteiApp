@@ -24,7 +24,7 @@ import javax.swing.ScrollPaneConstants;
 
 public class ViewEditCardFilePanel extends JPanel implements EventListener, ActionListener {
 
-	
+	//Datenfeld
 	private static final long serialVersionUID = 1L;
 	private static ViewMainFrame mainframe;
 	private Strings strings;
@@ -48,11 +48,7 @@ public class ViewEditCardFilePanel extends JPanel implements EventListener, Acti
 		fillScrollPane();
 	}
 	
-	
-	
-	
-	
-	
+
 	
 	//GUI zeichnen
 	public void paint(){
