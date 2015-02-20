@@ -40,6 +40,7 @@ public class ViewMainFrame extends JFrame {
 	private Strings strings;
 	private MainHandler mainHandler;
 	private HelpCardFile helpCardFile;
+	private ViewLearnPanel learnPanel;
 	
 	public ViewMainFrame(){
 		
@@ -62,12 +63,15 @@ public class ViewMainFrame extends JFrame {
 		startPanel = new ViewStartPanel(this);
 		cardFilePanel = new ViewCardFilePanel(this);
 		editCardFilePanel = new ViewEditCardFilePanel(this);
+		learnPanel = new ViewLearnPanel(this, null);
 		statsPanel = new JPanel();
+		
 		statsPanel.setBackground(COLOR1); 
 		statsPanel.setVisible(false);
 		addPanel(startPanel,"startPanel");
 		addPanel(cardFilePanel, "cardFilePanel");
 		addPanel(editCardFilePanel, "editCardFilePanel");
+		addPanel(learnPanel,"learnPanel");
 		
 		addPanel(statsPanel,"statsPanel");
 		
@@ -111,6 +115,14 @@ public class ViewMainFrame extends JFrame {
 	}
 		
 	
+	public void changeLearnPaneltoCardFile(CardFile cardfile){
+		
+		
+		learnPanel.fillCardFile(cardfile);
+		
+		
+	}
+	
 
 	/**
 	 *
@@ -149,6 +161,9 @@ public class ViewMainFrame extends JFrame {
 			strings.changeLanguage(Strings.ENGLISH);
 			break;
 			
+		case "toSettingsPanel":
+			cardLayout.show(container, learnPanel.getName());
+			break;
 			
 		default : 
 			

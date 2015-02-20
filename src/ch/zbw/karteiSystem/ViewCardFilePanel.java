@@ -29,11 +29,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import com.sun.j3d.utils.applet.MainFrame;
+
 /**
  * @author samuelochsner
  *
  */
-public class ViewCardFilePanel extends JPanel implements EventListener, ActionListener {
+public class ViewCardFilePanel extends JPanel implements MouseListener{
 
 	/**
 	 * 
@@ -122,13 +124,7 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		add(titleBar,gc);
 		
-		button1.addActionListener( this);
-		button1.setName("language_test");
-		strings.add(button1);
-		//cardFile = new ViewCardFile ();
-		//cardFile.setVisible(true);
-		//add(cardFile);
-		
+
 		//add(backButton);
 		gc.fill = GridBagConstraints.NONE;
 		gc.weightx = 1;
@@ -175,7 +171,9 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 	    for (Iterator<CardFile> iterator = cardFiles.iterator(); iterator
 				.hasNext();) {
 			CardFile tmpCardFile = iterator.next();
-			p.add(createViewCardFiles(tmpCardFile));
+			ViewCardFile tmpcard = createViewCardFiles(tmpCardFile);
+			tmpcard.addMouseListener(this);
+			p.add(tmpcard);
 			
 		}
 	    p.add(createLastViewCardFile());
@@ -239,6 +237,49 @@ public class ViewCardFilePanel extends JPanel implements EventListener, ActionLi
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	}
+
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		try {
+			viewMainFrame.changeFrameTo("learnPanel");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		ViewCardFile tmpcard = (ViewCardFile) e.getSource();
+		System.out.println(tmpcard.toString());
+		viewMainFrame.changeLearnPaneltoCardFile(tmpcard.getCardFile());
+	}
+
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

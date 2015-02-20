@@ -21,7 +21,8 @@ public class ViewPanelTitleBar extends JPanel {
 	private GridBagConstraints gc;
 
 	public ViewPanelTitleBar(Color color, String name, ViewMainFrame viewMainFrame) {
-		setPreferredSize(new Dimension(800,60));
+		setPreferredSize(new Dimension(600,60));
+		setMinimumSize(new Dimension(600,60));
 		setBackground(color);
 		setLayout(new GridBagLayout());
 		
@@ -37,6 +38,13 @@ public class ViewPanelTitleBar extends JPanel {
 		this.setVisible(true);
 	}
 
+	public void setTitle(String title){
+		
+		this.label.setText(title);
+		
+	}
+	
+	
 	public JLabel getLabel() {
 		return label;
 	}

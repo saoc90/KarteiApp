@@ -25,7 +25,7 @@ import javax.swing.border.Border;
  * @author samuelochsner
  *
  */
-public class ViewCardFile extends JPanel implements ActionListener {
+public class ViewCardFile extends JPanel implements MouseListener {
 	
 	
 	
@@ -93,7 +93,7 @@ public class ViewCardFile extends JPanel implements ActionListener {
 			
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
+			
 				
 			}
 			
@@ -349,7 +349,11 @@ public class ViewCardFile extends JPanel implements ActionListener {
 	
 	
 	
-
+	public CardFile getCardFile(){
+		
+		
+		return cardFile;
+	}
 
 
 	@Override
@@ -365,8 +369,36 @@ public class ViewCardFile extends JPanel implements ActionListener {
 	}
 
 
-	@Override
 	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
