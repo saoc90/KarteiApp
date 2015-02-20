@@ -249,16 +249,16 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		try {
-			viewMainFrame.changeFrameTo("learnPanel");
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
 		ViewCardFile tmpcard = (ViewCardFile) e.getSource();
 		System.out.println(tmpcard.toString());
 		viewMainFrame.changeLearnPaneltoCardFile(tmpcard.getCardFile());
+		try {
+			viewMainFrame.changeFrameTo("toLearnPanel");
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 
 

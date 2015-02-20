@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
@@ -268,7 +270,46 @@ public class ViewLearnPanel extends JPanel {
 		
 		
 		
+		//Mouselistener
 		
+		
+		backButton.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					mainframe.changeFrameTo("toCardFilePanel");
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		
 	}
@@ -285,17 +326,18 @@ public class ViewLearnPanel extends JPanel {
 		
 		titlebar.setTitle(cardfile.getTitle());
 		
-		cardfile1.setText(strings.getString("file") + " 1 / "+cardfile.getCard(1) +" "+strings.getString("card"));
-		cardfile2.setText(strings.getString("file") + " 2 / "+cardfile.getCard(2) +" "+strings.getString("card"));
-		cardfile3.setText(strings.getString("file") + " 3 / "+cardfile.getCard(3) +" "+strings.getString("card"));
-		cardfile4.setText(strings.getString("file") + " 4 / "+cardfile.getCard(4) +" "+strings.getString("card"));
-		cardfile5.setText(strings.getString("file") + " 5 / "+cardfile.getCard(5) +" "+strings.getString("card"));
+		cardfile1.setText(strings.getString("file") + " 1 / "+cardfile.getNrOfCardsOfBox(1) +" "+strings.getString("card"));
+		cardfile2.setText(strings.getString("file") + " 2 / "+cardfile.getNrOfCardsOfBox(2) +" "+strings.getString("card"));
+		cardfile3.setText(strings.getString("file") + " 3 / "+cardfile.getNrOfCardsOfBox(3) +" "+strings.getString("card"));
+		cardfile4.setText(strings.getString("file") + " 4 / "+cardfile.getNrOfCardsOfBox(4) +" "+strings.getString("card"));
+		cardfile5.setText(strings.getString("file") + " 5 / "+cardfile.getNrOfCardsOfBox(5) +" "+strings.getString("card"));
 		
-		word1.setText(cardfile.getLanguage1()+": ");
-		word2.setText(cardfile.getLanguage2()+": ");
+		word1Language.setText(cardfile.getLanguage1()+": ");
+		word2Language.setText(cardfile.getLanguage2()+": ");
 		inputLabel.setText(cardfile.getLanguage2()+": ");
 		
 		panelword2.setVisible(false);
+		word2Language.setVisible(false);
 		
 		
 		

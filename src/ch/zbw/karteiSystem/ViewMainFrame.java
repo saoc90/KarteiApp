@@ -165,6 +165,11 @@ public class ViewMainFrame extends JFrame {
 			cardLayout.show(container, learnPanel.getName());
 			break;
 			
+			
+		case "toLearnPanel":
+			cardLayout.show(container, learnPanel.getName());
+			break;
+			
 		default : 
 			
 			new Exception("Panel was not found");
