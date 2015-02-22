@@ -33,6 +33,8 @@ public class XmlWriter {
 	private Element rootElement;
 	private MainHandler mainHandler;
 	
+	public static final String URI = "data.bin";
+	
 	/**
 	 * save all data of the programm into data.xml into the application dir.
 	 * @param mainHandler object filled with the data to save.
@@ -172,13 +174,12 @@ public class XmlWriter {
 	 */
 	private boolean writeXML() {
 		  try {
-			// write the content into xml file
+			// write the content as xml file.
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			DOMSource source = new DOMSource(doc);
-			StreamResult result = new StreamResult(new File("data.bin")); //filename data.xml
+			StreamResult result = new StreamResult(new File(XmlWriter.URI)); //filename data.xml
 			transformer.transform(source, result);
-			System.out.println("saved");
 		  } catch (TransformerException tfe) {
 			return false;
 		  }

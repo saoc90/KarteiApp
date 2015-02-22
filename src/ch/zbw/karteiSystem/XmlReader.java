@@ -1,5 +1,6 @@
 /**
- * 
+ * Read the XML file data.bin to the which is in the jar folder. 
+ * this File includes all data of the Cardfile App and the readFile() methode returns a filled Object of MainHandler.
  */
 package ch.zbw.karteiSystem;
 
@@ -29,13 +30,28 @@ public class XmlReader {
 	private ArrayList<CardFile> CardFileList;
 	
 	
+	/**
+	 * This methode reads the file data.bin in the jar folder. 
+	 * and return a MainHandler objects with all settings and Cardfiles inside.
+	 * if there isn't a file attached or corrupt it will return a empty instace of Mainhandler.
+	 * @return a filled Object of Mainhandler with all important datas.
+	 * 
+	 */
 	public MainHandler readFile(){
 		try {
 			read();
 		} catch (ParserConfigurationException | SAXException | IOException e) {
-			return new MainHandler(new ArrayList<CardFile>(), Strings.ENGLISH, 0); // if no file attatched.
+			return getEmptyMainhandler();
 		}
-		return getData();
+		MainHandler m = getData();
+		if(m==null){
+			return getEmptyMainhandler();
+		}
+		return m;
+	}
+	
+	private MainHandler getEmptyMainhandler(){
+		return new MainHandler(new ArrayList<CardFile>(), Strings.ENGLISH, 0); 
 	}
 
 	 private boolean read() throws ParserConfigurationException, SAXException, IOException{
@@ -49,7 +65,7 @@ public class XmlReader {
 	 }
 		
 	 private MainHandler getData(){
-			 NodeList nodes = doc.getElementsByTagName("data");
+			 NodeList nodes = doc.getElementsByTagName(XmlWriter.URI);
 			 String language ="";
 			 int score =0;
 			 Node node = nodes.item(0);
