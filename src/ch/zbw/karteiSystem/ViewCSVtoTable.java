@@ -9,12 +9,13 @@ package ch.zbw.karteiSystem;
 
 import java.util.ArrayList;
 
-import javax.swing.table.AbstractTableModel;
+import javax.swing.JTable;
+import javax.swing.table.*;
 
  
 public class ViewCSVtoTable extends AbstractTableModel {
 
-	private static ViewMainFrame viewMainframe;
+	private static ViewMainFrame viewMainFrame;
 	private ArrayList<ArrayList<String>> wordList;
 	private String[] header;
 	
@@ -42,7 +43,37 @@ public class ViewCSVtoTable extends AbstractTableModel {
 	}
 	
 	
-    
+	
+    public JTable readArray(){
+    	JTable tempTable=new JTable();
+    	ImportCSV impCSV=new ImportCSV();
+		ArrayList<ArrayList<String>> tempList=null;
+		try {
+			tempList=impCSV.importList(viewMainFrame);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		tempTable.setModel(new DefaultTableModel(
+				new Object[][]{
+						{"asdf", "fdsa"}
+				},
+				new String[]{
+						"Test", "2"
+				}));
+		
+//		for(int i=0; i<tempList.get(0).size(); i++){
+//			String tempWord=tempList.get(0).get(i+1);
+//			int r=1;
+//			int c=i;
+//			tempTable.setValueAt(tempWord, r, c);
+//		}
+		
+		
+		return tempTable;
+		
+    }
 	
 	
 }

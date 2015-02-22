@@ -26,6 +26,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 
 /*
@@ -240,8 +241,8 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 
 		try {
-//			table
-			
+			ViewCSVtoTable impTable=new ViewCSVtoTable();
+			table.setModel((TableModel) impTable.readArray());
 			validate();
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
