@@ -368,12 +368,6 @@ public class ViewCardFile extends JPanel implements MouseListener {
 				+ cardsInCardFile + ", settings=" + settings + "]";
 	}
 
-
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -382,6 +376,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -402,5 +397,8 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+	
 
 }

@@ -247,11 +247,11 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	}
 
 
+	// if ViewCardFile is clicked, it switches automaticly to the learnpanel and gives it the cartefile
 	@Override
 	public void mousePressed(MouseEvent e) {
 		
 		ViewCardFile tmpcard = (ViewCardFile) e.getSource();
-		System.out.println(tmpcard.toString());
 		viewMainFrame.changeLearnPaneltoCardFile(tmpcard.getCardFile());
 		try {
 			viewMainFrame.changeFrameTo("toLearnPanel");
