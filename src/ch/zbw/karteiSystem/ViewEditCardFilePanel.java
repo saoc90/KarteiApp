@@ -123,6 +123,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.gridheight = 1;
 		gc.gridwidth = 5;
 		gc.fill = GridBagConstraints.HORIZONTAL;
+		titleBar.changeTitleToJTextField();
 		add(titleBar, gc);
 
 		// add(backButton);
@@ -173,11 +174,10 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		
 	}
 	
-	//Default-Tabelle erstellen
+	//Tabelle erstellen
 	public void createTable(CardFile cardfile){
 		scrollPane = new JScrollPane();
 		table=new JTable(new ViewMyTableModel(cardfile));
-		
 		
 		scrollPane.setViewportView(table);
 		
@@ -189,10 +189,6 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		setVisible(true);
 	}
 
-	
-	public void changeCardFile(CardFile cardfile){
-		
-	}
 	
 	public void actionPerformed(ActionEvent e) {
 

@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class ViewPanelTitleBar extends JPanel {
 	
@@ -19,6 +20,7 @@ public class ViewPanelTitleBar extends JPanel {
 	private ViewMainFrame mainFrame;
 	private Strings strings;
 	private GridBagConstraints gc;
+	private JTextField jtf;
 
 	public ViewPanelTitleBar(Color color, String name, ViewMainFrame viewMainFrame) {
 		setPreferredSize(new Dimension(600,60));
@@ -44,6 +46,12 @@ public class ViewPanelTitleBar extends JPanel {
 		
 	}
 	
+	public void changeTitleToJTextField(){
+		jtf=new JTextField();
+		label.setVisible(false);
+		add(jtf, gc);
+		this.jtf.setText("Titel eingeben...");
+	}
 	
 	public JLabel getLabel() {
 		return label;
