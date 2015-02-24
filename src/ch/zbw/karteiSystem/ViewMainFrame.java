@@ -125,7 +125,7 @@ public class ViewMainFrame extends JFrame {
 	public void changeEditCardFilePaneltoCardFile(CardFile cardfile){
 		
 		
-		editCardFilePanel.changeCardFile(cardfile);
+		editCardFilePanel.createTable(cardfile);
 		
 		
 		
