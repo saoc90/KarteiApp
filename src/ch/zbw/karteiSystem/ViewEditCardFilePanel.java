@@ -176,57 +176,9 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	//Default-Tabelle erstellen
 	public void createTable(){
 		scrollPane = new JScrollPane();
-		table=new JTable();
+		table=new JTable(new ViewMyTableModel(new CardFile()));
 		
-		table.setModel(new DefaultTableModel(
-				new Object[][]{
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null},
-						{null, null}
-				},
-				new String[]{
-						"Sprache 1", "Sprache 2"
-				}));
+		
 		scrollPane.setViewportView(table);
 		
 		JPanel p = new JPanel(new GridLayout(0,1,0,20));
@@ -237,7 +189,11 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		setVisible(true);
 	}
 
-
+	
+	public void changeCardFile(CardFile cardfile){
+		
+	}
+	
 	public void actionPerformed(ActionEvent e) {
 
 		try {
