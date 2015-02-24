@@ -70,10 +70,9 @@ public class ViewMainFrame extends JFrame {
 		statsPanel.setVisible(false);
 		addPanel(startPanel,"startPanel");
 		addPanel(cardFilePanel, "cardFilePanel");
-		addPanel(editCardFilePanel, "editCardFilePanel");
+		addPanel(editCardFilePanel, "toStatsPanel");
 		addPanel(learnPanel,"learnPanel");
 		
-		addPanel(statsPanel,"statsPanel");
 		
 		cardLayout.show(container, startPanel.getName());
 		
@@ -100,7 +99,7 @@ public class ViewMainFrame extends JFrame {
 		
 		//panel.setVisible(false);
 		container.add(panel, panelName);
-	
+		strings.add(panel);
 		
 	}
 	
@@ -123,6 +122,21 @@ public class ViewMainFrame extends JFrame {
 		
 	}
 	
+	public void changeEditCardFilePaneltoCardFile(CardFile cardfile){
+		
+		
+		editCardFilePanel.changeCardFile(cardfile);
+		
+		
+		
+		try {
+			changeFrameTo("toEditCardFilePanel");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 	/**
 	 *
@@ -151,12 +165,14 @@ public class ViewMainFrame extends JFrame {
 			break;
 			
 		case "toEditCardFilePanel" : 
+			
 			cardLayout.show(container, editCardFilePanel.getName());
 			
 			break;
 			
 		case "toStatsPanel" :
-			cardLayout.show(container, startPanel.getName());
+			// please change it bac to this entry after   cardLayout.show(container, startPanel.getName());
+			cardLayout.show(container, editCardFilePanel.getName());
 			ViewMainFrame.languageCode = "en";
 			strings.changeLanguage(Strings.ENGLISH);
 			break;

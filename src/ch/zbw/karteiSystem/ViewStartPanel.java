@@ -75,7 +75,7 @@ public class ViewStartPanel extends JPanel implements ActionListener {
 		gc.gridy = 1;
 		
 		/// Lernen Button ///////
-				stats = new ViewBigButton("toEditCardFilePanel" , strings.getString("toStats"),new ImageIcon("png/stats.png"),370,70,Color.decode("#d95b45"));
+				stats = new ViewBigButton("toStatsPanel" , strings.getString("toStatsPanel"),new ImageIcon("png/stats.png"),370,70,Color.decode("#d95b45"));
 				stats.addActionListener(this);
 				strings.add(stats);
 				this.add(stats, gc);
