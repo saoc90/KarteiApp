@@ -144,7 +144,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.gridy = 1;
 		gc.gridheight = 1;
 		gc.gridwidth = 4;
-		createTable();
+		createTable(null);
 		
 		//Buttons Import/Export hinzufügen
 		gc.fill = GridBagConstraints.NONE;
@@ -174,9 +174,9 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	}
 	
 	//Default-Tabelle erstellen
-	public void createTable(){
+	public void createTable(CardFile cardfile){
 		scrollPane = new JScrollPane();
-		table=new JTable(new ViewMyTableModel(new CardFile()));
+		table=new JTable(new ViewMyTableModel(cardfile));
 		
 		
 		scrollPane.setViewportView(table);

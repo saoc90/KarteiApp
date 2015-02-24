@@ -29,7 +29,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-import com.sun.j3d.utils.applet.MainFrame;
 
 /**
  * @author samuelochsner
