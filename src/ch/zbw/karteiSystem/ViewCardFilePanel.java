@@ -194,7 +194,7 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	
 	public ViewCardFile createViewCardFiles(CardFile tmpCardFile){
 		
-		ViewCardFile panel = new ViewCardFile(tmpCardFile,strings);
+		ViewCardFile panel = new ViewCardFile(viewMainFrame,tmpCardFile,strings);
 		viewCardFiles.add(panel);
 		return panel;
 		
@@ -250,6 +250,7 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		
+		System.out.println(e.getSource());
 		ViewCardFile tmpcard = (ViewCardFile) e.getSource();
 		viewMainFrame.changeLearnPaneltoCardFile(tmpcard.getCardFile());
 		try {

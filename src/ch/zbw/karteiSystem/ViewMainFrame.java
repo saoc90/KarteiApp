@@ -7,8 +7,10 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -42,6 +44,7 @@ public class ViewMainFrame extends JFrame {
 	private HelpCardFile helpCardFile;
 	private ViewLearnPanel learnPanel;
 	
+	
 	public ViewMainFrame(){
 		
 		super("Kartei System");
@@ -58,7 +61,7 @@ public class ViewMainFrame extends JFrame {
 		cardLayout = new CardLayout();
 		container.setLayout(cardLayout);
 
-	
+		
 		HelpCardFile helpCardFile = new HelpCardFile();
 		startPanel = new ViewStartPanel(this);
 		cardFilePanel = new ViewCardFilePanel(this);
@@ -70,7 +73,7 @@ public class ViewMainFrame extends JFrame {
 		statsPanel.setVisible(false);
 		addPanel(startPanel,"startPanel");
 		addPanel(cardFilePanel, "cardFilePanel");
-		addPanel(editCardFilePanel, "toStatsPanel");
+		addPanel(editCardFilePanel, "editCardFilePanel");
 		addPanel(learnPanel,"learnPanel");
 		
 		
@@ -173,7 +176,7 @@ public class ViewMainFrame extends JFrame {
 		case "toStatsPanel" :
 			// please change it bac to this entry after   cardLayout.show(container, startPanel.getName());
 			cardLayout.show(container, editCardFilePanel.getName());
-			ViewMainFrame.languageCode = "en";
+			ViewMainFrame.languageCode = "de";
 			strings.changeLanguage(Strings.ENGLISH);
 			break;
 			

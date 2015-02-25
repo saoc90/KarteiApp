@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.EventObject;
+import java.util.Vector;
 
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
@@ -20,6 +22,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
+
+import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
 
 /**
  * @author samuelochsner
@@ -58,13 +62,15 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	private Insets  insetLeft, insetTop, insetRight, insetButtomLeft,insetButtomRight;
 	private CardFile cardFile;
 	private Strings strings;
+	private ViewMainFrame mainframe;
 	JLabel addCardFile;
 
 	/**
 	 * 
 	 */
-	public ViewCardFile(CardFile cardFile, Strings strings) {
-		this.cardFile = cardFile;
+	public ViewCardFile(ViewMainFrame mainframe, CardFile cardfile, Strings strings) {
+		this.cardFile = cardfile;
+		this.mainframe = mainframe;
 		this.strings = strings;
 		dimension = new Dimension(340,140);
 		setPreferredSize(dimension);
@@ -83,36 +89,8 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		insetButtomLeft = new Insets(5,20,15,5);
 		insetButtomRight = new Insets(5,5,15,20);
 		paint();
-		addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-			
-				
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				setBorder(null);				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		addMouseListener(this);
+		
 		
 	}
 	
@@ -130,35 +108,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		insetRight = new Insets(5,5,5,20);
 		insetButtomLeft = new Insets(5,20,15,5);
 		insetButtomRight = new Insets(5,5,15,20);
-		addMouseListener(new MouseListener() {
-			
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {
-				//to addCardFilePanel with null reference of cardFile
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-				setBorder(null);				
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+
 		
 		paintLastCard();
 	}
@@ -280,6 +230,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		gc.gridheight = 1;
 		settings = new ImageIcon ("png/settingssmall.png");
 		settingsLabel = new JLabel(settings);
+		settingsLabel.addMouseListener(this);
 		settingsLabel.addMouseListener(new MouseListener() {
 			
 			@Override
@@ -290,7 +241,6 @@ public class ViewCardFile extends JPanel implements MouseListener {
 			
 			@Override
 			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
 				
 			}
 			
@@ -308,6 +258,14 @@ public class ViewCardFile extends JPanel implements MouseListener {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.out.println("Settings klicked");
+				mainframe.changeEditCardFilePaneltoCardFile(cardFile);
+				try {
+					mainframe.changeFrameTo("toEditCardFilePanel");
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
 		});
 		add(settingsLabel, gc);
@@ -370,14 +328,11 @@ public class ViewCardFile extends JPanel implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
@@ -387,16 +342,16 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	}
 
 	@Override
+	public void mouseExited(MouseEvent e) {
+		setBorder(null);				
+	}
+	
+	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
 	}
 
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 
 	
