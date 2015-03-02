@@ -1,6 +1,10 @@
 package ch.zbw.karteiSystem;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -15,7 +19,7 @@ import javax.swing.JTextField;
  * This class is for handling all the shown Strings in the application.
  *
  */
-public class Strings extends CsvReader {
+public class Strings{
 	
 	
 	private ArrayList<ArrayList<String>> list; //for saving all the String ojects.
@@ -41,6 +45,40 @@ public class Strings extends CsvReader {
 		list = new ArrayList<>();
 		generateTokens(readFile("Strings.csv"));
 	}
+	
+	/**
+	 * Read the csv File with the given url and returns it as an ArrayListof Strings.
+	 * Each line of the file is a String.
+	 * @param url place where the file is saved.
+	 * @return ArrayList with Strings.
+	 */
+	public ArrayList<String> readFile(String url) throws FileNotFoundException{
+		ArrayList<String> temp = new ArrayList<>();
+		try {
+			InputStream is = getClass().getResourceAsStream(url);
+			InputStreamReader fr = new InputStreamReader(is);
+		    BufferedReader reader = new BufferedReader(fr);
+			String line = "";
+			do {
+				line = reader.readLine();
+				// reads a line
+				if (line == null || (line.equals(""))) {
+				} else {// if line not null or empty
+					temp.add(line);
+				}
+			} while (line != null);
+
+			reader.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return temp;
+	}
+		
 	
 	
 	/**
