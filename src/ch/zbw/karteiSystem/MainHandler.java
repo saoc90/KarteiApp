@@ -81,19 +81,50 @@ public class MainHandler
 	
 	public int getPercentOfRights()
 	{
-		// Card.getRightAnswers / Card.getWrongAnswers
-		// total = right + wrong => 100 %
-		// PercentOfRight pro Karte => 100/total*right 
-		
-		return 80;
+		int wrongAnswers = 0;
+		int rightAnswers = 0;
+		for(CardFile cardFile:cardfiles){
+			for(Card card:cardFile.getAllCards()){
+				wrongAnswers += card.getWrongAnswers();
+				rightAnswers += card.getRightAnswers();
+			}
+		}
+		if((rightAnswers+wrongAnswers==0)){
+			return 0;
+		}
+		return (100*rightAnswers)/(rightAnswers+wrongAnswers);
 	}
 	
 	public ArrayList<Card> getMostWrongWords()
 	{
-		// 	card.getWrongAnswer > nextCard.getWrongAnswer
-		// getCardID
-
-		return null;
+		ArrayList<Card> list = new ArrayList<>();
+		for(CardFile cardFile:cardfiles){
+			for(Card card:cardFile.getAllCards()){
+				list.add(card);
+			}
+		}
+		int change = 1;
+		while(change!=0){
+			change = 0;
+			for(int i=0;i<list.size();i++){
+				if(i+1!=list.size()){
+					if(list.get(i).getWrongAnswers()<list.get(i+1).getWrongAnswers()){
+						Card tmp = list.remove(i);
+						list.add(i+1, tmp);
+						change++;
+					}
+				}
+			}
+		}
+		ArrayList<Card> mostWrongWords = new ArrayList<>();
+		for(int i=0;i<3;i++){
+			if(list.size()-i>=0){
+			mostWrongWords.add(list.get(i));
+			} else{
+				return mostWrongWords;
+			}
+		}
+		return mostWrongWords;
 	}
 	
 	public int getScore()

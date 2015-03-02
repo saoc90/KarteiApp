@@ -75,7 +75,7 @@ public class CardFile
 		if(wordList.size()==0){
 			return 0;
 		}
-		progress = 100*progress/(CardFile.MAXBOXES*wordList.size());
+		progress = (100*progress)/(CardFile.MAXBOXES*wordList.size());
 		return progress;
 	}
 	
