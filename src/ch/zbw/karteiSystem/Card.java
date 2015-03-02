@@ -9,7 +9,7 @@ public class Card
 	private int boxNr;
 	private int wrongAnswer;
 	private int rightAnswer;
-	
+
 	/**
 	 * @param word1
 	 * @param word2
@@ -37,7 +37,6 @@ public class Card
 		this.wrongAnswer = 0;
 	}
 
-	
 	public String getWord1()
 	{
 		return this.word1;
@@ -46,23 +45,19 @@ public class Card
 	{
 		return this.word2;
 	}
-
 	public int getBoxNr()
 	{
 		return this.boxNr;
 	}
-	
 	public void setBoxNr (int _BoxNr)
 	{
 		this.boxNr = _BoxNr;
 	}
-
 	public void wrongAnswer()
 	{
 		this.wrongAnswer++;
 		// 	counts +1 to wrong Answer
 		// puts the word to the first box
-		
 	}
 	
 	public void rightAnswer()
@@ -70,7 +65,6 @@ public class Card
 		this.rightAnswer++;
 		// 	put the word to the next box
 		// counts +1 to the right Answer
-
 	}
 
 	public int getWrongAnswers()
@@ -85,7 +79,13 @@ public class Card
 
 	public void reset()
 	{
-		// 	set all counters back to zero.
+		/**	set all counters back to zero.
+		 * 	WrongAnswer und Rightanswer werden zurückgesetzt
+		 *  BoxNr wird zurückgesetzt (back to 1)
+		 */ 
+		this.wrongAnswer = 0;
+		this.rightAnswer = 0;
+		this.boxNr = 1;
 	}
 
 	public void setWord1(String word)
