@@ -56,7 +56,8 @@ public class ViewMainFrame extends JFrame {
 			e.printStackTrace();
 		}
 		helpCardFile = new HelpCardFile();
-		mainHandler = new MainHandler(helpCardFile.getCardFile(),"en",0);
+		XmlReader reader = new XmlReader();
+		mainHandler =  reader.readFile();  //new MainHandler(helpCardFile.getCardFile(),"en",0);
 		container = this.getContentPane();
 		cardLayout = new CardLayout();
 		container.setLayout(cardLayout);
@@ -188,7 +189,10 @@ public class ViewMainFrame extends JFrame {
 		case "toLearnPanel":
 			cardLayout.show(container, learnPanel.getName());
 			break;
-			
+		
+		case "closeApp":
+			mainHandler.saveCardFiles(this);
+			System.exit(DO_NOTHING_ON_CLOSE);			
 		default : 
 			
 			new Exception("Panel was not found");

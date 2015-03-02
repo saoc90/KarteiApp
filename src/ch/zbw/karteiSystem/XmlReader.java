@@ -97,6 +97,9 @@ public class XmlReader {
 		String language = "";
 		int score = 0;
 		Node node = nodes.item(0);
+		if(nodes.getLength()==0){
+			return getEmptyMainhandler();
+		}
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
 			Element element = (Element) node;
 			language = getValue("language", element);
