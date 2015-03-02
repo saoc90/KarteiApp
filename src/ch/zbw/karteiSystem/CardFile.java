@@ -1,9 +1,8 @@
-/**
- * 
- */
 package ch.zbw.karteiSystem;
 
 import java.util.ArrayList;
+
+import ch.zbw.karteiSystem.Card;
 
 /**
  * @author M.Riedener
@@ -65,6 +64,10 @@ public class CardFile
 
 	public int getProgress()
 	{
+		
+		// 
+		
+		
 		// return Progress
 		return 80;
 	}
@@ -91,7 +94,6 @@ public class CardFile
 		this.language2 = lang;
 
 		this.languageSwitched = !this.languageSwitched;
-
 	}
 	
 	public Card getCard(int boxNr)
@@ -136,6 +138,4 @@ public class CardFile
 	{
 		this.language2 = language;
 	}
-	
-	
 }
