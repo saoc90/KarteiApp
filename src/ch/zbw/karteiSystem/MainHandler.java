@@ -2,7 +2,6 @@ package ch.zbw.karteiSystem;
 
 import java.util.ArrayList;
 
-import com.sun.javafx.fxml.expression.Expression;
 
 import ch.zbw.karteiSystem.Card;
 import ch.zbw.karteiSystem.CardFile;
@@ -47,10 +46,9 @@ public class MainHandler
 	
 	public boolean saveCardFiles(ViewMainFrame main)
 	{
-		// 	speichert alle Daten ins XML
-		// 	Holt aus mainfraim languageCode
-		// return true falls erfolgreich
-//		this.initLanguage = main.languageCode();
+		XmlWriter w = new XmlWriter();
+		this.initLanguage = main.getStrings().getChoosenLanguageCode();
+		w.save(this);
 		return true;
 	}
 	

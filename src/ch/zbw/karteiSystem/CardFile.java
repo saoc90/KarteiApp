@@ -16,6 +16,7 @@ public class CardFile
 	private String language2;
 	private int id;
 	private boolean languageSwitched;
+	private static final int MAXBOXES = 5; //number of boxes 
 	
 	/**
 	 * @param wordList
@@ -64,27 +65,27 @@ public class CardFile
 
 	public int getProgress()
 	{
-		
-		// 
-		
-		
-		// return Progress
-		return 80;
+		int progress = 0;
+		for(Card card:wordList){
+			if(card.getBoxNr()<CardFile.MAXBOXES){
+				progress += card.getBoxNr();
+			}
+		}
+		if(wordList.size()==0){
+			return 0;
+		}
+		progress = 100*progress/(CardFile.MAXBOXES*wordList.size());
+		return progress;
 	}
 	
 	public int getNumberOfCards()
 	{
-		
-		// return number of all cards
-		return 500;
+		return wordList.size();
 	}
 	
 	public boolean isLanguageSwitched()
 	{
-		if(this.languageSwitched)
-			return true;
-		else
-			return false;
+		return this.languageSwitched;
 	}
 	
 	public void setLanguageSwitched()
@@ -120,7 +121,9 @@ public class CardFile
 	
 	public void resetCounters()
 	{
-		// reset all counter to zero
+		for(Card card:wordList){
+			card.reset();
+		}
 	}
 	
 	public boolean addCard(Card newCard)
