@@ -32,6 +32,7 @@ public class MainHandler
 		this.cardfiles = cardfiles;
 		this.initLanguage = initLanguage;
 		this.score = score;
+		
 	}
 	
 	public CardFile getCardFile(int _CardFileID)

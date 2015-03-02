@@ -56,7 +56,7 @@ public class XmlReader {
 		if (m == null) {
 			return getEmptyMainhandler();
 		}
-		return m;
+		return m; 
 	}
 
 

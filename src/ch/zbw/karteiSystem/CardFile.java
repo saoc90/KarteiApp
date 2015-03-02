@@ -41,6 +41,7 @@ public class CardFile
 	public void setTitle(String titel)
 	{
 		this.titel = titel;
+		
 	}
 	
 	public String getTitle()
