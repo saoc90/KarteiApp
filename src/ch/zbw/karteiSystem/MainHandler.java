@@ -2,6 +2,9 @@ package ch.zbw.karteiSystem;
 
 import java.util.ArrayList;
 
+import com.sun.javafx.fxml.expression.Expression;
+
+import ch.zbw.karteiSystem.Card;
 import ch.zbw.karteiSystem.CardFile;
 import ch.zbw.karteiSystem.ViewMainFrame;
 
@@ -15,6 +18,7 @@ public class MainHandler
 	private ArrayList<CardFile> cardfiles;
 	private String initLanguage;
 	private int score;
+	
 	
 	
 	/**
@@ -31,10 +35,9 @@ public class MainHandler
 		this.score = score;
 	}
 	
-	public CardFile getCardFile(String _CardFileID)
+	public CardFile getCardFile(int _CardFileID)
 	{
-		
-		return null;
+		return this.cardfiles.get(_CardFileID);
 	}
 	
 	public ArrayList<CardFile> getAllCardFiles()
@@ -47,34 +50,56 @@ public class MainHandler
 		// 	speichert alle Daten ins XML
 		// 	Holt aus mainfraim languageCode
 		// return true falls erfolgreich
+//		this.initLanguage = main.languageCode();
 		return true;
 	}
 	
 	public void addCardFile(CardFile file)
 	{
-		// 	adds a CardFile to Collection
- 
+		/** add a CardFile to Collection  */
+		try
+		{
+			this.cardfiles.add(file);			
+		}
+		catch(Exception e)
+		{
+			System.out.println("Cannot add CardFile" + file.getCardFileId());			
+		}
 	}
 	
 	public void removeCardFile(CardFile ID)
 	{
-	   //	removesd
+		try
+		{
+		   /** remove CardFile from CardFile ArrayList */
+			this.cardfiles.remove(ID);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Cannot remove CardFile" + ID.getCardFileId());
+		}
 	}
 	
 	public int getPercentOfRights()
 	{
+		// Card.getRightAnswers / Card.getWrongAnswers
+		// total = right + wrong => 100 %
+		// PercentOfRight pro Karte => 100/total*right 
+		
 		return 80;
 	}
 	
 	public ArrayList<Card> getMostWrongWords()
 	{
-		// 	returns the most wrong answered words:ArrayList<Word>
+		// 	card.getWrongAnswer > nextCard.getWrongAnswer
+		// getCardID
+
 		return null;
 	}
 	
 	public int getScore()
 	{
-		return 55;
+		return this.score;
 	}
 	
 	public String getInitLanguage()
