@@ -111,7 +111,7 @@ public class ViewMainFrame extends JFrame {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				save();
-				
+				System.exit(ABORT);
 			}
 			
 			@Override
