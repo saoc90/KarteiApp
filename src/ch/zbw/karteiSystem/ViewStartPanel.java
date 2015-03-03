@@ -14,6 +14,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import javax.crypto.spec.GCMParameterSpec;
 import javax.print.attribute.standard.JobMessageFromOperator;
 import javax.swing.BoxLayout;
@@ -95,7 +96,7 @@ public class ViewStartPanel extends JPanel implements ActionListener {
 		//// Beenden Button ///////
 						
 						gc.gridy = 3;
-						
+
 						exit = new ViewBigButton("closeApp", strings.getString("closeApp"),new ImageIcon("png/exit.png"),370,70,Color.decode("#552437"));
 						exit.addActionListener(this);
 						strings.add(exit);
