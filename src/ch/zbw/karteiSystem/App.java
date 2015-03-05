@@ -1,7 +1,7 @@
 package ch.zbw.karteiSystem;
 import java.awt.Dimension;
 
-import javax.swing.JFrame;
+
 
 /**
  * 

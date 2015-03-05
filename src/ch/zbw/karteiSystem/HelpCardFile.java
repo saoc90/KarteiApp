@@ -39,7 +39,7 @@ public class HelpCardFile {
 			ArrayList<Card> tmpCardList = new ArrayList<Card>();
 			for(int i1 = 0; i>10; i++){
 				
-				Card tmpCard = new Card("Testwort"+i1,"Testwort2"+i1);
+				Card tmpCard = new Card("Testwort"+i1,"Testwort2"+i1,1,1,1);
 				tmpCardList.add(tmpCard);
 				
 				

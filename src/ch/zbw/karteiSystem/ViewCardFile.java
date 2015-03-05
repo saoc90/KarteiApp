@@ -63,7 +63,8 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	private CardFile cardFile;
 	private Strings strings;
 	private ViewMainFrame mainframe;
-	JLabel addCardFile;
+	private JLabel addCardFile;
+	private boolean isLastCard;
 
 	/**
 	 * 
@@ -111,6 +112,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 
 		
 		paintLastCard();
+		addMouseListener(this);
 	}
 	
 	/*
@@ -300,6 +302,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		addCardFile = new JLabel(strings.getString("addCardFile"),add,GridBagConstraints.CENTER);
 		addCardFile.setFont(new Font("LucidaBright",Font.BOLD,25));
 		strings.add(addCardFile);
+		isLastCard = true;
 		add(addCardFile,gc);
 		
 	}
@@ -312,6 +315,16 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		
 		return cardFile;
 	}
+	
+	
+	public boolean isLastCard() {
+		return isLastCard;
+	}
+
+	public void setLastCard(boolean isLastCard) {
+		this.isLastCard = isLastCard;
+	}
+
 
 
 	@Override
@@ -350,6 +363,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	public void mouseEntered(MouseEvent e) {
 		setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
 	}
+
 
 	
 

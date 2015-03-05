@@ -139,7 +139,7 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 		//CardFiles hinzufügen
 		
 		gc.anchor = GridBagConstraints.LINE_START;
-		gc.fill = GridBagConstraints.VERTICAL;
+		gc.fill = GridBagConstraints.NONE;
 		gc.insets = new Insets(0,0,0,0);
 		gc.gridx = 1;
 		gc.gridy = 1;
@@ -175,7 +175,13 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 			p.add(tmpcard);
 			
 		}
-	    p.add(createLastViewCardFile());
+	    //Create and add last Cardfile to the scrollpanel
+	    ViewCardFile tmpLastCard = createLastViewCardFile();
+	    tmpLastCard.addMouseListener(this);
+	    p.add(tmpLastCard);
+	    
+	    
+	    //add Scrollpanel to the Panel
 	    add(jsp,gc);
 	    setVisible(true);
 	    
@@ -252,6 +258,12 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 		
 		System.out.println(e.getSource());
 		ViewCardFile tmpcard = (ViewCardFile) e.getSource();
+		if(tmpcard.isLastCard()){
+			
+			viewMainFrame.changeEditCardFilePaneltoCardFile(null);
+			return;
+			
+		}
 		viewMainFrame.changeLearnPaneltoCardFile(tmpcard.getCardFile());
 		try {
 			viewMainFrame.changeFrameTo("toLearnPanel");

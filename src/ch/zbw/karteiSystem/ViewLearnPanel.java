@@ -5,6 +5,7 @@ package ch.zbw.karteiSystem;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -49,6 +50,9 @@ public class ViewLearnPanel extends JPanel {
 	private Insets cardFileInsets;
 	private Dimension cardFileSize;
 	private JTextField input;
+	private JLabel noCard;
+	private JPanel selectedCardFile;
+	private Card learnCard;
 	
 	/**
 	 * 
@@ -75,6 +79,8 @@ public class ViewLearnPanel extends JPanel {
 		panelword2= new JPanel();
 		inputLabel = new JLabel("2");
 		Border border1 = BorderFactory.createLineBorder(Color.BLACK, 1);
+		noCard = new JLabel(strings.getString("noCard"));
+		strings.add(noCard);
 		paint();
 		
 		
@@ -116,6 +122,37 @@ public class ViewLearnPanel extends JPanel {
 		gc.gridheight = 1;
 		gc.gridwidth = 1;
 		add(panelcardfile1,gc);
+		panelcardfile1.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				selectCardFile(1);
+			}
+		});
 		
 		// cardfile 2
 		cardfile2 = new JLabel("2");
@@ -128,7 +165,37 @@ public class ViewLearnPanel extends JPanel {
 		panelcardfile2.add(cardfile2,BorderLayout.CENTER);
 		gc.gridx = 1;
 		add(panelcardfile2,gc);
-		
+		panelcardfile2.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				selectCardFile(2);				
+			}
+		});
 		// cardfile 3
 
 		cardfile3 = new JLabel("3");
@@ -141,6 +208,37 @@ public class ViewLearnPanel extends JPanel {
 		panelcardfile3.add(cardfile3,BorderLayout.CENTER);
 		gc.gridx = 2;
 		add(panelcardfile3,gc);
+		panelcardfile3.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				selectCardFile(3);				
+			}
+		});
 		
 		// cardfile 4
 		cardfile4 = new JLabel("4");
@@ -153,6 +251,37 @@ public class ViewLearnPanel extends JPanel {
 		panelcardfile4.add(cardfile4,BorderLayout.CENTER);
 		gc.gridx = 3;
 		add(panelcardfile4,gc);
+		panelcardfile4.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				selectCardFile(4);				
+			}
+		});
 		
 		// cardfile 5 
 		cardfile5 = new JLabel("5");
@@ -165,6 +294,37 @@ public class ViewLearnPanel extends JPanel {
 		panelcardfile5.add(cardfile5,BorderLayout.CENTER);
 		gc.gridx = 4;
 		add(panelcardfile5,gc);
+		panelcardfile5.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				selectCardFile(5);				
+			}
+		});
 		
 		
 		//Backbutton
@@ -256,7 +416,9 @@ public class ViewLearnPanel extends JPanel {
 		gcCard.gridy = 3;
 		gcCard.gridx = 1;
 		
+		//noCard of card
 		
+		card.add(noCard,gcCard);
 		
 		//add card
 		gc.gridx = 1;
@@ -332,6 +494,9 @@ public class ViewLearnPanel extends JPanel {
 		cardfile4.setText(strings.getString("file") + " 4 / "+cardfile.getNrOfCardsOfBox(4) +" "+strings.getString("card"));
 		cardfile5.setText(strings.getString("file") + " 5 / "+cardfile.getNrOfCardsOfBox(5) +" "+strings.getString("card"));
 		
+		
+		
+		
 		word1Language.setText(cardfile.getLanguage1()+": ");
 		word2Language.setText(cardfile.getLanguage2()+": ");
 		inputLabel.setText(cardfile.getLanguage2()+": ");
@@ -339,8 +504,9 @@ public class ViewLearnPanel extends JPanel {
 		panelword2.setVisible(false);
 		word2Language.setVisible(false);
 		
+		//Fill learncard with word
 		
-		
+		selectCardFile(1);
 		
 		
 		
@@ -348,7 +514,63 @@ public class ViewLearnPanel extends JPanel {
 	}
 	
 	
+	private void showNoCard(){
+		
+		Component[] componentlist = card.getComponents();
+		for(Component tmp : componentlist){
+			
+			tmp.setVisible(false);
+			
+		}
+		noCard.setVisible(true);
+	}
 	
+	private void showCard(){
+		
+		Component[] componentlist = card.getComponents();
+		for(Component tmp : componentlist){
+			
+			tmp.setVisible(true);
+			
+		}
+		noCard.setVisible(false);
+	}
+	
+	
+	private void fillNextCard(int cardFileNr){
+		
+		if(cardfile.getNrOfCardsOfBox(cardFileNr)==0){
+				showNoCard();
+				return;
+		}
+		learnCard  = cardfile.getCard(cardFileNr);
+		
+		word1.setText(learnCard.getWord1());
+		
+		showCard();
+	}
+	
+	private void selectCardFile(int nr){
+		
+		panelcardfile1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		panelcardfile2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		panelcardfile3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		panelcardfile4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+		panelcardfile5.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+			
+		if(nr==1)
+			panelcardfile1.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
+		if(nr==2)
+			panelcardfile2.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
+		if(nr==3)
+			panelcardfile3.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
+		if(nr==4)
+			panelcardfile4.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
+		if(nr==5)
+			panelcardfile5.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
+		
+		fillNextCard(nr);
+	}
 	
 	
 }
