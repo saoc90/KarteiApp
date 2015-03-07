@@ -31,11 +31,13 @@ public class ViewPanelTitleBar extends JPanel {
 		this.mainFrame = viewMainFrame;
 		gc = new GridBagConstraints();
 		strings = mainFrame.getStrings();
+		label = new JLabel(strings.getString(name));
 		strings.add(label);
-		label = new JLabel();
 		label.setFont(ViewMainFrame.FONT1);
 		label.setName(name);
 		label.setText(strings.getString(name));
+		strings.add(label);
+		label.setName(name);
 		add(label, gc);
 		this.setVisible(true);
 	}
@@ -46,10 +48,12 @@ public class ViewPanelTitleBar extends JPanel {
 		
 	}
 	
-	public void changeTitleToJTextField(){
+	public void changeTitleToJTextField(String name){
 		jtf=new JTextField();
 		label.setVisible(false);
+		jtf.setName(name);
 		add(jtf, gc);
+		strings.add(jtf);
 		this.jtf.setText("Titel eingeben...");
 	}
 	

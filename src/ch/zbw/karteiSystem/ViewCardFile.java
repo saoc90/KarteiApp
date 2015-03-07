@@ -301,7 +301,9 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		
 		addCardFile = new JLabel(strings.getString("addCardFile"),add,GridBagConstraints.CENTER);
 		addCardFile.setFont(new Font("LucidaBright",Font.BOLD,25));
+		addCardFile.setName("addCardFile");
 		strings.add(addCardFile);
+		
 		isLastCard = true;
 		add(addCardFile,gc);
 		

@@ -145,6 +145,8 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 		gc.gridy = 1;
 		gc.gridheight = 1;
 		gc.gridwidth = 4;
+		gc.weightx = 1;
+		gc.weighty = 1;
 		fillScrollPane();
 		
 		
@@ -156,29 +158,43 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 		
 		
 		
-	    JPanel p = new JPanel(new GridLayout(0,1,0,20));
+	    //JPanel p = new JPanel(new GridLayout(0,1,0,20));
+		JPanel p = new JPanel(new GridBagLayout());
+		GridBagConstraints gcsp = new GridBagConstraints();
+		gcsp.fill = GridBagConstraints.HORIZONTAL;
+		gcsp.gridheight = 1;
+		gcsp.gridwidth = 1;
+		gcsp.gridx = 0;
+		gcsp.gridy = 0;
+		gcsp.weightx = 1;
+		gcsp.weighty = 1;
+		gcsp.insets = new Insets(0,0,10,0);
+		
 	   
 	    p.setBackground(ViewMainFrame.COLOR5);
-	    JScrollPane jsp = new JScrollPane(p);
-	    jsp.setBackground(ViewMainFrame.COLOR5);
-	   
-
-	    jsp.setPreferredSize(new Dimension(390,498));
-	    //jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-	    jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-
 	    for (Iterator<CardFile> iterator = cardFiles.iterator(); iterator
 				.hasNext();) {
 			CardFile tmpCardFile = iterator.next();
 			ViewCardFile tmpcard = createViewCardFiles(tmpCardFile);
 			tmpcard.addMouseListener(this);
-			p.add(tmpcard);
+			p.add(tmpcard,gcsp);
+			gcsp.gridy ++;
 			
 		}
+	    JScrollPane jsp = new JScrollPane(p);
+	    jsp.setBackground(ViewMainFrame.COLOR5);
+
+	    jsp.setPreferredSize(new Dimension(390,495));
+	    //jsp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+	    jsp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+	    jsp.setBorder(null);
+
+	   
 	    //Create and add last Cardfile to the scrollpanel
 	    ViewCardFile tmpLastCard = createLastViewCardFile();
 	    tmpLastCard.addMouseListener(this);
-	    p.add(tmpLastCard);
+	    gcsp.insets = new Insets(0,0,0,0);
+	    p.add(tmpLastCard,gcsp);
 	    
 	    
 	    //add Scrollpanel to the Panel
@@ -256,7 +272,6 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	@Override
 	public void mousePressed(MouseEvent e) {
 		
-		System.out.println(e.getSource());
 		ViewCardFile tmpcard = (ViewCardFile) e.getSource();
 		if(tmpcard.isLastCard()){
 			

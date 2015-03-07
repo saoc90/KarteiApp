@@ -40,6 +40,7 @@ public class ViewMainFrame extends JFrame {
 	private MainHandler mainHandler;
 	private HelpCardFile helpCardFile;
 	private ViewLearnPanel learnPanel;
+	private ViewSettingsPanel settingsPanel;
 	
 	
 	public ViewMainFrame(){
@@ -55,7 +56,6 @@ public class ViewMainFrame extends JFrame {
 		helpCardFile = new HelpCardFile();
 		XmlReader reader = new XmlReader();
 		mainHandler =  reader.readFile();
-		
 		mainHandler = new MainHandler(helpCardFile.getCardFile(),"en",0);
 		container = this.getContentPane();
 		cardLayout = new CardLayout();
@@ -68,7 +68,7 @@ public class ViewMainFrame extends JFrame {
 		editCardFilePanel = new ViewEditCardFilePanel(this);
 		learnPanel = new ViewLearnPanel(this, null);
 		statsPanel = new ViewDiagramm(this);
-		
+		settingsPanel = new ViewSettingsPanel(this);
 		statsPanel.setBackground(COLOR1); 
 		statsPanel.setVisible(false);
 		addPanel(startPanel,"startPanel");
@@ -76,6 +76,7 @@ public class ViewMainFrame extends JFrame {
 		addPanel(editCardFilePanel, "editCardFilePanel");
 		addPanel(learnPanel,"learnPanel");
 		addPanel(statsPanel, "statsPanel");
+		addPanel(settingsPanel,"settingsPanel");
 		
 		
 		cardLayout.show(container, startPanel.getName());
@@ -196,12 +197,7 @@ public class ViewMainFrame extends JFrame {
  	 */
 	
 	public void changeFrameTo(String buttonName) throws Exception{
-		
-		System.out.println(buttonName);
-		
-		
-		
-		
+	
 		switch (buttonName){
 		
 		case "toStartPanel" :
@@ -224,12 +220,10 @@ public class ViewMainFrame extends JFrame {
 		case "toStatsPanel" :
 			// please change it bac to this entry after   cardLayout.show(container, startPanel.getName());
 			cardLayout.show(container, statsPanel.getName());
-			ViewMainFrame.languageCode = "de";
-			strings.changeLanguage(Strings.ENGLISH);
 			break;
 			
 		case "toSettingsPanel":
-			cardLayout.show(container, learnPanel.getName());
+			cardLayout.show(container, settingsPanel.getName());
 			break;
 			
 			

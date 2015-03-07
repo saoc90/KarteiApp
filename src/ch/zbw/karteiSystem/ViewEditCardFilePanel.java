@@ -123,7 +123,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.gridheight = 1;
 		gc.gridwidth = 5;
 		gc.fill = GridBagConstraints.HORIZONTAL;
-		titleBar.changeTitleToJTextField();
+		titleBar.changeTitleToJTextField("editTitle");
 		add(titleBar, gc);
 
 		// add(backButton);

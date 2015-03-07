@@ -143,8 +143,10 @@ public class Strings{
 		 tmp.setText(text);
 	 }
 	 for(JLabel tmp: JLabelList){
+		 if(tmp.getName()!=null){
 		 String text = getString(tmp.getName());
 		 tmp.setText(text);
+		 }
 	 }
 	 for(ViewBigButton tmp:bigButtonList){
 		 String text = getString(tmp.getName());
@@ -152,8 +154,10 @@ public class Strings{
 
 	 }
 	 for(JButton tmp:JButtonList){
+		 if(tmp.getName()!=null){
 		 String text = getString(tmp.getName());
 		 tmp.setText(text);
+		 }
 	 }
 	 }
 

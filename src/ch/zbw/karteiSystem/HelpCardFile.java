@@ -36,10 +36,10 @@ public class HelpCardFile {
 		ArrayList<Card> tmpCardList;
 		CardFile tmpCardFile;
 		
-		for (int i =0; i<3;i++){
+		for (int i =0; i<22;i++){
 			
 			tmpCardList = new ArrayList<Card>();
-			for(int i1 = 0; i1<10; i1++){
+			for(int i1 = 0; i1<22; i1++){
 				
 				tmpCard = new Card("Testwort"+i1,"Testwort2"+i1,1,1,1);
 				tmpCardList.add(tmpCard);

@@ -482,6 +482,7 @@ public class ViewLearnPanel extends JPanel {
 		input.setMinimumSize(new Dimension(300,35));
 		input.setSize(input.getPreferredSize());
 		input.setText(strings.getString("typeInOnCard"));
+		input.setName("inputOfCard");
 		strings.add(input);
 		gcCard.gridy = 3;
 		gcCard.gridx = 1;

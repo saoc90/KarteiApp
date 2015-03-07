@@ -40,7 +40,7 @@ public class ViewDiagramm extends JPanel {
 		super();
 		this.mainframe = mainframe;
 		this.strings = mainframe.getStrings();
-		this.titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR2, strings.getString("statspanel"), mainframe);
+		titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR2, "statsPanel", mainframe);
 		paint();
 	}
 	
@@ -55,6 +55,7 @@ public class ViewDiagramm extends JPanel {
 		gc.gridwidth = 3;
 		gc.insets = new Insets(20,0,0,0);
 		gc.anchor = GridBagConstraints.NORTH;
+		strings.add(titleBar);
 		add(titleBar,gc);
 		
 		
@@ -161,13 +162,6 @@ public class ViewDiagramm extends JPanel {
         return dataset;   
     }
 	
-	public static void main(String[] args){
-		JFrame main = new JFrame("Hallo");
-		ViewDiagramm d = new ViewDiagramm(new ViewMainFrame());
-		main.add(d.getIt());
-		main.setSize(800, 600);
-		main.setVisible(true);
-	}
 	
 	private JPanel getStatusBar(Color c,int width,int hight){
 		JPanel bar = new JPanel(); //vertical bar
