@@ -33,6 +33,10 @@ import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
  */
 public class ViewLearnPanel extends JPanel {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ViewMainFrame mainframe;
 	private CardFile cardfile;
 	private Strings strings;
@@ -55,7 +59,6 @@ public class ViewLearnPanel extends JPanel {
 	private Dimension cardFileSize;
 	private JTextField input;
 	private JLabel noCard;
-	private JPanel selectedCardFile;
 	private Card learnCard;
 	private int cardfileNr;
 	private boolean alreadyAnswered;

@@ -33,8 +33,8 @@ public class ViewMainFrame extends JFrame {
 	private ViewStartPanel startPanel;
 	private ViewCardFilePanel cardFilePanel;
 	private ViewEditCardFilePanel editCardFilePanel;
+	private ViewDiagramm statsPanel;
 	private Container container;
-	private JPanel statsPanel;
 	private CardLayout cardLayout;
 	private Strings strings;
 	private MainHandler mainHandler;
@@ -67,7 +67,7 @@ public class ViewMainFrame extends JFrame {
 		cardFilePanel = new ViewCardFilePanel(this);
 		editCardFilePanel = new ViewEditCardFilePanel(this);
 		learnPanel = new ViewLearnPanel(this, null);
-		statsPanel = new JPanel();
+		statsPanel = new ViewDiagramm(this);
 		
 		statsPanel.setBackground(COLOR1); 
 		statsPanel.setVisible(false);
@@ -75,6 +75,7 @@ public class ViewMainFrame extends JFrame {
 		addPanel(cardFilePanel, "cardFilePanel");
 		addPanel(editCardFilePanel, "editCardFilePanel");
 		addPanel(learnPanel,"learnPanel");
+		addPanel(statsPanel, "statsPanel");
 		
 		
 		cardLayout.show(container, startPanel.getName());
@@ -222,7 +223,7 @@ public class ViewMainFrame extends JFrame {
 			
 		case "toStatsPanel" :
 			// please change it bac to this entry after   cardLayout.show(container, startPanel.getName());
-			cardLayout.show(container, editCardFilePanel.getName());
+			cardLayout.show(container, statsPanel.getName());
 			ViewMainFrame.languageCode = "de";
 			strings.changeLanguage(Strings.ENGLISH);
 			break;
