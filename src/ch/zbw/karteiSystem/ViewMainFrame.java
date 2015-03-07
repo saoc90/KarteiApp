@@ -4,16 +4,11 @@
 package ch.zbw.karteiSystem;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Container;
 import java.awt.Font;
-import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Vector;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -60,13 +55,14 @@ public class ViewMainFrame extends JFrame {
 		helpCardFile = new HelpCardFile();
 		XmlReader reader = new XmlReader();
 		mainHandler =  reader.readFile();
+		
 		mainHandler = new MainHandler(helpCardFile.getCardFile(),"en",0);
 		container = this.getContentPane();
 		cardLayout = new CardLayout();
 		container.setLayout(cardLayout);
 
 		
-		HelpCardFile helpCardFile = new HelpCardFile();
+		
 		startPanel = new ViewStartPanel(this);
 		cardFilePanel = new ViewCardFilePanel(this);
 		editCardFilePanel = new ViewEditCardFilePanel(this);

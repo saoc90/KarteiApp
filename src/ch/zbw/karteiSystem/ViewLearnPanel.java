@@ -10,6 +10,8 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -21,6 +23,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
+
+import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
 
 
 /**
@@ -53,6 +57,8 @@ public class ViewLearnPanel extends JPanel {
 	private JLabel noCard;
 	private JPanel selectedCardFile;
 	private Card learnCard;
+	private int cardfileNr;
+	private boolean alreadyAnswered;
 	
 	/**
 	 * 
@@ -409,10 +415,73 @@ public class ViewLearnPanel extends JPanel {
 		
 		//input of card
 		input = new JTextField();
+		input.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				
+				if(input.getText().equals(strings.getString("typeInOnCard")))
+					input.setText("");
+				
+				if(e.getKeyChar()=='\n'&&alreadyAnswered){
+					fillNextCard(cardfileNr);
+					alreadyAnswered = false;
+				}else if(e.getKeyChar()=='\n'&&!alreadyAnswered){
+					checkAnswer();
+					alreadyAnswered = true;
+				}
+			
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+			
+			}
+		});
+		input.addMouseListener(new MouseListener() {
+		
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				input.setText("");
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		input.setPreferredSize(new Dimension(300,35));
 		input.setMinimumSize(new Dimension(300,35));
 		input.setSize(input.getPreferredSize());
 		input.setText(strings.getString("typeInOnCard"));
+		strings.add(input);
 		gcCard.gridy = 3;
 		gcCard.gridx = 1;
 		
@@ -534,6 +603,8 @@ public class ViewLearnPanel extends JPanel {
 			
 		}
 		noCard.setVisible(false);
+		showWord2(false);
+		
 	}
 	
 	
@@ -546,9 +617,51 @@ public class ViewLearnPanel extends JPanel {
 		learnCard  = cardfile.getCard(cardFileNr);
 		
 		word1.setText(learnCard.getWord1());
-		
+		word2.setText(learnCard.getWord2());
 		showCard();
+		input.setText(strings.getString("typeInOnCard"));
+		input.requestFocusInWindow();
+		alreadyAnswered = false;
 	}
+	
+	
+	private void showWord2(boolean show){
+		
+		word2Language.setVisible(show);
+		word2.setVisible(show);
+		panelword2.setVisible(show);
+		
+	}
+	
+	private void setWord2Border(Color color){
+		
+		panelword2.setBorder(BorderFactory.createLineBorder(color));
+		
+	}
+	
+	
+	private void checkAnswer(){
+		
+		if(input.getText().equals(learnCard.getWord2())){
+			
+			showWord2(true);
+			setWord2Border(Color.GREEN);
+			learnCard.rightAnswer();
+			
+		}else{
+			
+			showWord2(true);
+			setWord2Border(Color.RED);
+			learnCard.wrongAnswer();
+			
+			
+		}
+		
+		
+		
+		
+	}
+	
 	
 	private void selectCardFile(int nr){
 		
@@ -558,16 +671,26 @@ public class ViewLearnPanel extends JPanel {
 		panelcardfile4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		panelcardfile5.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 			
-		if(nr==1)
+		if(nr==1){
 			panelcardfile1.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
-		if(nr==2)
+			cardfileNr = 1;
+		}
+		if(nr==2){
 			panelcardfile2.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
-		if(nr==3)
+			cardfileNr = 2;
+		}
+		if(nr==3){
 			panelcardfile3.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
-		if(nr==4)
+			cardfileNr = 3;
+		}
+		if(nr==4){
 			panelcardfile4.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
-		if(nr==5)
+			cardfileNr = 4;
+		}
+		if(nr==5){
 			panelcardfile5.setBorder(BorderFactory.createLineBorder(ViewMainFrame.COLOR1));
+			cardfileNr = 5;
+		}
 		
 		fillNextCard(nr);
 	}
