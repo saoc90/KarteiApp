@@ -46,8 +46,8 @@ public class ViewLearnPanel extends JPanel {
 	private JLabel inputLabel;
 	private JLabel backButton;
 	private Icon backIcon;
-	private JLabel okButton;
-	private Icon okIcon;
+	private JLabel checkButton;
+	private Icon checkIcon;
 	private JLabel nextButton;
 	private Icon nextIcon;
 	private GridBagConstraints gc;
@@ -86,6 +86,10 @@ public class ViewLearnPanel extends JPanel {
 		inputLabel = new JLabel("2");
 		Border border1 = BorderFactory.createLineBorder(Color.BLACK, 1);
 		noCard = new JLabel(strings.getString("noCard"));
+		checkIcon = new ImageIcon("png/check.png");
+		checkButton = new JLabel(checkIcon);
+		nextIcon = new ImageIcon("png/next.png");
+		nextButton = new JLabel(nextIcon);
 		strings.add(noCard);
 		paint();
 		
@@ -420,17 +424,11 @@ public class ViewLearnPanel extends JPanel {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				
+				if(e.getKeyChar()=='\n')
+					checkAnswer();
 				if(input.getText().equals(strings.getString("typeInOnCard")))
 					input.setText("");
 				
-				if(e.getKeyChar()=='\n'&&alreadyAnswered){
-					fillNextCard(cardfileNr);
-					alreadyAnswered = false;
-				}else if(e.getKeyChar()=='\n'&&!alreadyAnswered){
-					checkAnswer();
-					alreadyAnswered = true;
-				}
-			
 				
 			}
 			
@@ -484,16 +482,94 @@ public class ViewLearnPanel extends JPanel {
 		strings.add(input);
 		gcCard.gridy = 3;
 		gcCard.gridx = 1;
+		card.add(input,gcCard);
 		
 		//noCard of card
 		
 		card.add(noCard,gcCard);
 		
+		//add CheckButton /nextButton
+		
+		gcCard.gridx = 0;
+		gcCard.gridwidth =2;
+		gcCard.gridy = 4;
+		gcCard.insets = new Insets(10,0,0,0);
+		gcCard.anchor = GridBagConstraints.CENTER;
+		card.add(checkButton,gcCard);
+		card.add(nextButton,gcCard);
+		
+		
+		checkButton.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				checkAnswer();
+				
+			}
+		});
+		nextButton.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				checkAnswer();
+				
+			}
+		});
+		
+		
 		//add card
 		gc.gridx = 1;
 		gc.gridwidth = 3;
 		gc.anchor = GridBagConstraints.CENTER;
-		card.add(input,gcCard);
+		
 		add(card,gc);
 		setVisible(true);
 		
@@ -603,6 +679,7 @@ public class ViewLearnPanel extends JPanel {
 			
 		}
 		noCard.setVisible(false);
+		nextButton.setVisible(false);
 		showWord2(false);
 		
 	}
@@ -620,8 +697,8 @@ public class ViewLearnPanel extends JPanel {
 		word2.setText(learnCard.getWord2());
 		showCard();
 		input.setText(strings.getString("typeInOnCard"));
-		input.requestFocusInWindow();
 		alreadyAnswered = false;
+		input.requestFocusInWindow();
 	}
 	
 	
@@ -642,19 +719,31 @@ public class ViewLearnPanel extends JPanel {
 	
 	private void checkAnswer(){
 		
+		if(!alreadyAnswered){
+		
 		if(input.getText().equals(learnCard.getWord2())){
 			
 			showWord2(true);
 			setWord2Border(Color.GREEN);
 			learnCard.rightAnswer();
 			
+				}else{
+			
+				showWord2(true);
+				setWord2Border(Color.RED);
+				learnCard.wrongAnswer();
+				}
+			alreadyAnswered = true;
+			checkButton.setVisible(false);
+			nextButton.setVisible(true);
 		}else{
 			
-			showWord2(true);
-			setWord2Border(Color.RED);
-			learnCard.wrongAnswer();
+			fillNextCard(cardfileNr);
+			alreadyAnswered = false;
+			checkButton.setVisible(true);
+			nextButton.setVisible(false);
 			
-			
+		
 		}
 		
 		
