@@ -29,6 +29,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.Lister.Pack;
+
 
 /**
  * @author samuelochsner
@@ -52,6 +54,7 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	private ArrayList<ViewCardFile> viewCardFiles;
 	private static ViewMainFrame viewMainFrame;
 	private MainHandler mainHandler;
+	private JScrollPane jsp;
 	
 	
 	public ViewCardFilePanel(ViewMainFrame viewMainFrame){
@@ -61,7 +64,7 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 		mainHandler = viewMainFrame.getMainHandler();
 		this.cardFiles = mainHandler.getAllCardFiles();
 		viewCardFiles = new ArrayList<ViewCardFile>();
-		this.setBackground(Color.decode("#52787b"));
+		this.setBackground(ViewMainFrame.COLOR5);
 		this.setLayout(new GridBagLayout());
 		gc = new GridBagConstraints();
 		titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR1,"viewCardFile_title", viewMainFrame	);
@@ -154,8 +157,10 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	}
 	
 	
-	private void fillScrollPane(){
+	public void fillScrollPane(){
 		
+		if(jsp!=null)
+			remove(jsp);
 		
 		
 	    //JPanel p = new JPanel(new GridLayout(0,1,0,20));
@@ -181,7 +186,7 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 			gcsp.gridy ++;
 			
 		}
-	    JScrollPane jsp = new JScrollPane(p);
+	    jsp = new JScrollPane(p);
 	    jsp.setBackground(ViewMainFrame.COLOR5);
 
 	    jsp.setPreferredSize(new Dimension(390,495));
@@ -199,6 +204,8 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	    
 	    //add Scrollpanel to the Panel
 	    add(jsp,gc);
+	    repaint();
+	    revalidate();
 	    setVisible(true);
 	    
 		

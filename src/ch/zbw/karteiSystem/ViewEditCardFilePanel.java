@@ -90,6 +90,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 				
 				try {
 					cardFile = model.updatedCardFile();
+					mainHandler.addCardFile(cardFile);
 					ViewEditCardFilePanel.viewMainFrame.changeFrameTo("toCardFilePanel");
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block

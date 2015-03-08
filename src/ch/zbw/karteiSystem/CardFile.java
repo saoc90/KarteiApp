@@ -66,6 +66,8 @@ public class CardFile
 
 	public int getProgress()
 	{
+		if(wordList==null)
+			return 0;
 		int progress = 0;
 		for(Card card:wordList){
 			if(card.getBoxNr()<CardFile.MAXBOXES){
@@ -81,6 +83,8 @@ public class CardFile
 	
 	public int getNumberOfCards()
 	{
+		if(wordList==null)
+			return 1;
 		return wordList.size();
 	}
 	
@@ -129,6 +133,8 @@ public class CardFile
 	
 	public boolean addCard(Card newCard)
 	{
+		if(wordList==null)
+			wordList = new ArrayList<Card>();
 		this.wordList.add(newCard);
 		
 		return true;

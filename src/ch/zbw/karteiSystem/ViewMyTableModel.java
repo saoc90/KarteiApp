@@ -74,6 +74,7 @@ public class ViewMyTableModel implements TableModel {
 	//Es wird eine neue Tabelle mit 200 Zeilen erstellt
 	@SuppressWarnings("unchecked")
 	public void createNewTable() {
+		wordListCard = new ArrayList<Card>();
 		wordListJTable.clear();
 		for(int i=0; i<=200; i++){
 			String tempWord1="A"+i;
@@ -92,9 +93,12 @@ public class ViewMyTableModel implements TableModel {
 	
 	//Das gespeicherte CardFile wird mit den neuen veränderten Werte gespeichert.
 	public CardFile updatedCardFile(){
+		if(cardFile==null)
+			cardFile = new CardFile(null, null, null, null, 0, false);
 		cardFile.setTitle(editCardFilePanel.getTitle());
 		cardFile.setLanguage1(language1);
 		cardFile.setLanguage2(language2);
+		if(wordListCard!=null)
 		wordListCard.clear();
 		Card tempCard;
 		for(int i=0; i<wordListJTable.size(); i++){
@@ -102,8 +106,9 @@ public class ViewMyTableModel implements TableModel {
 			String tempWord1 = tempWords.getWord1();
 			String tempWord2 = tempWords.getWord2();
 			tempCard=new Card(tempWord1, tempWord2);
-			wordListCard.add(tempCard);
+			cardFile.addCard(tempCard);
 		}
+		
 		return cardFile;
 	}
 	

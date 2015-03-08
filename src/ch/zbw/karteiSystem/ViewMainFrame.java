@@ -174,6 +174,16 @@ public class ViewMainFrame extends JFrame {
 		
 	}
 	
+	public void refreshCardFilePanel(){
+		
+		cardLayout.removeLayoutComponent(cardFilePanel);
+		cardFilePanel = new ViewCardFilePanel(this);
+		addPanel(cardFilePanel, "cardFilePanel");
+		
+		
+	}
+	
+	
 	public void changeEditCardFilePaneltoCardFile(CardFile cardfile){
 		
 		
@@ -209,6 +219,7 @@ public class ViewMainFrame extends JFrame {
 		case "toCardFilePanel" : 
 			
 			cardFilePanel.refreshAllViewCardFiles();
+			refreshCardFilePanel();
 			cardLayout.show(container, cardFilePanel.getName());
 			cardFilePanel.repaint();
 			break;
