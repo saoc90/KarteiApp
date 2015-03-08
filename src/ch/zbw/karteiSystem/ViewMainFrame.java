@@ -56,7 +56,7 @@ public class ViewMainFrame extends JFrame {
 		helpCardFile = new HelpCardFile();
 		XmlReader reader = new XmlReader();
 		mainHandler =  reader.readFile();
-		mainHandler = new MainHandler(helpCardFile.getCardFile(),"en",0);
+		//mainHandler = new MainHandler(helpCardFile.getCardFile(),"en",0);
 		container = this.getContentPane();
 		cardLayout = new CardLayout();
 		container.setLayout(cardLayout);

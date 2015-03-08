@@ -31,6 +31,7 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.text.html.HTMLDocument.Iterator;
 
 /*
  * @author Martin Thomann
@@ -90,6 +91,14 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 				
 				try {
 					cardFile = model.updatedCardFile();
+					
+					//check if the same cardfile allready exists.
+					ArrayList<CardFile> cardFiles =  mainHandler.getAllCardFiles();
+					for(int i=0;i<cardFiles.size();i++){
+						
+						if (cardFiles.get(i).equals(cardFile))
+							cardFiles.remove(i);
+					}
 					mainHandler.addCardFile(cardFile);
 					ViewEditCardFilePanel.viewMainFrame.changeFrameTo("toCardFilePanel");
 				} catch (Exception e1) {
