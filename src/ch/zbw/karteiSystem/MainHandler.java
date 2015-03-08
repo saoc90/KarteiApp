@@ -62,7 +62,7 @@ public class MainHandler
 		}
 		catch(Exception e)
 		{
-			System.out.println("Cannot add CardFile" + file.getCardFileId());			
+						
 		}
 	}
 	
@@ -75,7 +75,7 @@ public class MainHandler
 		}
 		catch(Exception e)
 		{
-			System.out.println("Cannot remove CardFile" + ID.getCardFileId());
+			
 		}
 	}
 	

@@ -139,8 +139,10 @@ public class Strings{
 	public void changeLanguage(String languageCode){
 		this.choosenLanguageCode = languageCode;
 		for(JTextField tmp: JTextfieldList){
+			if(tmp.getName()!=null){
 		 String text = getString(tmp.getName());
 		 tmp.setText(text);
+			}
 	 }
 	 for(JLabel tmp: JLabelList){
 		 if(tmp.getName()!=null){

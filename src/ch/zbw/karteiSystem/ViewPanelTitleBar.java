@@ -54,7 +54,7 @@ public class ViewPanelTitleBar extends JPanel {
 		jtf.setName(name);
 		add(jtf, gc);
 		strings.add(jtf);
-		this.jtf.setText("Titel eingeben...");
+		this.jtf.setText(strings.getString("editTitle"));
 	}
 	
 	public JLabel getLabel() {

@@ -128,13 +128,18 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		
 		JPanel settingsPanel = new JPanel(new GridBagLayout());
 		settingsPanel.setBackground(ViewMainFrame.COLOR5);
-		settingsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), "settings"));
+		settingsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), strings.getString("SettingsPanel")));
+		strings.add(settingsPanel);
 		GridBagConstraints gcp = new GridBagConstraints();
 		gcp.gridx = 0;
 		gcp.gridy = 0;
 		
 		//add LanguageLabel
+		gcp.anchor = GridBagConstraints.LINE_START;
+		gcp.ipadx = 50;
+		gc.ipady = 50;
 		languageLabel = new JLabel(strings.getString("languageLabel"));
+		languageLabel.setName("languageLabel");
 		strings.add(languageLabel);
 		settingsPanel.add(languageLabel, gcp);
 		
@@ -148,6 +153,7 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		gcp.gridx = 0;
 		resetLabel = new JLabel(strings.getString("resetLabel"));
 		strings.add(resetLabel);
+		resetLabel.setName("resetLabel");
 		settingsPanel.add(resetLabel,gcp);
 		
 		//add resetButton
@@ -189,7 +195,9 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		gc.gridy = 1;
 		gc.anchor = GridBagConstraints.CENTER;
 		gc.gridwidth = 2;
-		gc.insets = new Insets(0,0,100,150);
+		gc.insets = new Insets(0,0,50,150);
+		gc.ipadx = 200;
+		gc.ipady = 350;
 		add(settingsPanel,gc);
 		
 		

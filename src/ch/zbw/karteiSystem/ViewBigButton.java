@@ -111,7 +111,7 @@ public class ViewBigButton extends JPanel implements MouseListener{
 	}
 
 	public void mouseClicked(MouseEvent e){
-	System.out.println(" vom Button:  "+ title+ " " + e.getSource() );
+	
 	}
 
 	public void mouseEntered(MouseEvent e){}

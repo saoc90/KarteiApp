@@ -53,7 +53,7 @@ public class ViewMyTableModel implements TableModel {
 		
 		wordListJTable.clear();
 		int c = 0;
-		while (c <= wordListCard.size()) {
+		while (c <wordListCard.size()) {
 			String tempWord1=wordListCard.get(c).getWord1();
 			String tempWord2=wordListCard.get(c).getWord1();
 			ViewEditCardFileWords words= new ViewEditCardFileWords(tempWord1, tempWord2);

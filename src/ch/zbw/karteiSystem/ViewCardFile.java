@@ -147,7 +147,6 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		gc.gridx = 0;
 		languages = new JLabel(cardFile.getLanguage1()+" - "+cardFile.getLanguage2(),languagesIcon,SwingConstants.CENTER);
 		languages.setPreferredSize(new Dimension(250,16));
-		System.out.println(languages.getPreferredSize());
 		add(languages, gc);
 		
 		
@@ -190,7 +189,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 				cardFile.setLanguageSwitched();
 				refresh();
 				
-				System.out.println("Language Changed");
+				
 			}
 		});
 		add(changeLanguages, gc);
@@ -259,7 +258,6 @@ public class ViewCardFile extends JPanel implements MouseListener {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("Settings klicked");
 				mainframe.changeEditCardFilePaneltoCardFile(cardFile);
 				try {
 					mainframe.changeFrameTo("toEditCardFilePanel");
