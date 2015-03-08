@@ -25,6 +25,7 @@ public class ViewMyTableModel implements TableModel {
 	private int id;
 	private boolean languageSwitched;
 	private static ViewMainFrame viewMainFrame;
+	private ViewEditCardFilePanel editCardFilePanel;
 
 	@SuppressWarnings("rawtypes")
 	private Vector wordListJTable=new Vector();
@@ -33,8 +34,9 @@ public class ViewMyTableModel implements TableModel {
 
 	//Konstruktor - Diesem wird entweder ein CardFile oder null übergeben.
 	//Wenn Null übergeben wird, wird eine neue Tabelle erzeugt, ansonsten die CardFile ausgelesen.
-	public ViewMyTableModel(CardFile cardFile) {
+	public ViewMyTableModel(CardFile cardFile, ViewEditCardFilePanel editCardFilePanel) {
 		this.cardFile = cardFile;
+		this.editCardFilePanel = editCardFilePanel;
 		if (cardFile != null) {
 			readCardFile();
 		} else {
@@ -90,7 +92,7 @@ public class ViewMyTableModel implements TableModel {
 	
 	//Das gespeicherte CardFile wird mit den neuen veränderten Werte gespeichert.
 	public CardFile updatedCardFile(){
-		cardFile.setTitle(titel);
+		cardFile.setTitle(editCardFilePanel.getTitle());
 		cardFile.setLanguage1(language1);
 		cardFile.setLanguage2(language2);
 		wordListCard.clear();

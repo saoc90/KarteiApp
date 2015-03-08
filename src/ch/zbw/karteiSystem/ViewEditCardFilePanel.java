@@ -142,7 +142,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.gridy = 1;
 		gc.gridx = 0;
 		gc.gridwidth = 1;
-		gc.gridheight = 1;
+		gc.gridheight = 4;
 		add(backButton, gc);
 
 		gc.anchor = GridBagConstraints.LINE_START;
@@ -151,7 +151,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.gridx = 1;
 		gc.gridy = 1;
 		gc.gridheight = 1;
-		gc.gridwidth = 4;
+		gc.gridwidth = 2;
 		createTable(null);
 
 		// Buttons Import/Export hinzufügen
@@ -160,19 +160,19 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.weighty = 1;
 		gc.anchor = GridBagConstraints.LINE_START;
 		gc.insets = new Insets(0, 20, 0, 0);
-		gc.gridy = 2;
-		gc.gridx = 2;
+		gc.gridy = 1;
+		gc.gridx = 4;
 		gc.gridwidth = 1;
 		gc.gridheight = 1;
 		add(button1, gc);
 
 		gc.fill = GridBagConstraints.NONE;
 		gc.weightx = 2;
-		gc.weighty = 3;
+		gc.weighty = 2;
 		gc.anchor = GridBagConstraints.LINE_START;
 		gc.insets = new Insets(0, 20, 0, 0);
 		gc.gridy = 2;
-		gc.gridx = 3;
+		gc.gridx = 4;
 		gc.gridwidth = 1;
 		gc.gridheight = 1;
 		add(button2, gc);
@@ -184,18 +184,26 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	// Tabelle erstellen
 	public void createTable(CardFile cardFile) {
 		this.cardFile = cardFile;
-		model=new ViewMyTableModel(cardFile);
+		if(p!=null&&p.getComponents()!=null)
+			p.setVisible(false);
+		model=new ViewMyTableModel(cardFile,this);
 		table=new JTable(model);
-		table.setPreferredSize(new Dimension(400,500));
+		if(cardFile!=null)
+		titleBar.changeTitleJTextField(cardFile.getTitle());
+		//table.setPreferredSize(new Dimension(400,500));
 		scrollPane = new JScrollPane(table);
-		scrollPane.setPreferredSize(new Dimension(450,501));
+		//scrollPane.setPreferredSize(new Dimension(450,501));
 		p = new JPanel(new GridLayout(0, 1, 0, 20));
-		p.setPreferredSize(new Dimension(455, 502));
+		//p.setPreferredSize(new Dimension(455, 502));
 		p.setVisible(true);
 		p.setBackground(ViewMainFrame.COLOR5);
-		p.setPreferredSize(new Dimension(360, 400));
+		//p.setPreferredSize(new Dimension(360, 400));
 		p.add(scrollPane);
 		gc.fill = GridBagConstraints.BOTH;
+		gc.gridy = 1;
+		gc.gridx = 2;
+		gc.insets = new Insets(20,0,20,0);
+		gc.gridheight = 4;
 		add(p, gc);
 		
 	}
@@ -213,4 +221,10 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	
 	}
 
+	public String getTitle(){
+		
+		return titleBar.getTitle();
+		
+	}
+	
 }

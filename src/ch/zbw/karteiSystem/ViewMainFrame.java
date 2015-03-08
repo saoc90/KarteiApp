@@ -178,6 +178,7 @@ public class ViewMainFrame extends JFrame {
 		
 		
 		editCardFilePanel.createTable(cardfile);
+		editCardFilePanel.repaint();
 		
 		
 		
@@ -209,6 +210,7 @@ public class ViewMainFrame extends JFrame {
 			
 			cardFilePanel.refreshAllViewCardFiles();
 			cardLayout.show(container, cardFilePanel.getName());
+			cardFilePanel.repaint();
 			break;
 			
 		case "toEditCardFilePanel" : 

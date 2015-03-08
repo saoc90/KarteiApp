@@ -52,9 +52,29 @@ public class ViewPanelTitleBar extends JPanel {
 		jtf=new JTextField();
 		label.setVisible(false);
 		jtf.setName(name);
+		jtf.setPreferredSize(new Dimension(50, 20));
 		add(jtf, gc);
 		strings.add(jtf);
 		this.jtf.setText(strings.getString("editTitle"));
+	}
+	
+	public void changeTitleJTextField(String name){
+		if(jtf!=null){
+			
+			jtf.setText(name);
+			
+		}
+		
+		
+	}
+	
+	public String getTitle(){
+		
+		if(jtf!=null)
+			return jtf.getText();
+		
+		return null;
+		
 	}
 	
 	public JLabel getLabel() {
