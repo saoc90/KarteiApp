@@ -87,6 +87,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			public void mousePressed(MouseEvent e) {
 				
 				try {
+					CardFile cardFile = model.updatedCardFile();
 					ViewEditCardFilePanel.viewMainFrame.changeFrameTo("toCardFilePanel");
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -198,7 +199,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			model.impTable(viewMainFrame);
 		}
 		if(e.getSource().equals(button2)){
-			model.impTable(viewMainFrame);
+			model.expTable(viewMainFrame);
 		}
 		
 		

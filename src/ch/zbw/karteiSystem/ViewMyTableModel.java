@@ -69,7 +69,7 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
-	//Es wird eine neue Tabelle mit 20 Zeilen erstellt
+	//Es wird eine neue Tabelle mit 200 Zeilen erstellt
 	@SuppressWarnings("unchecked")
 	public void createNewTable() {
 		wordListJTable.clear();
@@ -136,16 +136,29 @@ public class ViewMyTableModel implements TableModel {
 	}
 	
 	//Die wordListJTable wird als CSV exportiert.
-//	public void expTable(ViewMainFrame viewMainFrame){
-//		ExportCSV exp=new ExportCSV();
-//		try {
-//			exp.exportList(wordListJTable, viewMainFrame);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
-//	
+	public void expTable(ViewMainFrame viewMainFrame){
+		ExportCSV exp=new ExportCSV();
+		ArrayList<ArrayList<String>> tempExpList=new ArrayList<ArrayList<String>>();
+		ArrayList<String> wordListAL1=new ArrayList<String>();
+		ArrayList<String> wordListAL2=new ArrayList<String>();
+		
+		try {
+			for(int i=0; i<=wordListJTable.size(); i++){
+				ViewEditCardFileWords tempWords = (ViewEditCardFileWords) wordListJTable.get(i);
+				wordListAL1.add(tempWords.getWord1());
+				wordListAL2.add(tempWords.getWord2());
+			}
+			tempExpList.add(wordListAL1);
+			tempExpList.add(wordListAL2);
+			
+			exp.exportList(tempExpList, viewMainFrame);
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 	
 
