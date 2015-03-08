@@ -95,7 +95,7 @@ public class ViewMyTableModel implements TableModel {
 		cardFile.setLanguage2(language2);
 		wordListCard.clear();
 		Card tempCard;
-		for(int i=0; i<=wordListJTable.size(); i++){
+		for(int i=0; i<wordListJTable.size(); i++){
 			ViewEditCardFileWords tempWords=(ViewEditCardFileWords) wordListJTable.get(i);
 			String tempWord1 = tempWords.getWord1();
 			String tempWord2 = tempWords.getWord2();

@@ -50,7 +50,10 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	private Icon backButtonIcon;
 	private MainHandler mainHandler;
 	private ViewMyTableModel model;
-
+	private JPanel p;
+	private JTable table;
+	private JScrollPane scrollPane;
+	private CardFile cardFile;
 
 //	private JTable table;
 //	private JScrollPane scrollPane;
@@ -66,7 +69,6 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc = new GridBagConstraints();
 		titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR1,
 				"viewCardFile_title", viewMainFrame);
-		this.setVisible(false);
 		button1 = new JButton();
 		button2 = new JButton();
 		button1.setText("import");
@@ -87,7 +89,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			public void mousePressed(MouseEvent e) {
 				
 				try {
-					CardFile cardFile = model.updatedCardFile();
+					cardFile = model.updatedCardFile();
 					ViewEditCardFilePanel.viewMainFrame.changeFrameTo("toCardFilePanel");
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -175,22 +177,27 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.gridheight = 1;
 		add(button2, gc);
 
-		setVisible(true);
+		
 
 	}
 
 	// Tabelle erstellen
 	public void createTable(CardFile cardFile) {
+		this.cardFile = cardFile;
 		model=new ViewMyTableModel(cardFile);
-		JTable table=new JTable(model);
-		JScrollPane scrollPane = new JScrollPane(table);
-
-		JPanel p = new JPanel(new GridLayout(0, 1, 0, 20));
+		table=new JTable(model);
+		table.setPreferredSize(new Dimension(400,500));
+		scrollPane = new JScrollPane(table);
+		scrollPane.setPreferredSize(new Dimension(450,501));
+		p = new JPanel(new GridLayout(0, 1, 0, 20));
+		p.setPreferredSize(new Dimension(455, 502));
+		p.setVisible(true);
 		p.setBackground(ViewMainFrame.COLOR5);
 		p.setPreferredSize(new Dimension(360, 400));
 		p.add(scrollPane);
+		gc.fill = GridBagConstraints.BOTH;
 		add(p, gc);
-		setVisible(true);
+		
 	}
 
 
