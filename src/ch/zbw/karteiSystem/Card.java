@@ -56,15 +56,13 @@ public class Card
 	public void wrongAnswer()
 	{
 		this.wrongAnswer++;
-		// 	counts +1 to wrong Answer
-		// puts the word to the first box
+		boxNr = 1;
 	}
 	
 	public void rightAnswer()
 	{
 		this.rightAnswer++;
-		// 	put the word to the next box
-		// counts +1 to the right Answer
+		boxNr++;
 	}
 
 	public int getWrongAnswers()
@@ -80,8 +78,8 @@ public class Card
 	public void reset()
 	{
 		/**	set all counters back to zero.
-		 * 	WrongAnswer und Rightanswer werden zurückgesetzt
-		 *  BoxNr wird zurückgesetzt (back to 1)
+		 * 	WrongAnswer und Rightanswer werden zurï¿½ckgesetzt
+		 *  BoxNr wird zurï¿½ckgesetzt (back to 1)
 		 */ 
 		this.wrongAnswer = 0;
 		this.rightAnswer = 0;

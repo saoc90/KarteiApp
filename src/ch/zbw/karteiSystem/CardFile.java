@@ -72,7 +72,7 @@ public class CardFile
 		int progress = 0;
 		for(Card card:wordList){
 			if(card.getBoxNr()<CardFile.MAXBOXES){
-				progress += card.getBoxNr();
+				progress += (card.getBoxNr()-1);
 			}
 		}
 		if(wordList.size()==0){

@@ -166,13 +166,13 @@ public class ViewDiagramm extends JPanel {
 	private JPanel getStatusBar(Color c,int width,int hight){
 		JPanel bar = new JPanel(); //vertical bar
 		JPanel backpanel = new JPanel(); 
-		
-		int score = mainframe.getMainHandler().getScore();
-		score = 2500;
-		score = score*350/2500;//matching to bar.
-		
-		
 		int barHight = 350;
+		int score = mainframe.getMainHandler().getScore();
+		score = mainframe.getMainHandler().getScore();
+		score = (score*barHight)/2500;//matching to bar.
+		
+		
+		
 		bar.setBackground(Color.GRAY);
 		bar.setPreferredSize(new Dimension(20,barHight));
 		bar.setLayout(new GridLayout(barHight, 1));
@@ -188,9 +188,8 @@ public class ViewDiagramm extends JPanel {
 		
 		for(int i=0;i<score;i++){
 			JPanel status = new JPanel(); //status
-			status.setBackground(new Color((((i+(barHight-score)*255)/barHight)),255-((( i+ (barHight-score)*250)/barHight)) , 0));
+			status.setBackground(new Color((i*255)/barHight,255-((i*255)/barHight), 0));
 			bar.add(status);
-			i+=20;
 		}
 		
 	
