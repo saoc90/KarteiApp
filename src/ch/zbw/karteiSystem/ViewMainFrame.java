@@ -53,15 +53,19 @@ public class ViewMainFrame extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		helpCardFile = new HelpCardFile();
+
 		XmlReader reader = new XmlReader();
 		mainHandler =  reader.readFile();
-		//mainHandler = new MainHandler(helpCardFile.getCardFile(),"en",0);
+		
+		strings.changeLanguage(mainHandler.getInitLanguage()); //sets initial language.
+
+		helpCardFile = new HelpCardFile();
+		
 		container = this.getContentPane();
 		cardLayout = new CardLayout();
 		container.setLayout(cardLayout);
 
-		
+
 		
 		startPanel = new ViewStartPanel(this);
 		cardFilePanel = new ViewCardFilePanel(this);

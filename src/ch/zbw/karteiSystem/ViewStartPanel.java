@@ -40,7 +40,7 @@ public class ViewStartPanel extends JPanel implements ActionListener {
 		this.mainFrame = mainFrame;
 		this.setVisible(true);
 		strings = mainFrame.getStrings();
-		strings.setChoosenLanguageCode("en");
+
 		
 		setMenu();
 	}

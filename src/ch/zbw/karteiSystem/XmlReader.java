@@ -26,7 +26,6 @@ import org.xml.sax.SAXException;
 public class XmlReader {
 
 	private Document doc;
-	private ArrayList<Card> CardList;
 	private ArrayList<CardFile> CardFileList;
 
 
@@ -93,7 +92,7 @@ public class XmlReader {
 	 * @return MainHandler filled with all data.
 	 */
 	private MainHandler getData() {
-		NodeList nodes = doc.getElementsByTagName(XmlWriter.URI);
+		NodeList nodes = doc.getElementsByTagName("data");
 		String language = "";
 		int score = 0;
 		Node node = nodes.item(0);
@@ -105,7 +104,8 @@ public class XmlReader {
 			language = getValue("language", element);
 			score = parseInt(getValue("score", element));
 		}
-		for (int i = 1; i < nodes.getLength(); i++) {
+		nodes = doc.getElementsByTagName("cardFile");
+		for (int i = 0; i < nodes.getLength(); i++) {
 			CardFileList.add(generateCardFileList(nodes.item(i)));
 		}
 
@@ -146,7 +146,7 @@ public class XmlReader {
 
 			NodeList nodes = element.getElementsByTagName("card");
 			for (int i = 0; i < nodes.getLength(); i++) {
-				CardList.add(genarateCard(nodes.item(i)));
+				cardList.add(genarateCard(nodes.item(i)));
 			}
 
 		}
