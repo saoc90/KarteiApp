@@ -26,6 +26,7 @@ public class App {
 				Dimension dimension = new Dimension(800,600);
 				mainframe.setMinimumSize(dimension);
 				mainframe.setVisible(true);
+				System.out.println(mainframe.getMainHandler().getPercentOfRights()+"  "+mainframe.getMainHandler().getScore());
 			}
 	
 		

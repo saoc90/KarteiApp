@@ -116,19 +116,19 @@ public class ViewDiagramm extends JPanel {
 		gc.gridwidth = 1;
 		gc.insets = new Insets(0,0,0,0);
 		gc.anchor = GridBagConstraints.CENTER;
-		add(pieChartRightWrong(Color.ORANGE,400	,300),gc);
+		add(pieChartRightWrong(ViewMainFrame.COLOR1,400	,300),gc);
 		
 		//add statusbar
 		gc.gridx = 2;
-		add(getStatusBar(Color.ORANGE, 200, 400),gc);
+		add(getStatusBar(ViewMainFrame.COLOR1, 200, 400),gc);
 	}
 	
 	
-	public JPanel getIt(){
-		add(pieChartRightWrong(Color.ORANGE,400	,300));
-		add(getStatusBar(Color.ORANGE, 200, 400));
-		return this;
-	}
+//	public JPanel getIt(){
+//		add(pieChartRightWrong(ViewMainFrame.COLOR4,400	,300));
+//		add(getStatusBar(Color.ORANGE, 200, 400));
+//		return this;
+//	}
 	
 	private ChartPanel pieChartRightWrong(Color c,int width, int hight){
 		PieDataset dataset = createDataset();
@@ -156,9 +156,9 @@ public class ViewDiagramm extends JPanel {
 
 	private  PieDataset createDataset() {
         DefaultPieDataset dataset = new DefaultPieDataset();
-        int rightAnswers = mainframe.getMainHandler().getPercentOfRights();
-        dataset.setValue(strings.getString("RightAnswers%"), rightAnswers);
-        dataset.setValue(strings.getString("WrongAnswers%"), 100-rightAnswers);
+        int rightAnswers = 50;  //mainframe.getMainHandler().getPercentOfRights();
+        dataset.setValue(strings.getString("RightAnswers%"), 50);
+        dataset.setValue(strings.getString("WrongAnswers%"), 100);
         return dataset;   
     }
 	
@@ -168,7 +168,6 @@ public class ViewDiagramm extends JPanel {
 		JPanel backpanel = new JPanel(); 
 		int barHight = 350;
 		int score = mainframe.getMainHandler().getScore();
-		score = mainframe.getMainHandler().getScore();
 		score = (score*barHight)/2500;//matching to bar.
 		
 		
@@ -177,18 +176,21 @@ public class ViewDiagramm extends JPanel {
 		bar.setPreferredSize(new Dimension(20,barHight));
 		bar.setLayout(new GridLayout(barHight, 1));
 		
-		
+		int delatRedGreen = 0; 
 
 		
-		for(int i=score;i<barHight;i++){
+		for(int i=score;i<barHight;i++){ //set gray part of bar.
 			JPanel clear = new JPanel();
 			clear.setBackground(Color.LIGHT_GRAY);
 			bar.add(clear);
+			delatRedGreen++;
 		}
 		
-		for(int i=0;i<score;i++){
+		delatRedGreen = (delatRedGreen*255)/barHight;
+		
+		for(int i=0;i<score;i++){ //set colored part of bar.
 			JPanel status = new JPanel(); //status
-			status.setBackground(new Color((i*255)/barHight,255-((i*255)/barHight), 0));
+			status.setBackground(new Color((i*255)/barHight+delatRedGreen,255-((i*255)/barHight)-delatRedGreen, 0));
 			bar.add(status);
 		}
 		

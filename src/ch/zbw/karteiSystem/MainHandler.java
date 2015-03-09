@@ -17,6 +17,7 @@ public class MainHandler
 	private ArrayList<CardFile> cardfiles;
 	private String initLanguage;
 	private int score;
+	private int initScore;
 	
 	
 	
@@ -32,6 +33,7 @@ public class MainHandler
 		this.cardfiles = cardfiles;
 		this.initLanguage = initLanguage;
 		this.score = score;
+		this.initScore = score;
 		
 	}
 	
@@ -68,6 +70,7 @@ public class MainHandler
 	
 	public void removeCardFile(CardFile ID)
 	{
+		getOldScore();
 		try
 		{
 		   /** remove CardFile from CardFile ArrayList */
@@ -77,6 +80,16 @@ public class MainHandler
 		{
 			
 		}
+	}
+	
+	private void getOldScore(){
+		int tmpScore = 0;
+		for(CardFile file:cardfiles){
+			for(Card card: file.getAllCards()){
+				tmpScore += card.getRightAnswers();
+			}
+		}
+		this.score = tmpScore;
 	}
 	
 	public int getPercentOfRights()
@@ -129,8 +142,19 @@ public class MainHandler
 	
 	public int getScore()
 	{
-		return this.score;
+		int tmpScore = 0;
+		for(CardFile file:cardfiles){
+			for(Card card: file.getAllCards()){
+				tmpScore += card.getRightAnswers();
+			}
+		}
+		if(score>2500){
+			return 2500;
+		}
+		return this.score+tmpScore;
 	}
+	
+	
 	
 	public String getInitLanguage()
 	{
