@@ -119,12 +119,12 @@ public class ViewMyTableModel implements TableModel {
 		ImportCSV imp=new ImportCSV();
 		try {
 			ArrayList<ArrayList<String>> tempWordListAL=imp.importList(viewMainFrame);
-			ArrayList<String> tempWordList1=tempWordListAL.get(0);
-			ArrayList<String> tempWordList2=tempWordListAL.get(0);
+
 			
-			for(int i=0; i<=tempWordList1.size(); i++){
-				String tempWord1 = tempWordList1.get(i);
-				String tempWord2 = tempWordList2.get(i);
+			for(int i=0; i<=tempWordListAL.size(); i++){
+				ArrayList<String> tempWordList=tempWordListAL.get(i);
+				String tempWord1 = tempWordList.get(0);
+				String tempWord2 = tempWordList.get(1);
 				ViewEditCardFileWords tempWords = new ViewEditCardFileWords(tempWord1, tempWord2);
 				wordListJTable.add(tempWords);
 			}
@@ -146,17 +146,18 @@ public class ViewMyTableModel implements TableModel {
 	public void expTable(ViewMainFrame viewMainFrame){
 		ExportCSV exp=new ExportCSV();
 		ArrayList<ArrayList<String>> tempExpList=new ArrayList<ArrayList<String>>();
-		ArrayList<String> wordListAL1=new ArrayList<String>();
-		ArrayList<String> wordListAL2=new ArrayList<String>();
+
 		
 		try {
-			for(int i=0; i<=wordListJTable.size(); i++){
+			for(int i=0; i<wordListJTable.size(); i++){
 				ViewEditCardFileWords tempWords = (ViewEditCardFileWords) wordListJTable.get(i);
-				wordListAL1.add(tempWords.getWord1());
-				wordListAL2.add(tempWords.getWord2());
+				ArrayList<String> wordList=new ArrayList<String>();
+				wordList.add(tempWords.getWord1());
+				wordList.add(tempWords.getWord2());
+				tempExpList.add(wordList);
 			}
-			tempExpList.add(wordListAL1);
-			tempExpList.add(wordListAL2);
+
+
 			
 			exp.exportList(tempExpList, viewMainFrame);
 			
