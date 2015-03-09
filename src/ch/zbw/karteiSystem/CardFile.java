@@ -1,6 +1,7 @@
 package ch.zbw.karteiSystem;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import ch.zbw.karteiSystem.Card;
 
@@ -104,7 +105,32 @@ public class CardFile
 	
 	public Card getCard(int boxNr)
 	{
-		return this.wordList.get(boxNr);
+		ArrayList<Card> tmp = new ArrayList<>();
+		for(int i = 0;i<wordList.size();i++){ 
+			if(wordList.get(i).getBoxNr()==boxNr){
+				tmp.add(this.wordList.get(i)); // gets all words from this box.
+			}
+		}
+		if(tmp.size()==0){
+		return null;
+		}
+		int c = 1;
+		while(c!=0){//sort the tmp list 
+			c=0;
+			for(int i=0;i<(tmp.size()-1);i++){ //-1 for if advice.
+				if(tmp.get(i).getWrongAnswers()>tmp.get(i+1).getWrongAnswers()){
+					tmp.add(i, tmp.remove(i+1));
+					c++;
+				}
+			}
+		}
+		Random r = new Random();
+		int cardnr = r.nextInt(tmp.size());
+		int deltaWrong = r.nextInt(tmp.get(tmp.size()-1).getWrongAnswers()+1);
+		if(deltaWrong>2&&cardnr<tmp.size()-2){
+			cardnr +=2;
+		}
+		return tmp.get(cardnr);
 	}
 	
 	public ArrayList<Card> getAllCards()
