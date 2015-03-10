@@ -62,6 +62,7 @@ public class ViewLearnPanel extends JPanel {
 	private Card learnCard;
 	private int cardfileNr;
 	private boolean alreadyAnswered;
+	private MainHandler mainhandler;
 	
 	/**
 	 * 
@@ -71,6 +72,7 @@ public class ViewLearnPanel extends JPanel {
 		this.mainframe = mainframe;
 		this.cardfile = cardfile;
 		strings = mainframe.getStrings();
+		this.mainhandler = mainframe.getMainHandler();
 		
 		//Panel settings
 		setBackground(ViewMainFrame.COLOR5);
@@ -730,6 +732,7 @@ public class ViewLearnPanel extends JPanel {
 			showWord2(true);
 			setWord2Border(Color.GREEN);
 			learnCard.rightAnswer();
+			mainhandler.increaseScore();
 			fillCardFile(cardfile, false);
 			
 				}else{

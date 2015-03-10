@@ -187,6 +187,15 @@ public class ViewMainFrame extends JFrame {
 		
 	}
 	
+	public void refreshViewEditCardFilePanel(){
+		
+		
+		cardLayout.removeLayoutComponent(editCardFilePanel);
+		editCardFilePanel = new ViewEditCardFilePanel(this);
+		addPanel(editCardFilePanel, "editCardFilePanel");
+		
+	}
+	
 	
 	public void changeEditCardFilePaneltoCardFile(CardFile cardfile){
 		

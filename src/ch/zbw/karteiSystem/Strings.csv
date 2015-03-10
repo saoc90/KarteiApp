@@ -17,3 +17,7 @@ SettingsPanel;Settings;Einstellungen;asdfa;asdfasdf
 RightAnswers%;right answers in %;Richtige Antworten in %;asdf;asdf
 WrongAnswers%;wrong answers in %;falsche Antworten in %;sadf;asdfdf
 pieChartTitle;titel;titel;titel;titel
+deleteCardfile;Delete;Löschen;asdf;asdf
+resetCardfile;Reset;Zurücksetzen;asdf;asdf
+importButton;Import;Importieren;asdf;asdf
+exportButton;Export;Exportieren;asdf;asdf

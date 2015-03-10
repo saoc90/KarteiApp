@@ -45,6 +45,8 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	private Strings strings;
 	private JButton button1;
 	private JButton button2;
+	private JButton resetButton;
+	private JButton deleteButton;
 	private GridBagConstraints gc;
 	private ViewPanelTitleBar titleBar;
 	private JLabel backButton;
@@ -70,12 +72,14 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc = new GridBagConstraints();
 		titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR1,
 				"viewCardFile_title", viewMainFrame);
-		button1 = new JButton();
-		button2 = new JButton();
-		button1.setText("import");
+		button1 = new JButton(strings.getString("importButton"));
+		button2 = new JButton(strings.getString("exportButton"));
 		button1.addActionListener(this);
-		button2.setText("export");
 		button2.addActionListener(this);
+		resetButton = new JButton(strings.getString("resetCardfile"));
+		strings.add(resetButton);
+		deleteButton = new JButton(strings.getString("deleteCardfile"));
+		strings.add(deleteButton);
 		backButtonIcon = new ImageIcon("png/back.png");
 		backButton = new JLabel(backButtonIcon);
 		backButton.addMouseListener(new MouseListener() {
@@ -90,16 +94,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			public void mousePressed(MouseEvent e) {
 				
 				try {
-					cardFile = model.updatedCardFile();
-					
-					//check if the same cardfile allready exists.
-					ArrayList<CardFile> cardFiles =  mainHandler.getAllCardFiles();
-					for(int i=0;i<cardFiles.size();i++){
-						
-						if (cardFiles.get(i).equals(cardFile))
-							cardFiles.remove(i);
-					}
-					mainHandler.addCardFile(cardFile);
+					writeToCardfile(false);
 					ViewEditCardFilePanel.viewMainFrame.changeFrameTo("toCardFilePanel");
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -165,27 +160,108 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		createTable(null);
 
 		// Buttons Import/Export hinzufügen
-		gc.fill = GridBagConstraints.NONE;
+		gc.fill = GridBagConstraints.HORIZONTAL;
 		gc.weightx = 1;
 		gc.weighty = 1;
 		gc.anchor = GridBagConstraints.LINE_START;
-		gc.insets = new Insets(0, 20, 0, 0);
+		gc.insets = new Insets(0, 10, 0, 10);
 		gc.gridy = 1;
 		gc.gridx = 4;
 		gc.gridwidth = 1;
 		gc.gridheight = 1;
 		add(button1, gc);
 
-		gc.fill = GridBagConstraints.NONE;
+		
 		gc.weightx = 2;
 		gc.weighty = 2;
 		gc.anchor = GridBagConstraints.LINE_START;
-		gc.insets = new Insets(0, 20, 0, 0);
+		gc.insets = new Insets(0, 10, 0, 10);
 		gc.gridy = 2;
 		gc.gridx = 4;
 		gc.gridwidth = 1;
 		gc.gridheight = 1;
 		add(button2, gc);
+		
+		//add resetcardfile button
+		resetButton.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardFile.resetCounters();
+				writeToCardfile(false);
+				viewMainFrame.refreshViewEditCardFilePanel();
+			}
+		});
+		gc.gridy = 3;
+		
+		add(resetButton,gc);
+		
+		//add deletecardfile button
+		deleteButton.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				writeToCardfile(true);
+				try {
+					viewMainFrame.changeFrameTo("toCardFilePanel");
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		
+		gc.gridy = 4;
+		add(deleteButton,gc);
 
 		
 
@@ -218,6 +294,21 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		
 	}
 
+	
+	private void writeToCardfile(boolean deleteThisCardfile){
+		
+		cardFile = model.updatedCardFile();
+		
+		//check if the same cardfile allready exists.
+		ArrayList<CardFile> cardFiles =  mainHandler.getAllCardFiles();
+		for(int i=0;i<cardFiles.size();i++){
+			
+			if (cardFiles.get(i).equals(cardFile))
+				cardFiles.remove(i);
+		}
+		if(deleteThisCardfile!=true)
+		mainHandler.addCardFile(cardFile);
+	}
 
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource().equals(button1)){
