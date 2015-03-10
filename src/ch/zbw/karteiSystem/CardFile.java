@@ -101,6 +101,13 @@ public class CardFile
 		this.language2 = lang;
 
 		this.languageSwitched = !this.languageSwitched;
+		
+		for(Card card:wordList){
+			String w1 = card.getWord1();
+			String w2 = card.getWord2();
+			card.setWord1(w2);
+			card.setWord2(w1);
+		}
 	}
 	
 	public Card getCard(int boxNr)
