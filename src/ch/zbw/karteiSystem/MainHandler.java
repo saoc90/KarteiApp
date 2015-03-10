@@ -17,8 +17,6 @@ public class MainHandler
 	private ArrayList<CardFile> cardfiles;
 	private String initLanguage;
 	private int score;
-	private int initScore;
-	
 	
 	
 	/**
@@ -33,7 +31,6 @@ public class MainHandler
 		this.cardfiles = cardfiles;
 		this.initLanguage = initLanguage;
 		this.score = score;
-		this.initScore = score;
 		
 	}
 	
@@ -133,6 +130,9 @@ public class MainHandler
 	return this.score;
 	}
 	
+	/**
+	 * increase the score for 1. 
+	 */
 	public void increaseScore(){
 		this.score++;
 	}
@@ -151,6 +151,17 @@ public class MainHandler
 	public void setScore(int _score)
 	{
 		this.score = _score;
+	}
+	
+	/**
+	 * set anything except the language back to manufacture settings.
+	 * 
+	 * @return true when it worked.
+	 */
+	public boolean resetApplication(){
+		this.score=0;
+		cardfiles = new ArrayList<>();
+		return true;
 	}
 	
 }
