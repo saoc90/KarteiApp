@@ -8,7 +8,9 @@ import ch.zbw.karteiSystem.CardFile;
 import ch.zbw.karteiSystem.ViewMainFrame;
 
 /**
- * @author riedener
+ * @author M.Riedener & J.Nagel
+ * 
+ * This class handels all the cardFiles and save part. It's the main logic part.
  *
  */
 public class MainHandler

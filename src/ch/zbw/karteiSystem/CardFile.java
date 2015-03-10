@@ -6,8 +6,9 @@ import java.util.Random;
 import ch.zbw.karteiSystem.Card;
 
 /**
- * @author M.Riedener
- *
+ * @author M.Riedener & J.Nagel
+ * 
+ * This Class handels a Card File.
  */
 public class CardFile
 {
@@ -94,6 +95,10 @@ public class CardFile
 		return this.languageSwitched;
 	}
 	
+	/**
+	 * Changes all the words in this Cardfile including the language parameter.
+	 * So you can change the Language of a Cardfile.
+	 */
 	public void setLanguageSwitched()
 	{
 		String lang = this.language1;
@@ -110,6 +115,12 @@ public class CardFile
 		}
 	}
 	
+	/**
+	 * returns a card from a cardfile. It prefers cards with more wrong answers.
+	 * 
+	 * @param boxNr number from where the card should be.
+	 * @return a random calculated card from the boxNr given. If there isn't anymore a card it returns null.
+	 */
 	public Card getCard(int boxNr)
 	{
 		ArrayList<Card> tmp = new ArrayList<>();
