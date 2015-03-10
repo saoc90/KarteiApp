@@ -94,6 +94,7 @@ public class ViewLearnPanel extends JPanel {
 		nextIcon = new ImageIcon("png/next.png");
 		nextButton = new JLabel(nextIcon);
 		strings.add(noCard);
+		cardfileNr=1;
 		paint();
 		
 		
@@ -630,12 +631,9 @@ public class ViewLearnPanel extends JPanel {
 	
 	
 	
-	public void fillCardFile(CardFile cardfile){
-		
+	public void fillCardFile(CardFile cardfile, boolean init){
 		
 		this.cardfile = cardfile;
-		
-		titlebar.setTitle(cardfile.getTitle());
 		
 		cardfile1.setText(strings.getString("file") + " 1 / "+cardfile.getNrOfCardsOfBox(1) +" "+strings.getString("card"));
 		cardfile2.setText(strings.getString("file") + " 2 / "+cardfile.getNrOfCardsOfBox(2) +" "+strings.getString("card"));
@@ -643,8 +641,10 @@ public class ViewLearnPanel extends JPanel {
 		cardfile4.setText(strings.getString("file") + " 4 / "+cardfile.getNrOfCardsOfBox(4) +" "+strings.getString("card"));
 		cardfile5.setText(strings.getString("file") + " 5 / "+cardfile.getNrOfCardsOfBox(5) +" "+strings.getString("card"));
 		
+		if(init){
 		
 		
+		titlebar.setTitle(cardfile.getTitle());
 		
 		word1Language.setText(cardfile.getLanguage1()+": ");
 		word2Language.setText(cardfile.getLanguage2()+": ");
@@ -655,9 +655,9 @@ public class ViewLearnPanel extends JPanel {
 		
 		//Fill learncard with word
 		
-		selectCardFile(1);
+		selectCardFile(cardfileNr);
 		
-		
+		}
 		
 		
 	}
@@ -730,12 +730,14 @@ public class ViewLearnPanel extends JPanel {
 			showWord2(true);
 			setWord2Border(Color.GREEN);
 			learnCard.rightAnswer();
+			fillCardFile(cardfile, false);
 			
 				}else{
 			
 				showWord2(true);
 				setWord2Border(Color.RED);
 				learnCard.wrongAnswer();
+				fillCardFile(cardfile, false);
 				}
 			alreadyAnswered = true;
 			checkButton.setVisible(false);
@@ -744,8 +746,10 @@ public class ViewLearnPanel extends JPanel {
 			
 			fillNextCard(cardfileNr);
 			alreadyAnswered = false;
+			if(cardfile.getNrOfCardsOfBox(cardfileNr)!=0){
 			checkButton.setVisible(true);
 			nextButton.setVisible(false);
+			}
 			
 		
 		}

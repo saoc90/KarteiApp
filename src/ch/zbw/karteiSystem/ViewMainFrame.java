@@ -173,7 +173,7 @@ public class ViewMainFrame extends JFrame {
 	public void changeLearnPaneltoCardFile(CardFile cardfile){
 		
 		
-		learnPanel.fillCardFile(cardfile);
+		learnPanel.fillCardFile(cardfile,true);
 		
 		
 	}
