@@ -157,9 +157,9 @@ public class ViewDiagramm extends JPanel {
 
 	private  PieDataset createDataset() {
         DefaultPieDataset dataset = new DefaultPieDataset();
-        int rightAnswers = 50;  //mainframe.getMainHandler().getPercentOfRights();
-        dataset.setValue(strings.getString("RightAnswers%"), 50);
-        dataset.setValue(strings.getString("WrongAnswers%"), 100);
+        int rightAnswers = mainframe.getMainHandler().getPercentOfRights();
+        dataset.setValue(strings.getString("RightAnswers%"), rightAnswers);
+        dataset.setValue(strings.getString("WrongAnswers%"), 100-rightAnswers);
         return dataset;   
     }
 	

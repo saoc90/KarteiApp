@@ -165,7 +165,7 @@ public class XmlReader {
 			word1 = getValue("word1", element);
 			word2 = getValue("word2", element);
 			wrongAnswer = parseInt(getValue("wrongAnswers", element));
-			rightAnswer = parseInt(getValue("wrongAnswers", element));
+			rightAnswer = parseInt(getValue("rightAnswers", element));
 			boxNr = parseInt(getValue("boxNr", element));
 		}
 		return new Card(word1, word2, boxNr, wrongAnswer, rightAnswer);

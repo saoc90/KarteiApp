@@ -2,14 +2,14 @@ ok;Ok;Ok;Ok;Ok
 viewCardFile_title;Please select cardfile;Bitte eine Lernkartei ausw�hlen;Compare;Comprendrelanguage_test;language_test;Sprachtest;asdfFrench;asdfItalianosettingsPanel;Settings;Einstellungen;param�atres;ImpostazionitoCardFilePanel;Learning;Lernen;asdf;asdftoStatsPanel;Statistics;Statistiken;asdf;asdftoSettingsPanel;Settings;Einstellungen;asdf;asdfcloseApp;Close;Beenden;asdf;asdfopenDialog;open;��ffnen;sadf;asdfunknownFilename;Unknown.csv;Unbekant.csv;asdf.csv;asdf.csv
 numberOfCards;Cards;Karten;cartie;cartos
 finished;finished;abgeschlossen;finito;finito
-addCardFile;Add CardFile;Kartei hinzuf�gen;Addos von Karteikartos;babelibabbeli
-typeInOnCard;Type translation in here;�bersetzung hier eingeben;lababa;hugahuga
+addCardFile;Add CardFile;Kartei hinzufügen;Addos von Karteikartos;babelibabbeli
+typeInOnCard;Type translation in here;Übersetzung hier eingeben;lababa;hugahuga
 file;File;Fach;facha;shiddy
 card;Cards;Karten;carta;fichie
 noCard;There is no card in this Cardfile;Es ist keine Karte in dieser Kartei vorhanden;arde;arde
 languageLabel;Language:;Sprache:;asdf:;asdf:
-resetLabel;Reset;Zur�cksetzen;asdf;asf
-reset;Reset;Zur�cksetzen;asdf;asdf
+resetLabel;Reset;Zurücksetzen;asdf;asf
+reset;Reset;Zurücksetzen;asdf;asdf
 editTitle;Enter a Title;Bitte Titel eingeben;asdf;asdf
 inputOfCard;Type in translation here;�bersetzung hier Eingeben;asdf;asdf;asdf
 statsPanel;Statistics;Statistiken;asdf;asfd
