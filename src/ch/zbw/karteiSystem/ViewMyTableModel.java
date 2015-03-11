@@ -20,8 +20,8 @@ public class ViewMyTableModel implements TableModel {
 	private CardFile cardFile;
 	private ArrayList<Card> wordListCard;
 	private String titel;
-	private String language1 = "Sprache1";
-	private String language2 = "Sprache2";
+	private String language1;
+	private String language2;
 	private int id;
 	private boolean languageSwitched;
 	private static ViewMainFrame viewMainFrame;
@@ -44,6 +44,11 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
+	public void addRow(){
+		wordListJTable.add(new ViewEditCardFileWords(null, null));
+	}
+	
 	//Das übergebene CardFile wird ausgelesen und in die Datenfelder gespeichert.
 	@SuppressWarnings("unchecked")
 	public void readCardFile() {
@@ -71,14 +76,22 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
-	//Es wird eine neue Tabelle mit 200 Zeilen erstellt
+	//Es wird eine neue Tabelle mit 20 Zeilen erstellt
 	@SuppressWarnings("unchecked")
 	public void createNewTable() {
+		language1="Sprache1";
+		language2="Sprache2";
 		wordListCard = new ArrayList<Card>();
 		wordListJTable.clear();
-		for(int i=0; i<=200; i++){
-			String tempWord1="A"+i;
-			String tempWord2="B"+i;
+		for(int i=0; i<20; i++){
+			String tempWord1="";
+			String tempWord2="";
+			ViewEditCardFileWords words= new ViewEditCardFileWords(tempWord1, tempWord2);
+			wordListJTable.add(words);
+		}
+		if(wordListJTable.size()<=20){
+			String tempWord1="";
+			String tempWord2="";
 			ViewEditCardFileWords words= new ViewEditCardFileWords(tempWord1, tempWord2);
 			wordListJTable.add(words);
 		}
@@ -128,6 +141,7 @@ public class ViewMyTableModel implements TableModel {
 				ViewEditCardFileWords tempWords = new ViewEditCardFileWords(tempWord1, tempWord2);
 				wordListJTable.add(tempWords);
 			}
+
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -228,6 +242,7 @@ public class ViewMyTableModel implements TableModel {
 	
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void addTableModelListener(TableModelListener l) {
 		listener.add(l);
@@ -239,5 +254,26 @@ public class ViewMyTableModel implements TableModel {
 		listener.remove(l);
 
 	}
+
+	public String getLanguage1() {
+		return language1;
+	}
+
+	public void setLanguage1(String language1) {
+		this.language1 = language1;
+		getColumnName(0);
+	}
+
+	public String getLanguage2() {
+		return language2;
+	}
+
+	public void setLanguage2(String language2) {
+		this.language2 = language2;
+		getColumnName(0);
+	}
+	
+	
+	
 
 }

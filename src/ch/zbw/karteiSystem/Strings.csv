@@ -21,3 +21,5 @@ deleteCardfile;Delete;Löschen;asdf;asdf
 resetCardfile;Reset;Zurücksetzen;asdf;asdf
 importButton;Import;Importieren;asdf;asdf
 exportButton;Export;Exportieren;asdf;asdf
+addButton;Add row;Zeile hinzufügen;asdf;asdf;
+language;language; Sprache;asdf;asdf;
