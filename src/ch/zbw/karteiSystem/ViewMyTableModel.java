@@ -134,7 +134,7 @@ public class ViewMyTableModel implements TableModel {
 			ArrayList<ArrayList<String>> tempWordListAL=imp.importList(viewMainFrame);
 
 			
-			for(int i=0; i<=tempWordListAL.size(); i++){
+			for(int i=0; i<tempWordListAL.size(); i++){
 				ArrayList<String> tempWordList=tempWordListAL.get(i);
 				String tempWord1 = tempWordList.get(0);
 				String tempWord2 = tempWordList.get(1);
