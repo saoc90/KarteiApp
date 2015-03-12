@@ -1,18 +1,11 @@
-/**
- * Read the XML file data.bin to the which is in the jar folder. 
- * this File includes all data of the Cardfile App and the readFile() methode returns a filled Object of MainHandler.
- */
 package ch.zbw.karteiSystem;
 
 import java.io.File;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -20,6 +13,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
+ * Read the XML file data.bin to the which is in the jar folder. 
+ * this File includes all data of the Cardfile App and the readFile() methode returns a filled Object of MainHandler. 
+ * 
  * @author Jwo
  *
  */

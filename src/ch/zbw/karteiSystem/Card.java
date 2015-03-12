@@ -5,7 +5,6 @@ public class Card
 	
 	private String word1;
 	private String word2;
-	private String title;
 	private int boxNr;
 	private int wrongAnswer;
 	private int rightAnswer;
