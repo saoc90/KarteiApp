@@ -147,11 +147,11 @@ public class XmlWriter {
 			
 			Element word1 = doc.createElement("word1");
 			card.appendChild(word1);
-			word1.appendChild(doc.createTextNode(cardList.get(i).getWord1()));
+			word1.appendChild(doc.createTextNode(StringtoNumber(cardList.get(i).getWord1())));
 			
 			Element word2 = doc.createElement("word2");
 			card.appendChild(word2);
-			word2.appendChild(doc.createTextNode(cardList.get(i).getWord2()));
+			word2.appendChild(doc.createTextNode(StringtoNumber(cardList.get(i).getWord2())));
 			
 			Element boxNr = doc.createElement("boxNr");
 			card.appendChild(boxNr);
@@ -165,6 +165,23 @@ public class XmlWriter {
 			card.appendChild(rightAnswers);
 			rightAnswers.appendChild(doc.createTextNode(cardList.get(i).getRightAnswers()+""));
 		}
+	}
+	
+	private String StringtoNumber(String text){
+		if(text.equals("")||text==null){
+			return " ";
+		}
+		char[] tmp = text.toCharArray();
+		String content = "";
+		for(int i=0;i<tmp.length;i++){
+			int ch = (int)tmp[i];
+			if(i==tmp.length-1){
+				content = content + ch;
+			} else {
+			content = content + ch + ";";
+			}
+		}
+		return content;
 	}
 	
 	/**

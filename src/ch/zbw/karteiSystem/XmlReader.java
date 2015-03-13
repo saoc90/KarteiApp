@@ -3,9 +3,12 @@ package ch.zbw.karteiSystem;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -164,7 +167,23 @@ public class XmlReader {
 			rightAnswer = parseInt(getValue("rightAnswers", element));
 			boxNr = parseInt(getValue("boxNr", element));
 		}
+		word1 = generateTokens(word1);
+		word2 = generateTokens(word2);
+		
 		return new Card(word1, word2, boxNr, wrongAnswer, rightAnswer);
+	}
+	
+private String generateTokens(String numbers){
+			if(numbers.equals("0")){
+				return "";
+			}
+			String content ="";
+			StringTokenizer st = new StringTokenizer(numbers, ";"); // semicolon is the delimiter in a csv file.
+			while(st.hasMoreTokens()){
+				int number = parseInt(st.nextToken());
+				content += (char) number;
+			}
+			return content;
 	}
 
 	private int parseInt(String text) {
