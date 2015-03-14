@@ -20,10 +20,10 @@ public class ViewMyTableModel implements TableModel {
 	private CardFile cardFile;
 	private Strings strings;
 	private ArrayList<Card> wordListCard;
-	private String headerLanguage1 = "Sprache 1";
-	private String headerLanguage2 = "Sprache 2";
-	private String language1;
-	private String language2;
+	private String headerLanguage1 = "Sprache 1"; // table header 1
+	private String headerLanguage2 = "Sprache 2"; // table header 2
+	private String language1="Sprache 1";
+	private String language2="Sprache 2";
 	private static ViewMainFrame viewMainFrame;
 	private ViewEditCardFilePanel editCardFilePanel;
 
@@ -129,8 +129,8 @@ public class ViewMyTableModel implements TableModel {
 		if (cardFile == null)
 			cardFile = new CardFile(null, null, null, null, 0, false);
 		cardFile.setTitle(editCardFilePanel.getTitle());
-		cardFile.setLanguage1("Sprache1");
-		cardFile.setLanguage2("Sprache2");
+		cardFile.setLanguage1(language1);
+		cardFile.setLanguage2(language2);
 		if (wordListCard != null)
 			wordListCard.clear();
 		Card tempCard;

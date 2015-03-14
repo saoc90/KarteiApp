@@ -7,7 +7,6 @@ import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -23,10 +22,13 @@ import javax.swing.JPanel;
 /**
  * @author samuelochsner
  *
+ * This class shows the settings. 
+ * You can choose the application language and reset the stats.
+ * It extends JPanel and implements the ActionListener.
  */
 public class ViewSettingsPanel extends JPanel implements ActionListener {
 
-	
+	private static final long serialVersionUID = 1L;
 	private ViewPanelTitleBar titleBar;
 	private JLabel backButton;
 	private ImageIcon backIcon;
@@ -40,7 +42,9 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 	
 	
 	/**
+	 * The constructor needs an instance of the ViewMainFrame
 	 * 
+	 * @param mainframe
 	 */
 	public ViewSettingsPanel(ViewMainFrame mainframe) {
 		
@@ -54,14 +58,11 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR3, "settingsPanel", mainframe);
 		setBackground(ViewMainFrame.COLOR5);
 		paint();
-		
-		
-		
-		
-		
-		
 	}
 	
+	/*
+	 * This method paints the settings panel.
+	 */
 	private void paint(){
 		
 		backButton.addMouseListener(new MouseListener() {
@@ -217,9 +218,6 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		case "France": strings.changeLanguage("fr");break;
 		case "Italian": strings.changeLanguage("it");break;
 		case "Russian": strings.changeLanguage("ru");break;
-		
-		
-		
 		}
 		
 	}

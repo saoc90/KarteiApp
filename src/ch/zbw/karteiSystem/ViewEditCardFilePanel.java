@@ -35,8 +35,8 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static ViewMainFrame viewMainFrame;
 	private Strings strings;
-	private JTextField language1; //The textfield for the language 1
-	private JTextField language2; //The textfield for the language 2
+	private JTextField languageJTF1; //The textfield for the language 1
+	private JTextField languageJTF2; //The textfield for the language 2
 	private JLabel langLabel1;
 	private JLabel langLabel2;
 	private JPanel languagePanel;
@@ -70,11 +70,16 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		this.setBackground(Color.decode("#52787b"));
 		this.setLayout(new GridBagLayout());
 		gc = new GridBagConstraints();
+		
+		//creates the titlebar
 		titleBar = new ViewPanelTitleBar(ViewMainFrame.COLOR1,
 				"viewCardFile_title", viewMainFrame);
-		language1 = new JTextField((strings.getString("language"))+" 1");
-		strings.add(language1);
-		language1.addMouseListener(new MouseListener() {
+		
+		//creates the JTextFields for the first language titel
+		languageJTF1 = new JTextField((strings.getString("language"))+" 1");
+		strings.add(languageJTF1);
+		//The MouseListener clears the default string in the JTextField, when MouseClicked
+		languageJTF1.addMouseListener(new MouseListener() {
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -102,23 +107,17 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				language1.setText("");
-			}
-		});
-		language1.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String word1 = language1.getText();
-				model.setLanguage1(word1);
+				languageJTF1.setText("");
 			}
 		});
 		langLabel1 = new JLabel(strings.getString("language")+" 1");
 		strings.add(langLabel1);
 		
-		language2 = new JTextField((strings.getString("language"))+" 2");
-		strings.add(language2);
-		language2.addMouseListener(new MouseListener() {
+		//creates the JTextFields for the second language titel
+		languageJTF2 = new JTextField((strings.getString("language"))+" 2");
+		strings.add(languageJTF2);
+		//The MouseListener clears the default string in the JTextField, when MouseClicked
+		languageJTF2.addMouseListener(new MouseListener() {
 			
 			@Override
 			public void mouseReleased(MouseEvent e) {
@@ -146,16 +145,8 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				language2.setText("");
+				languageJTF2.setText("");
 				
-			}
-		});
-		language2.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String word2 = language2.getText();
-				model.setLanguage2(word2);
 			}
 		});
 		langLabel2 = new JLabel(strings.getString("language")+" 2");
@@ -234,10 +225,10 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		languagePanel.setLayout(new FlowLayout());
 		
 		languagePanel.add(langLabel1);
-		languagePanel.add(language1);
+		languagePanel.add(languageJTF1);
 
 		languagePanel.add(langLabel2);
-		languagePanel.add(language2);
+		languagePanel.add(languageJTF2);
 		gc.anchor = GridBagConstraints.BASELINE;
 		gc.insets = new Insets(100, 0, 0, 0);
 		gc.gridx = 0;
@@ -427,8 +418,11 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	
 	private void writeToCardfile(boolean deleteThisCardfile){
 		
-		cardFile = model.updatedCardFile();
+		model.setLanguage1(languageJTF1.getText());
+		model.setLanguage2(languageJTF2.getText());
 		
+		cardFile = model.updatedCardFile();
+
 		//check if the same cardfile allready exists.
 		ArrayList<CardFile> cardFiles =  mainHandler.getAllCardFiles();
 		for(int i=0;i<cardFiles.size();i++){
