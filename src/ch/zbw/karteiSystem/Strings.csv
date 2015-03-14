@@ -1,33 +1,33 @@
-ok;Ok;Ok;Ok;Ok;????
-viewCardFile_title;Please select cardfile;Bitte eine Lernkartei ausw�hlen;Compare;schedario digitare per favore;????????? ????????? 
-language_test;language_test;Sprachtest;asdfFrench;test di  linguaggio ;???? ????
-settingsPanel;Settings;Einstellungen;paraméatres;impostazione;Б
-toCardFilePanel;Learning;Lernen;asdf;apprendimento;Б
-toStatsPanel;Statistics;Statistiken;asdf;statistica;Б
-toSettingsPanel;Settings;Einstellungen;asdf;impostazione;U+0041;
-closeApp;Close;Beenden;asdf;terminare;????????? 
-openDialog;open;öffnen;sadf;aprire;?????????
-unknownFilename;Unknown.csv;Unbekannt.csv;asdf.csv;ignoto.csv;???????????.csv
-numberOfCards;Cards;Karten;cartie;carta;????????
-finished;finished;abgeschlossen;finito;finito;??????????
-addCardFile;Add CardFile;Kartei hinzufügen;Addos von Karteikartos;aggiungere cartoteca ;????????? ????????? 
-typeInOnCard;Type translation in here;Übersetzung hier eingeben;lababa;traduzione ci digitare;???????  ????? ??????? 
-file;File;Fach;facha;cassetto;????
-card;Cards;Karten;carta;carta;????????
-noCard;There is no card in this Cardfile;Es ist keine Karte in dieser Kartei vorhanden;arde;non carta ci disponibile;?? ???? ???????? ?????
-languageLabel;Language:;Sprache:;asdf:;linguaggio:;????:
-resetLabel;Reset;Zurücksetzen;asdf;resettare;???????? ?????
-reset;Reset;Zurücksetzen;asdf;resettare;???????? ?????
-editTitle;Enter a Title;Bitte Titel eingeben;asdf;titolo digitare per favore;???????  ????? ?????????
-inputOfCard;Type in translation here;Übersetzung hier Eingeben;asdf;traduzione ci digitare;???????  ????? ??????? 
-statsPanel;Statistics;Statistiken;asdf;statistica;??????????
-SettingsPanel;Settings;Einstellungen;asdfa;impostazione;???????????
-RightAnswers%;right answers in %;Richtige Antworten in %;asdf;correttamente responso a %;?????????? ?????  ? %
-WrongAnswers%;wrong answers in %;Falsche Antworten in %;sadf;errato responso a %; ????????????? ?????  ? %
-pieChartTitle;titel;Titel;titel;titolo digitare;?????????
-deleteCardfile;Delete;Löschen;asdf;cancellare;????????????
-resetCardfile;Reset;Zurücksetzen;asdf;resettare;???????? ?????
-importButton;Import;Importieren;asdf;importare; ??????
-exportButton;Export;Exportieren;asdf;esportare;??????????????
-addButton;Add row;Zeile hinzufuegen;asdf;aggiungere riga;????????? ??????
-language;language;Sprache;asdf;linguaggio;????
+ok;Ok;Ok;Ok;Ok;
+viewCardFile_title;Please select cardfile;Bitte eine Lernkartei auswählen;compare;schedario digitare per favore;
+language_test;language_test;Sprachtest;test de  langue;test di  linguaggio ;
+settingsPanel;Settings;Einstellungen;paramtres;impostazione;
+toCardFilePanel;Learning;Lernen;apprendre;apprendimento;
+toStatsPanel;Statistics;Statistiken;statistique;statistica;
+toSettingsPanel;Settings;Einstellungen;paramtres;impostazione;
+closeApp;Close;Beenden;terminer;terminare;
+openDialog;open;Öffnen;ouverture;aprire;
+unknownFilename;Unknown.csv;Unbekannt.csv;inconnu.csv;ignoto.csv;
+numberOfCards;Cards;Karten;cartie;carta;
+finished;finished;abgeschlossen;fini;finito;
+addCardFile;Add CardFile;Kartei hinzufügen;ajouter fichier;aggiungere cartoteca ;
+typeInOnCard;Type translation in here;Übersetzung hier eingeben;dicter ici traduction;traduzione ci digitare;
+file;File;Fach;casier;cassetto;
+card;Cards;Karten;cartes;carta;
+noCard;There is no card in this Cardfile;Es ist keine Karte in dieser Kartei vorhanden;pas une carte;non carta ci disponibile;
+languageLabel;Language:;Sprache:;langue:;linguaggio:;
+resetLabel;Reset;Zurücksetzen;reculer;resettare;
+reset;Reset;Zurücksetzen;reculer;resettare;
+editTitle;Enter a Title;Bitte Titel eingeben;dicter intitul;titolo digitare per favore;
+inputOfCard;Type in translation here;Übersetzung hier Eingeben;dicter ici traduction;traduzione ci digitare;
+statsPanel;Statistics;Statistiken;statistique;statistica;
+SettingsPanel;Settings;Einstellungen;paramtres;impostazione;
+RightAnswers%;right answers in %;Richtige Antworten in %;bon répondre dans %;correttamente responso a %;
+WrongAnswers%;wrong answers in %;Falsche Antworten in %;mauvais répondre dans %;errato responso a %;
+pieChartTitle;titel;Titel;intitul;titolo digitare;
+deleteCardfile;Delete;Löschen;annulation;cancellare;
+resetCardfile;Reset;Zurücksetzen;reculer;resettare;
+importButton;Import;Importieren;importer;importare;
+exportButton;Export;Exportieren;exporter;esportare;
+addButton;Add row;Zeile hinzufuegen;ajoutee ligne;aggiungere riga;
+language;language;Sprache;langue;linguaggio;
