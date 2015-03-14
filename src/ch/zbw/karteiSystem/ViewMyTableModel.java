@@ -129,8 +129,8 @@ public class ViewMyTableModel implements TableModel {
 		if (cardFile == null)
 			cardFile = new CardFile(null, null, null, null, 0, false);
 		cardFile.setTitle(editCardFilePanel.getTitle());
-		cardFile.setLanguage1(language1);
-		cardFile.setLanguage2(language2);
+		cardFile.setLanguage1("Sprache1");
+		cardFile.setLanguage2("Sprache2");
 		if (wordListCard != null)
 			wordListCard.clear();
 		Card tempCard;
