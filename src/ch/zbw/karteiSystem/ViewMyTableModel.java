@@ -18,12 +18,12 @@ import javax.swing.table.TableModel;
 public class ViewMyTableModel implements TableModel {
 
 	private CardFile cardFile;
+	private Strings strings;
 	private ArrayList<Card> wordListCard;
-	private String titel;
+	private String headerLanguage1="Sprache 1";
+	private String headerLanguage2="Sprache 2";
 	private String language1;
 	private String language2;
-	private int id;
-	private boolean languageSwitched;
 	private static ViewMainFrame viewMainFrame;
 	private ViewEditCardFilePanel editCardFilePanel;
 
@@ -34,7 +34,13 @@ public class ViewMyTableModel implements TableModel {
 
 	//Konstruktor - Diesem wird entweder ein CardFile oder null übergeben.
 	//Wenn Null übergeben wird, wird eine neue Tabelle erzeugt, ansonsten die CardFile ausgelesen.
-	public ViewMyTableModel(CardFile cardFile, ViewEditCardFilePanel editCardFilePanel) {
+	public ViewMyTableModel(CardFile cardFile, ViewEditCardFilePanel editCardFilePanel, ViewMainFrame viewMainFrame) {
+		this.viewMainFrame = viewMainFrame;
+		strings = viewMainFrame.getStrings();
+		headerLanguage1=strings.getString("language")+" 1";
+		strings.add(headerLanguage1);
+		headerLanguage2=strings.getString("language")+" 2";
+		strings.add(headerLanguage2);
 		this.cardFile = cardFile;
 		this.editCardFilePanel = editCardFilePanel;
 		if (cardFile != null) {
@@ -52,10 +58,8 @@ public class ViewMyTableModel implements TableModel {
 	//Das übergebene CardFile wird ausgelesen und in die Datenfelder gespeichert.
 	@SuppressWarnings("unchecked")
 	public void readCardFile() {
-		titel = cardFile.getTitle();
 		language1 = cardFile.getLanguage1();
 		language2 = cardFile.getLanguage2();
-		id = cardFile.getCardFileId();
 		wordListCard = cardFile.getAllCards();
 		
 		wordListJTable.clear();
@@ -79,17 +83,10 @@ public class ViewMyTableModel implements TableModel {
 	//Es wird eine neue Tabelle mit 20 Zeilen erstellt
 	@SuppressWarnings("unchecked")
 	public void createNewTable() {
-		language1="Sprache1";
-		language2="Sprache2";
+		
 		wordListCard = new ArrayList<Card>();
 		wordListJTable.clear();
 		for(int i=0; i<20; i++){
-			String tempWord1="";
-			String tempWord2="";
-			ViewEditCardFileWords words= new ViewEditCardFileWords(tempWord1, tempWord2);
-			wordListJTable.add(words);
-		}
-		if(wordListJTable.size()<=20){
 			String tempWord1="";
 			String tempWord2="";
 			ViewEditCardFileWords words= new ViewEditCardFileWords(tempWord1, tempWord2);
@@ -159,8 +156,7 @@ public class ViewMyTableModel implements TableModel {
 	//Die wordListJTable wird als CSV exportiert.
 	public void expTable(ViewMainFrame viewMainFrame){
 		ExportCSV exp=new ExportCSV();
-		ArrayList<ArrayList<String>> tempExpList=new ArrayList<ArrayList<String>>();
-
+		ArrayList<ArrayList<String>> tempExpList=new ArrayList<ArrayList<String>>();	
 		
 		try {
 			for(int i=0; i<wordListJTable.size(); i++){
@@ -170,11 +166,8 @@ public class ViewMyTableModel implements TableModel {
 				wordList.add(tempWords.getWord2());
 				tempExpList.add(wordList);
 			}
-
-
 			
-			exp.exportList(tempExpList, viewMainFrame);
-			
+			exp.exportList(tempExpList, viewMainFrame);	
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -199,9 +192,9 @@ public class ViewMyTableModel implements TableModel {
 
 		switch (columnIndex) {
 		case 0:
-			return language1;
+			return headerLanguage1;
 		case 1:
-			return language2;
+			return headerLanguage2;
 		default:
 			return null;
 		}
@@ -271,6 +264,22 @@ public class ViewMyTableModel implements TableModel {
 	public void setLanguage2(String language2) {
 		this.language2 = language2;
 		getColumnName(0);
+	}
+
+	public String getHeaderLanguage1() {
+		return headerLanguage1;
+	}
+
+	public void setHeaderLanguage1(String headerLanguage1) {
+		this.headerLanguage1 = headerLanguage1;
+	}
+
+	public String getHeaderLanguage2() {
+		return headerLanguage2;
+	}
+
+	public void setHeaderLanguage2(String headerLanguage2) {
+		this.headerLanguage2 = headerLanguage2;
 	}
 	
 	

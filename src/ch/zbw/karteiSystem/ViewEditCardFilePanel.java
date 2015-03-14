@@ -55,6 +55,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 
 
 	// Konstruktor
+	@SuppressWarnings("static-access")
 	public ViewEditCardFilePanel(ViewMainFrame viewMainFrame) {
 
 		this.viewMainFrame = viewMainFrame;
@@ -104,14 +105,12 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			public void actionPerformed(ActionEvent e) {
 				String word1 = language1.getText();
 				model.setLanguage1(word1);
-				
 			}
 		});
 		
 		
 		language2 = new JTextField((strings.getString("language"))+" 2");
 		strings.add(language2);
-
 		language2.addMouseListener(new MouseListener() {
 			
 			@Override
@@ -144,6 +143,17 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 				
 			}
 		});
+		language2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String word2 = language2.getText();
+				model.setLanguage2(word2);
+			}
+		});
+		
+		
+		
 		languagePanel = new JPanel();
 		
 		
@@ -214,7 +224,9 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		//Sprachen Panel einfügen
 		languagePanel.setBackground(Color.decode("#52787b"));
 		languagePanel.setLayout(new FlowLayout());
+		languagePanel.add(new JLabel(strings.getString("language")+" 1"));
 		languagePanel.add(language1);
+		languagePanel.add(new JLabel(strings.getString("language")+" 2"));
 		languagePanel.add(language2);
 		gc.anchor = GridBagConstraints.BASELINE;
 		gc.insets = new Insets(100, 0, 0, 0);
@@ -346,7 +358,6 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			}
 		});
 		gc.gridy = 4;
-		
 		add(resetButton,gc);
 		
 		//add deletecardfile button
@@ -391,17 +402,16 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		
 		gc.gridy = 5;
 		add(deleteButton,gc);
-
-		
-
 	}
 
+	
+	
 	// Tabelle erstellen
 	public void createTable(CardFile cardFile) {
 		this.cardFile = cardFile;
 		if(p!=null&&p.getComponents()!=null)
 			p.setVisible(false);
-		model=new ViewMyTableModel(cardFile,this);
+		model=new ViewMyTableModel(cardFile,this,viewMainFrame);
 		table=new JTable(model);
 		if(cardFile!=null)
 		titleBar.changeTitleJTextField(cardFile.getTitle());
