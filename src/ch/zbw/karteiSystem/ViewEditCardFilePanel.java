@@ -25,23 +25,26 @@ import javax.swing.JTextField;
 
 /*
  * @author Martin Thomann
+ * 
+ * This class creates and manages the view of the JTable.
+ * It implements the class ActionListener
  */
 
 public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 
-	// Datenfeld
 	private static final long serialVersionUID = 1L;
 	private static ViewMainFrame viewMainFrame;
 	private Strings strings;
-	private JTextField language1;
-	private JTextField language2;
+	private JTextField language1; //The textfield for the language 1
+	private JTextField language2; //The textfield for the language 2
+	private JLabel langLabel1;
+	private JLabel langLabel2;
 	private JPanel languagePanel;
-
-	private JButton button1;
-	private JButton button2;
-	private JButton addButton;
-	private JButton resetButton;
-	private JButton deleteButton;
+	private JButton button1; //The Import Button
+	private JButton button2; //The Export Button
+	private JButton addButton; //The add row button
+	private JButton resetButton; //The resest button
+	private JButton deleteButton; //The delete button
 	private GridBagConstraints gc;
 	private ViewPanelTitleBar titleBar;
 	private JLabel backButton;
@@ -54,7 +57,10 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	private CardFile cardFile;
 
 
-	// Konstruktor
+	/*
+	 * constructor
+	 * @param viewMainFrame
+	 */
 	@SuppressWarnings("static-access")
 	public ViewEditCardFilePanel(ViewMainFrame viewMainFrame) {
 
@@ -107,7 +113,8 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 				model.setLanguage1(word1);
 			}
 		});
-		
+		langLabel1 = new JLabel(strings.getString("language")+" 1");
+		strings.add(langLabel1);
 		
 		language2 = new JTextField((strings.getString("language"))+" 2");
 		strings.add(language2);
@@ -151,14 +158,13 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 				model.setLanguage2(word2);
 			}
 		});
-		
-		
+		langLabel2 = new JLabel(strings.getString("language")+" 2");
+		strings.add(langLabel2);
 		
 		languagePanel = new JPanel();
 		
-		
-		button1 = new JButton(strings.getString("importButton"));
-		button2 = new JButton(strings.getString("exportButton"));
+		button1 = new JButton(strings.getString("importButton")); //creates the Import button
+		button2 = new JButton(strings.getString("exportButton")); //creates the Export button
 		button1.addActionListener(this);
 		button2.addActionListener(this);
 		addButton = new JButton(strings.getString("addButton"));
@@ -206,9 +212,11 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		paint();
 	}
 
-	// GUI zeichnen
-	public void paint() {
-		// Title Panel Hinzufügen
+	/*
+	 * Paints the titlebar, the language panel, the table and all buttons.
+	 */
+	private void paint() {
+		// adds titelbar panel to GridBag-Layout 
 		gc.anchor = GridBagConstraints.PAGE_START;
 		gc.insets = new Insets(20, 0, 0, 0);
 		gc.gridx = 0;
@@ -216,17 +224,19 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.weightx = 0;
 		gc.weighty = 0;
 		gc.gridheight = 1;
-		gc.gridwidth = 5;
+		gc.gridwidth = 6;
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		titleBar.changeTitleToJTextField(null);
 		add(titleBar, gc);
 
-		//Sprachen Panel einfügen
+		// adds language panel to GridBag-Layout
 		languagePanel.setBackground(Color.decode("#52787b"));
 		languagePanel.setLayout(new FlowLayout());
-		languagePanel.add(new JLabel(strings.getString("language")+" 1"));
+		
+		languagePanel.add(langLabel1);
 		languagePanel.add(language1);
-		languagePanel.add(new JLabel(strings.getString("language")+" 2"));
+
+		languagePanel.add(langLabel2);
 		languagePanel.add(language2);
 		gc.anchor = GridBagConstraints.BASELINE;
 		gc.insets = new Insets(100, 0, 0, 0);
@@ -235,13 +245,12 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.weightx = 0;
 		gc.weighty = 0;
 		gc.gridheight = 1;
-		gc.gridwidth = 5;
+		gc.gridwidth = 6;
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		add(languagePanel, gc);
 		
-		
-		// add(backButton);
-		gc.fill = GridBagConstraints.NONE;
+		// adds back button to GridBag-Layout
+		gc.fill = GridBagConstraints.VERTICAL;
 		gc.weightx = 1;
 		gc.weighty = 1;
 		gc.anchor = GridBagConstraints.LINE_START;
@@ -249,81 +258,64 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.gridy = 1;
 		gc.gridx = 0;
 		gc.gridwidth = 1;
-		gc.gridheight = 4;
+		gc.gridheight = 5;
 		add(backButton, gc);
 
-		
-		gc.anchor = GridBagConstraints.LINE_START;
-		gc.fill = GridBagConstraints.VERTICAL;
-		gc.insets = new Insets(0, 0, 0, 0);
-		gc.gridx = 1;
-		gc.gridy = 1;
-		gc.gridheight = 1;
-		gc.gridwidth = 2;
+		// adds the JTable to GridBag-Layout
 		createTable(null);
 
-		
-		// Buttons Import/Export hinzufügen
+		// adds the import button to the GridBag-Layout
 		gc.fill = GridBagConstraints.HORIZONTAL;
 		gc.weightx = 1;
 		gc.weighty = 1;
 		gc.anchor = GridBagConstraints.LINE_START;
-		gc.insets = new Insets(0, 10, 0, 10);
+		gc.insets = new Insets(0, 30, 0, 10);
 		gc.gridy = 1;
-		gc.gridx = 4;
+		gc.gridx = 5;
 		gc.gridwidth = 1;
 		gc.gridheight = 1;
 		add(button1, gc);
 
-		
-		gc.weightx = 2;
-		gc.weighty = 2;
-		gc.anchor = GridBagConstraints.LINE_START;
-		gc.insets = new Insets(0, 10, 0, 10);
+		// adds the export button to the GridBag-Layout
 		gc.gridy = 2;
-		gc.gridx = 4;
-		gc.gridwidth = 1;
-		gc.gridheight = 1;
 		add(button2, gc);
 		
+		// adds the add row button to the GridBag-Layout
+		addButton.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				model.addRow();
+			}
+		});
+		gc.gridy = 3;
+		add(addButton, gc);
 		
-		//add resetcardfile button
-				addButton.addMouseListener(new MouseListener() {
-					
-					@Override
-					public void mouseReleased(MouseEvent e) {
-						// TODO Auto-generated method stub
-						
-					}
-					
-					@Override
-					public void mousePressed(MouseEvent e) {
-						// TODO Auto-generated method stub
-						
-					}
-					
-					@Override
-					public void mouseExited(MouseEvent e) {
-						// TODO Auto-generated method stub
-						
-					}
-					
-					@Override
-					public void mouseEntered(MouseEvent e) {
-						// TODO Auto-generated method stub
-						
-					}
-					
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						model.addRow();
-					}
-				});
-				gc.gridy = 3;
-				
-				add(addButton,gc);
-		
-		//add resetcardfile button
+		// adds the reset button to the GridBag-Layout
 		resetButton.addMouseListener(new MouseListener() {
 			
 			@Override
@@ -360,7 +352,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		gc.gridy = 4;
 		add(resetButton,gc);
 		
-		//add deletecardfile button
+		// adds the delete button to the GridBag-Layout
 		deleteButton.addMouseListener(new MouseListener() {
 			
 			@Override
@@ -399,14 +391,15 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 				
 			}
 		});
-		
 		gc.gridy = 5;
 		add(deleteButton,gc);
 	}
-
 	
 	
-	// Tabelle erstellen
+	/*
+	 * This method creates the JTable with a TableModel
+	 * and shows it in a JScrollPanel, which is added to the GridBag-Layout
+	 */
 	public void createTable(CardFile cardFile) {
 		this.cardFile = cardFile;
 		if(p!=null&&p.getComponents()!=null)
@@ -415,22 +408,20 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		table=new JTable(model);
 		if(cardFile!=null)
 		titleBar.changeTitleJTextField(cardFile.getTitle());
-		//table.setPreferredSize(new Dimension(400,500));
 		scrollPane = new JScrollPane(table);
-		//scrollPane.setPreferredSize(new Dimension(450,501));
 		p = new JPanel(new GridLayout(0, 1, 0, 20));
-		//p.setPreferredSize(new Dimension(455, 502));
 		p.setVisible(true);
 		p.setBackground(ViewMainFrame.COLOR5);
-		//p.setPreferredSize(new Dimension(360, 400));
 		p.add(scrollPane);
+		gc.weightx = 4;
+		gc.weighty = 1;
 		gc.fill = GridBagConstraints.BOTH;
 		gc.gridy = 1;
-		gc.gridx = 2;
+		gc.gridx = 1;
 		gc.insets = new Insets(20,0,20,0);
 		gc.gridheight = 5;
+		gc.gridwidth = 4;
 		add(p, gc);
-		
 	}
 
 	
@@ -456,15 +447,14 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		if(e.getSource().equals(button2)){
 			model.expTable(viewMainFrame);
 		}
-		
-		
-	
 	}
-
-	public String getTitle(){
-		
+	
+	
+	/*
+	 * Returns a String of the titel, which could be changed in the titlebar JTextField.
+	 */
+	public String getTitle(){	
 		return titleBar.getTitle();
-		
 	}
 	
 }
