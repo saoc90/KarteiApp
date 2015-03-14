@@ -93,7 +93,7 @@ public class Strings{
 		case GERMAN: i=2; break;
 		case FRENCH: i=3; break;
 		case ITALIAN: i=4; break;
-		case RUSSIAN: i=5; break;	
+		case RUSSIAN: i=1; break;	
 		default:
 			return "unknown";
 		}
