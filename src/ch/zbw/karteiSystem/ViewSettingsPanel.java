@@ -51,7 +51,7 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		this.mainframe = mainframe;
 		strings = mainframe.getStrings();
 		setLayout(new GridBagLayout());
-		languageStrings = new String[]{"English","Deutsch","France","Italian","Russian"};
+		languageStrings = new String[]{"English","Deutsch","France","Italian"};
 		languages = new JComboBox<String>(languageStrings);
 		backIcon = new ImageIcon("png/back.png");
 		backButton = new JLabel(backIcon);
@@ -217,7 +217,6 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		case "Deutsch": strings.changeLanguage("de");break;
 		case "France": strings.changeLanguage("fr");break;
 		case "Italian": strings.changeLanguage("it");break;
-		case "Russian": strings.changeLanguage("ru");break;
 		}
 		
 	}
