@@ -8,11 +8,14 @@ import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 
-/*
+
+/**
+ * 
+ * @author Martin Thomann
+ * 
  * This class is the connection between the JTable and the data, which should be shown in the table.
  * It implements the Class TableModel.
  * 
- * @author Martin Thomann
  */
 
 public class ViewMyTableModel implements TableModel {
@@ -32,11 +35,14 @@ public class ViewMyTableModel implements TableModel {
 	@SuppressWarnings("rawtypes")
 	private Vector listener = new Vector();
 
-	/*
-	 * Constructor reads the CardFile if it isn't null, else it creates a new
-	 * table.
+	
+	/**
+	 * Constructor reads the CardFile if it isn't null,
+	 * else it creates a new table.
 	 * 
-	 * @param cardFile, editCardFilePanel, viewMainFrame
+	 * @param cardFile
+	 * @param editCardFilePanel
+	 * @param viewMainFrame
 	 */
 	public ViewMyTableModel(CardFile cardFile,
 			ViewEditCardFilePanel editCardFilePanel, ViewMainFrame viewMainFrame) {
@@ -55,7 +61,7 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
-	/*
+	/**
 	 * Adds a row to the table with to empty fields.
 	 */
 	@SuppressWarnings("unchecked")
@@ -63,7 +69,7 @@ public class ViewMyTableModel implements TableModel {
 		wordListJTable.add(new ViewEditCardFileWords(null, null));
 	}
 
-	/*
+	/**
 	 * Reads the CardFiles and saves the data to the data fields.
 	 */
 	@SuppressWarnings("unchecked")
@@ -74,7 +80,7 @@ public class ViewMyTableModel implements TableModel {
 
 		wordListJTable.clear();
 
-		/*
+		/**
 		 * Reads the CardFiles, puts the Words in a Object of
 		 * ViewEditCardFileWords and add the Object to the wordListJTable.
 		 */
@@ -95,7 +101,7 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
-	/*
+	/**
 	 * Creates a new table with 20 rows.
 	 */
 	@SuppressWarnings("unchecked")
@@ -118,7 +124,7 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
-	/*
+	/**
 	 * Updates the CardFile with changed data and returns a CardFile.
 	 * 
 	 * @return the changed CardFile with the new words.
@@ -126,7 +132,6 @@ public class ViewMyTableModel implements TableModel {
 	@SuppressWarnings("unchecked")
 	public CardFile updatedCardFile() {
 		deleteNullRows();
-		// if(checkNullFields());
 		if(wordListJTable.isEmpty()){
 			wordListJTable.add(new ViewEditCardFileWords("",""));
 		}
@@ -150,6 +155,9 @@ public class ViewMyTableModel implements TableModel {
 		return cardFile;
 	}
 
+	/**
+	 * Deletes the rows, when both cells in the same row are empty.
+	 */
 	public void deleteNullRows() {
 		@SuppressWarnings("rawtypes")
 		Vector tempList = wordListJTable;
@@ -161,29 +169,13 @@ public class ViewMyTableModel implements TableModel {
 				it.remove();
 			}
 		}
-
 		wordListJTable = tempList;
 	}
 
-	// public boolean checkNullFields(){
-	// Iterator<ViewEditCardFileWords> it=wordListJTable.iterator();
-	// while(it.hasNext()){
-	// ViewEditCardFileWords words=it.next();
-	// if(words.getWord1().equals("") || words.getWord2().equals("")){
-	//
-	// return false;
-	// }
-	//
-	// }
-	//
-	//
-	// return true;
-	//
-	// }
-
-
-	/*
+	/**
 	 * Imports a table from a CSV file.
+	 * 
+	 * @param viewMainFrame
 	 */
 	@SuppressWarnings("unchecked")
 	public void impTable(ViewMainFrame viewMainFrame) {
@@ -215,8 +207,10 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
-	/*
+	/**
 	 * Exports the table to a CSV file.
+	 * 
+	 * @param viewMainFrame
 	 */
 	public void expTable(ViewMainFrame viewMainFrame) {
 		ExportCSV exp = new ExportCSV();
@@ -239,18 +233,32 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
-	
+	/**
+	 * Returns the number of rows in the table.
+	 * 
+	 * @return int
+	 */
 	@Override
 	public int getRowCount() {
 		return wordListJTable.size();
 	}
 
-	
+	/**
+	 * Returns the number of columns.
+	 * 
+	 * @return int
+	 */
 	@Override
 	public int getColumnCount() {
 		return 2;
 	}
 
+	/**
+	 * Returns the column name.
+	 * 
+	 * @param columnIndex
+	 * @return headerLanguage1 or headerLanguage2
+	 */
 	@Override
 	public String getColumnName(int columnIndex) {
 
@@ -264,16 +272,32 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
+	/**
+	 * Gets the classtype of a column. All columns are Strings.
+	 * 
+	 * @param columnIndex
+	 */
 	@Override
 	public Class<?> getColumnClass(int columnIndex) {
 		return String.class;
 	}
 
+	/**
+	 * Sets the cell to editable. All cells are editable.
+	 * 
+	 * @return true
+	 */
 	@Override
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
 		return true;
 	}
 
+	/**
+	 * Gets a value form the table and and returns a Object of the word.
+	 * 
+	 * @param rowIndex, columnIndex
+	 * @return Object of word1 or word2
+	 */
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		ViewEditCardFileWords words = (ViewEditCardFileWords) wordListJTable.get(rowIndex);
@@ -287,6 +311,11 @@ public class ViewMyTableModel implements TableModel {
 		}
 	}
 
+	/**
+	 * Sets a value to the table.
+	 * 
+	 * @param aValue, rowIndex, columnIndex
+	 */
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
 		ViewEditCardFileWords tempWords = (ViewEditCardFileWords) wordListJTable.get(rowIndex);
@@ -302,49 +331,78 @@ public class ViewMyTableModel implements TableModel {
 
 	}
 
+	/**
+	 * Adds a TableModelListener to the listener vector.
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addTableModelListener(TableModelListener l) {
 		listener.add(l);
-
 	}
 
+	/**
+	 * Removes the TableModelListener form the listener vector.
+	 */
 	@Override
 	public void removeTableModelListener(TableModelListener l) {
 		listener.remove(l);
 
 	}
-
+	
+	/**
+	 * @return String of the language1
+	 */
 	public String getLanguage1() {
 		return language1;
 	}
 
+	/**
+	 * @param language1
+	 */
 	public void setLanguage1(String language1) {
 		this.language1 = language1;
 		getColumnName(0);
 	}
 
+	/**
+	 * @return String of language2
+	 */
 	public String getLanguage2() {
 		return language2;
 	}
 
+	/**
+	 * @param language2
+	 */
 	public void setLanguage2(String language2) {
 		this.language2 = language2;
 		getColumnName(0);
 	}
 
+	/**
+	 * @return headerLanguage1
+	 */
 	public String getHeaderLanguage1() {
 		return headerLanguage1;
 	}
 
+	/**
+	 * @param headerLanguage1
+	 */
 	public void setHeaderLanguage1(String headerLanguage1) {
 		this.headerLanguage1 = headerLanguage1;
 	}
 
+	/**
+	 * @return headerLanguage2
+	 */
 	public String getHeaderLanguage2() {
 		return headerLanguage2;
 	}
 
+	/**
+	 * @param headerLanguage2
+	 */
 	public void setHeaderLanguage2(String headerLanguage2) {
 		this.headerLanguage2 = headerLanguage2;
 	}

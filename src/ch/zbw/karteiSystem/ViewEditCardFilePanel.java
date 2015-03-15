@@ -23,14 +23,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-
-/*
- * @author Martin Thomann
+/**
  * 
+ * @author Martin Thomann
+ *
  * This class creates and manages the view of the JTable.
  * It implements the class ActionListener
+ *
  */
-
 public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
@@ -57,8 +57,8 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	private JScrollPane scrollPane;
 	private CardFile cardFile;
 
-
-	/*
+	
+	/**
 	 * constructor
 	 * @param viewMainFrame
 	 */
@@ -79,6 +79,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		//creates the JTextFields for the first language titel
 		languageJTF1 = new JTextField((strings.getString("language"))+" 1");
 		strings.add(languageJTF1);
+		languageJTF1.setName("language");
 		//The MouseListener clears the default string in the JTextField, when MouseClicked
 		languageJTF1.addMouseListener(new MouseListener() {
 			
@@ -113,10 +114,12 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		});
 		langLabel1 = new JLabel(strings.getString("language")+" 1");
 		strings.add(langLabel1);
+		langLabel1.setName("language");
 		
 		//creates the JTextFields for the second language titel
 		languageJTF2 = new JTextField((strings.getString("language"))+" 2");
 		strings.add(languageJTF2);
+		languageJTF2.setName("language");
 		//The MouseListener clears the default string in the JTextField, when MouseClicked
 		languageJTF2.addMouseListener(new MouseListener() {
 			
@@ -152,19 +155,25 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		});
 		langLabel2 = new JLabel(strings.getString("language")+" 2");
 		strings.add(langLabel2);
+		langLabel2.setName("language");
 		
 		languagePanel = new JPanel();
 		
 		button1 = new JButton(strings.getString("importButton")); //creates the Import button
+		button1.setName("importButton");
 		button2 = new JButton(strings.getString("exportButton")); //creates the Export button
+		button2.setName("exportButton");
 		button1.addActionListener(this);
 		button2.addActionListener(this);
 		addButton = new JButton(strings.getString("addButton"));
+		addButton.setName("addButton");
 		strings.add(addButton);
 		resetButton = new JButton(strings.getString("resetCardfile"));
 		strings.add(resetButton);
+		resetButton.setName("resetCardfile");
 		deleteButton = new JButton(strings.getString("deleteCardfile"));
 		strings.add(deleteButton);
+		deleteButton.setName("deleteCardilfe");
 		backButtonIcon = new ImageIcon("png/back.png");
 		backButton = new JLabel(backButtonIcon);
 		backButton.addMouseListener(new MouseListener() {
@@ -204,7 +213,8 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		paint();
 	}
 
-	/*
+	
+	/**
 	 * Paints the titlebar, the language panel, the table and all buttons.
 	 */
 	private void paint() {
@@ -403,9 +413,11 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	}
 	
 	
-	/*
+	/**
 	 * This method creates the JTable with a TableModel
 	 * and shows it in a JScrollPanel, which is added to the GridBag-Layout
+	 * 
+	 * @param cardFile
 	 */
 	public void createTable(CardFile cardFile) {
 		this.cardFile = cardFile;
@@ -459,9 +471,10 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		}
 	}
 	
-	
-	/*
+	/**
 	 * Returns a String of the titel, which could be changed in the titlebar JTextField.
+	 * 
+	 * @return String
 	 */
 	public String getTitle(){	
 		return titleBar.getTitle();
