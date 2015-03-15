@@ -186,7 +186,14 @@ public class ViewMainFrame extends JFrame {
 		
 		
 	}
-	
+public void refreshStatsPanel(){
+		
+		cardLayout.removeLayoutComponent(statsPanel);
+		statsPanel = new ViewDiagramm(this);
+		addPanel(statsPanel, "statsPanel");
+		
+		
+	}
 	public void refreshViewEditCardFilePanel(){
 		
 		
@@ -245,6 +252,7 @@ public class ViewMainFrame extends JFrame {
 			
 		case "toStatsPanel" :
 			// please change it bac to this entry after   cardLayout.show(container, startPanel.getName());
+			refreshStatsPanel();
 			cardLayout.show(container, statsPanel.getName());
 			break;
 			
