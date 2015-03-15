@@ -7,19 +7,14 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
-import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.ArrayList;
-
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -38,6 +33,10 @@ import org.jfree.util.Rotation;
  */
 public class ViewDiagramm extends JPanel {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ViewMainFrame mainframe;
 	private Strings strings;
 	private ViewPanelTitleBar titleBar;
@@ -60,8 +59,6 @@ public class ViewDiagramm extends JPanel {
 	private Icon masterIcon;
 	private Icon grandmasterIcon;
 	private Icon enlightenendIcon;
-	private JLabel backButtonLabel;
-	private JPanel levelsLabel;
 	private JLabel beginnerLabel;
 	private JLabel rookieLabel;
 	private JLabel intermediateLabel;

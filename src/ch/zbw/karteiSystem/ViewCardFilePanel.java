@@ -38,7 +38,6 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 
 	private Strings strings;
 	private JButton button1;
-	private ViewCardFile cardFile;
 	private GridBagConstraints gc;
 	private ViewPanelTitleBar titleBar;
 	private JLabel backButton;

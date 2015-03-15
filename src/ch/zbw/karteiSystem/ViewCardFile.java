@@ -8,13 +8,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.EventObject;
-import java.util.Vector;
-
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -22,9 +17,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
-
-import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
-
 /**
  *  This class is UI class. It generates a cardfile which can be displayed on the overview of all cardfile panels which is know as pardfilepanel
  * It offers different controlls, like switch languages and acces to the cardfile settings.
@@ -53,7 +45,6 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	private String language1;
 	private String language2;
 	private Border borderTitle;
-	private Border borderContent;
 	private String progressString;
 	private int cardsInCardFile;
 	private Icon languagesIcon;

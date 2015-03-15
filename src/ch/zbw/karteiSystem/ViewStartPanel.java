@@ -18,7 +18,7 @@ import javax.swing.JPanel;
  * @author samuelochsner
  *
  * This class paints the start panel. It extends the JPanel and
- * implements the ActionListener.
+ * implements ActionListeners.
  */
 public class ViewStartPanel extends JPanel implements ActionListener {
 
@@ -29,9 +29,10 @@ public class ViewStartPanel extends JPanel implements ActionListener {
 
 	public ViewStartPanel(ViewMainFrame mainFrame) {
 
-		this.setBackground(Color.decode("#52787b"));
+		
 		this.setLayout(new GridBagLayout());
 		this.mainFrame = mainFrame;
+		this.setBackground(ViewMainFrame.COLOR5);
 		this.setVisible(true);
 		strings = mainFrame.getStrings();
 

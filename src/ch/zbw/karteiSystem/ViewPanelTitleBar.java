@@ -11,12 +11,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * This class generates a UI View panel which is used for the title bar in every panel of this application.
+ * 
+ * @author samuelochsner
+ *
+ */
 public class ViewPanelTitleBar extends JPanel {
 	
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JLabel label;
 	private ViewMainFrame mainFrame;
@@ -24,6 +27,11 @@ public class ViewPanelTitleBar extends JPanel {
 	private GridBagConstraints gc;
 	private JTextField jtf;
 
+	/**
+	 * @param color should be a Color from the colorpallet ViewMainFrame.COLOR1-5
+	 * @param name a string which is diplayed as title
+	 * @param viewMainFrame Instance of ViewMainFrame for delegating
+	 */
 	public ViewPanelTitleBar(Color color, String name, ViewMainFrame viewMainFrame) {
 		setPreferredSize(new Dimension(600,60));
 		setMinimumSize(new Dimension(600,60));
@@ -44,12 +52,22 @@ public class ViewPanelTitleBar extends JPanel {
 		this.setVisible(true);
 	}
 
+	/**
+	 * changes the title of the titlebar
+	 * 
+	 * @param title sets the title of the titlebar to the given string
+	 */
 	public void setTitle(String title){
 		
 		this.label.setText(title);
 		
 	}
 	
+	/**
+	 * 
+	 * This method changes the JLabel in the titlebar to a JTextField and changes the text in it.
+	 * @param name text which is displayed as dummytext in the JTextField.
+	 */
 	public void changeTitleToJTextField(String name){
 		jtf=new JTextField();
 		label.setVisible(false);
@@ -102,6 +120,9 @@ public class ViewPanelTitleBar extends JPanel {
 		
 	}
 	
+	/**
+	 * @return Title of the titlebar.
+	 */
 	public String getTitle(){
 		
 		if(jtf!=null)
@@ -111,59 +132,13 @@ public class ViewPanelTitleBar extends JPanel {
 		
 	}
 	
+	/**
+	 * @return Label of the titlebar
+	 */
 	public JLabel getLabel() {
 		return label;
 	}
 
-	public void setLabel(JLabel label) {
-		this.label = label;
-	}
-
-	public ViewMainFrame getMainFrame() {
-		return mainFrame;
-	}
-
-	public void setMainFrame(ViewMainFrame mainFrame) {
-		this.mainFrame = mainFrame;
-	}
-
-	public Strings getStrings() {
-		return strings;
-	}
-
-	public void setStrings(Strings strings) {
-		this.strings = strings;
-	}
-
-	public GridBagConstraints getGc() {
-		return gc;
-	}
-
-	public void setGc(GridBagConstraints gc) {
-		this.gc = gc;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	@Override
-	public String toString() {
-		return "ViewPanelTitleBar [label=" + label + ", mainFrame=" + mainFrame
-				+ ", strings=" + strings + ", gc=" + gc + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((gc == null) ? 0 : gc.hashCode());
-		result = prime * result + ((label == null) ? 0 : label.hashCode());
-		result = prime * result
-				+ ((mainFrame == null) ? 0 : mainFrame.hashCode());
-		result = prime * result + ((strings == null) ? 0 : strings.hashCode());
-		return result;
-	}
 
 
 

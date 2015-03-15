@@ -214,6 +214,9 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JComboBox<String> combo = (JComboBox<String>)e.getSource();
