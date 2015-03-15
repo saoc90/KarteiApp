@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 
 /**
+ * MainClass which generates the JFrame.
  * @author samuelochsner
  *
  */

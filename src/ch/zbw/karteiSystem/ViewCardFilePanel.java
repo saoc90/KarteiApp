@@ -23,8 +23,8 @@ import javax.swing.ScrollPaneConstants;
 
 
 /**
- * This class generates a UI View, which shows all cardfiles as buttons in a JScrollPane. 
- * The last cardfile in this list is a button to add a cardfile.
+ *This class generates a UI View, which shows all cardfiles as buttons in a JScrollPane. 
+ *The last cardfile in this list is a button to add a cardfile.
  * 
  * @author samuelochsner
  *

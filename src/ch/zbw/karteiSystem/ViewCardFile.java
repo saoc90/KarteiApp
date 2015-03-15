@@ -18,8 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 /**
- * This class is UI class. It generates a cardfile which can be displayed on the overview of all cardfile panels which is know as pardfilepanel
- * It offers different controlls, like switch languages and acces to the cardfile settings.
+ *This class is UI class. It generates a cardfile which can be displayed on the overview of all cardfile panels which is know as pardfilepanel
+ *It offers different controlls, like switch languages and acces to the cardfile settings.
  * @author samuelochsner
  *
  */
@@ -319,12 +319,17 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	
 	
 	/**
+	 * checks if its the last cardfile in the view
 	 * @return returns true if this cardfile is the last on the list, which is used as button for a new cardfile
 	 */
 	public boolean isLastCard() {
 		return isLastCard;
 	}
 
+	/**
+	 * changes the datafield lastcard
+	 * @param isLastCard marks it as the last cardfile in the list
+	 */
 	public void setLastCard(boolean isLastCard) {
 		this.isLastCard = isLastCard;
 	}
