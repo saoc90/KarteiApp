@@ -1,6 +1,5 @@
 package ch.zbw.karteiSystem;
 
-
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -24,12 +23,12 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
+ * This class creates and manages the view of the JTable.
+ * It implements the class ActionListener.
+ * 
  * 
  * @author Martin Thomann
- *
- * This class creates and manages the view of the JTable.
- * It implements the class ActionListener
- *
+ * 
  */
 public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 
@@ -59,7 +58,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 
 	
 	/**
-	 * constructor
+	 * Main constructor
 	 * @param viewMainFrame
 	 */
 	@SuppressWarnings("static-access")
@@ -352,7 +351,8 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		                new String[]{strings.getString("ok"), strings.getString("cancel")}, "B");
 					
 				if (choosenOption == JOptionPane.OK_OPTION) {
-					cardFile.resetCounters();
+					if(cardFile!=null)
+						cardFile.resetCounters();
 					writeToCardfile(false);
 				}
 			}
@@ -395,16 +395,14 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		                new String[]{strings.getString("ok"), strings.getString("cancel")}, "B");
 					
 				if (choosenOption == JOptionPane.OK_OPTION) {
-					writeToCardfile(true);
-					try {
-						viewMainFrame.changeFrameTo("toCardFilePanel");
-					} catch (Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+						writeToCardfile(true);
+						try {
+							viewMainFrame.changeFrameTo("toCardFilePanel");
+						} catch (Exception e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
-				}
-				
-				
 				
 			}
 		});
@@ -446,7 +444,11 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		add(p, gc);
 	}
 
-	
+	/**
+	 * Writes to the cardfile or delets it, if the parameter is true.
+	 * 
+	 * @param deleteThisCardfile
+	 */
 	private void writeToCardfile(boolean deleteThisCardfile){
 		
 		model.setLanguage1(languageJTF1.getText());
@@ -484,3 +486,4 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	}
 	
 }
+

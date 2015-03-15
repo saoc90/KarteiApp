@@ -1,11 +1,11 @@
 package ch.zbw.karteiSystem;
 
 /**
- * 
- * @author Martin Thomann
- * 
  * An object of this class holds two words.
  * This object are managed in a vector in the table model.
+ * 
+ * 
+ * @author Martin Thomann
  *
  */
 
@@ -15,7 +15,7 @@ public class ViewEditCardFileWords {
 	private String word2;
 	
 	/**
-	 * constructor
+	 * Main constructor
 	 * 
 	 * @param word1
 	 * @param word2
@@ -27,7 +27,6 @@ public class ViewEditCardFileWords {
 	}
 
 	/**
-	 * 
 	 * @return word1
 	 */
 	public String getWord1() {

@@ -10,11 +10,11 @@ import javax.swing.table.TableModel;
 
 
 /**
- * 
- * @author Martin Thomann
- * 
  * This class is the connection between the JTable and the data, which should be shown in the table.
  * It implements the Class TableModel.
+ * 
+ * 
+ * @author Martin Thomann
  * 
  */
 
