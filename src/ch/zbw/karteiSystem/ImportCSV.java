@@ -1,15 +1,11 @@
 package ch.zbw.karteiSystem;
 
 import java.io.BufferedReader;
-import java.io.FileFilter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.StringTokenizer;
-
-import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 

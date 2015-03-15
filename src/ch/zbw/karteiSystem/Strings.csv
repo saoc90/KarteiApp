@@ -24,10 +24,19 @@ statsPanel;Statistics;Statistiken;statistique;statistica;
 SettingsPanel;Settings;Einstellungen;paramtres;impostazione;
 RightAnswers%;right answers in %;Richtige Antworten in %;bon répondre dans %;correttamente responso a %;
 WrongAnswers%;wrong answers in %;Falsche Antworten in %;mauvais répondre dans %;errato responso a %;
-pieChartTitle;titel;Titel;intitul;titolo digitare;
+pieChartTitle;Pie chart correct to wrong answers;Kuchendiagramm richtige zu falschen Antworten;Diagramme de corriger de mauvaises réponses;Grafico a torta per correggere le risposte errate;
 deleteCardfile;Delete;Löschen;annulation;cancellare;
 resetCardfile;Reset;Zurücksetzen;reculer;resettare;
 importButton;Import;Importieren;importer;importare;
 exportButton;Export;Exportieren;exporter;esportare;
 addButton;Add row;Zeile hinzufuegen;ajoutee ligne;aggiungere riga;
 language;language;Sprache;langue;linguaggio;
+beginner;Beginner;Anfänger;Débutant;Principiante
+rookie;Rookie;Neuling;Novice;Novizio
+intermediate;intermediate;Fortgeschrittener;Intermédiaire;Intermedio
+profi;Profi;Pfofi;Professional;Professionista
+exptert;Expert;Experte;expert;Aziendalista
+master;Master;Meister;champion;Mastro 
+grandmaster;Grandmaster;Grossmeister;Grand maître;Granmaestro
+enlightenend;Enlightenend;Erleuchtet;Illuminée;Illuminato
+actualLevel;Your Level:;Ihr Level:;Vous niveau:;Tuo livello:
