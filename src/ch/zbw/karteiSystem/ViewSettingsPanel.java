@@ -17,7 +17,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -130,7 +129,8 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		
 		JPanel settingsPanel = new JPanel(new GridBagLayout());
 		settingsPanel.setBackground(ViewMainFrame.COLOR5);
-		settingsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK), strings.getString("SettingsPanel")));
+		settingsPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLACK)));
+		
 		strings.add(settingsPanel);
 		GridBagConstraints gcp = new GridBagConstraints();
 		gcp.gridx = 0;
@@ -187,14 +187,8 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int choosenOption = JOptionPane.showOptionDialog(null, strings.getString("dialog"),strings.getString("attention"),
-		                JOptionPane.YES_NO_CANCEL_OPTION,
-		                JOptionPane.WARNING_MESSAGE, null, 
-		                new String[]{strings.getString("ok"), strings.getString("cancel")}, "B");
-					
-				if(choosenOption==JOptionPane.OK_OPTION){
-					mainframe.getMainHandler().resetApplication();
-				}
+				
+				
 			}
 		});
 		settingsPanel.add(reset, gcp);
