@@ -40,3 +40,6 @@ master;Master;Meister;champion;Mastro
 grandmaster;Grandmaster;Grossmeister;Grand maître;Granmaestro
 enlightenend;Enlightenend;Erleuchtet;Illuminée;Illuminato
 actualLevel;Your Level:;Ihr Level:;Vous niveau:;Tuo livello:
+cancel;Cancel;Abbrechen;Décrochage;Demolizione
+attention;Attention!; Achtung!;Gare!;Allerta!
+dialog;Are you sure that you want to reset the entire application. This will delete all card files.;Sind Sie Sicher dass Sie die komplette Applikation zurücksetzen wollen. Dies löscht alle Karteien.;Etes-vous sûr que vous voulez réinitialiser l'application entière. Cette opération va supprimer tous les fichiers de la carte.;Sei sicuro di voler azzerare l'intera applicazione. Questo elimina tutti i file di carte.
