@@ -193,6 +193,8 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	    
 	    
 	    //add Scrollpanel to the Panel
+	    gc.fill = GridBagConstraints.VERTICAL;
+	    gc.insets = new Insets(5,0,0,0);
 	    add(jsp,gc);
 	    repaint();
 	    revalidate();
