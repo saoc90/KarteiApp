@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 
 
 /**
- * 
  * This class handles all the panels of the application. Also it contains the colorpallet as static datafields.
  * @author samuelochsner
  *
@@ -143,15 +142,7 @@ public class ViewMainFrame extends JFrame {
 	}
 	
 	
-	/*
-	 * 
-	 * 
-	 * @param panel Adds a panel to the MainFrame
-		@param panelName give a name to the panel
-		@param position takes a final String of position in the layoutManager
-	 * 
-	 * 
-	 */
+	
 	private void addPanel(JPanel panel, String panelName){
 		
 		

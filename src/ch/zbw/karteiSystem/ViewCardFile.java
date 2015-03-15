@@ -20,18 +20,12 @@ import javax.swing.border.Border;
 /**
  * This class is UI class. It generates a cardfile which can be displayed on the overview of all cardfile panels which is know as pardfilepanel
  * It offers different controlls, like switch languages and acces to the cardfile settings.
- * 
- * 
  * @author samuelochsner
  *
  */
 public class ViewCardFile extends JPanel implements MouseListener {
 	
 	
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private double wokredHours;
 	private String label;
@@ -278,12 +272,11 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	}
 	
 	
-	/*
+	
+	/**
 	 * refreshes all parameter of the viewCardFile with the actual parameters of cardfile
 	 * 
-	 * 
 	 */
-	
 	public void refresh(){
 		
 		if(title!=null){
@@ -294,9 +287,9 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		}
 	}
 	
-	/*
-	 * paints the last card of the list, which is a button to add a new cardfile
-	 * 
+
+	/**
+	 *paints the last card of the list, which is a button to add a new cardfile
 	 */
 	public void paintLastCard(){
 		

@@ -60,7 +60,7 @@ public class ViewBigButton extends JPanel implements MouseListener {
 
 	}
 
-	/*
+	/**
 	 * Paints the components title, imageIcon and color in the button
 	 * and sets the size.
 	 */

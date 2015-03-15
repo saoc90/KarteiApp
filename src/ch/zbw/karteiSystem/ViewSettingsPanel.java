@@ -61,7 +61,8 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		paint();
 	}
 	
-	/*
+
+	/**
 	 * This method paints the settings panel.
 	 */
 	private void paint(){

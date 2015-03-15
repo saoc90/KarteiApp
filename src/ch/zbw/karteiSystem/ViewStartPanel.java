@@ -15,10 +15,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
+ *This class paints the start panel. It extends the JPanel and
+ * implements ActionListeners.
  * @author samuelochsner
  *
- * This class paints the start panel. It extends the JPanel and
- * implements ActionListeners.
  */
 public class ViewStartPanel extends JPanel implements ActionListener {
 

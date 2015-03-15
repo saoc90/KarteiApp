@@ -225,6 +225,9 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 		
 	}
 	
+	/**
+	 * @return Creates a ViewCardfile which is used as a button to add a cardfile
+	 */
 	public ViewCardFile createLastViewCardFile(){
 		
 		ViewCardFile panel = new ViewCardFile(true,strings);
