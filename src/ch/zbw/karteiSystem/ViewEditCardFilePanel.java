@@ -17,6 +17,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -335,9 +336,15 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				cardFile.resetCounters();
-				writeToCardfile(false);
-				viewMainFrame.refreshViewEditCardFilePanel();
+				int choosenOption = JOptionPane.showOptionDialog(null, strings.getString("dialogResetCard"),strings.getString("attention"),
+		                JOptionPane.YES_NO_CANCEL_OPTION,
+		                JOptionPane.WARNING_MESSAGE, null, 
+		                new String[]{strings.getString("ok"), strings.getString("cancel")}, "B");
+					
+				if (choosenOption == JOptionPane.OK_OPTION) {
+					cardFile.resetCounters();
+					writeToCardfile(false);
+				}
 			}
 		});
 		gc.gridy = 4;
@@ -372,13 +379,22 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				writeToCardfile(true);
-				try {
-					viewMainFrame.changeFrameTo("toCardFilePanel");
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				int choosenOption = JOptionPane.showOptionDialog(null, strings.getString("dialogDeletCard"),strings.getString("attention"),
+		                JOptionPane.YES_NO_CANCEL_OPTION,
+		                JOptionPane.WARNING_MESSAGE, null, 
+		                new String[]{strings.getString("ok"), strings.getString("cancel")}, "B");
+					
+				if (choosenOption == JOptionPane.OK_OPTION) {
+					writeToCardfile(true);
+					try {
+						viewMainFrame.changeFrameTo("toCardFilePanel");
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 				}
+				
+				
 				
 			}
 		});

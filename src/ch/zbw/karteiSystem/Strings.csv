@@ -19,9 +19,9 @@ languageLabel;Language:;Sprache:;langue:;linguaggio:;
 resetLabel;Reset;Zurücksetzen;reculer;resettare;
 reset;Reset;Zurücksetzen;reculer;resettare;
 editTitle;Enter a Title;Bitte Titel eingeben;dicter intitul;titolo digitare per favore;
-inputOfCard;Type in translation here;Übersetzung hier Eingeben;dicter ici traduction;traduzione ci digitare;
+inputOfCard;Type in translation here;Übersetzung hier Eingeben;Dicter ici traduction;Traduzione ci digitare;
 statsPanel;Statistics;Statistiken;statistique;statistica;
-SettingsPanel;Settings;Einstellungen;paramtres;impostazione;
+SettingsPanel;Settings;Einstellungen;Paramtres;Impostazione;
 RightAnswers%;right answers in %;Richtige Antworten in %;bon répondre dans %;correttamente responso a %;
 WrongAnswers%;wrong answers in %;Falsche Antworten in %;mauvais répondre dans %;errato responso a %;
 pieChartTitle;Pie chart correct to wrong answers;Kuchendiagramm richtige zu falschen Antworten;Diagramme de corriger de mauvaises réponses;Grafico a torta per correggere le risposte errate;
@@ -33,7 +33,7 @@ addButton;Add row;Zeile hinzufuegen;ajoutee ligne;aggiungere riga;
 language;language;Sprache;langue;linguaggio;
 beginner;Beginner;Anfänger;Débutant;Principiante
 rookie;Rookie;Neuling;Novice;Novizio
-intermediate;intermediate;Fortgeschrittener;Intermédiaire;Intermedio
+intermediate;Intermediate;Fortgeschrittener;Intermédiaire;Intermedio
 profi;Profi;Pfofi;Professional;Professionista
 exptert;Expert;Experte;expert;Aziendalista
 master;Master;Meister;champion;Mastro 
@@ -42,4 +42,7 @@ enlightenend;Enlightenend;Erleuchtet;Illuminée;Illuminato
 actualLevel;Your Level:;Ihr Level:;Vous niveau:;Tuo livello:
 cancel;Cancel;Abbrechen;Décrochage;Demolizione
 attention;Attention!; Achtung!;Gare!;Allerta!
-dialog;Are you sure that you want to reset the entire application. This will delete all card files.;Sind Sie Sicher dass Sie die komplette Applikation zurücksetzen wollen. Dies löscht alle Karteien.;Etes-vous sûr que vous voulez réinitialiser l'application entière. Cette opération va supprimer tous les fichiers de la carte.;Sei sicuro di voler azzerare l'intera applicazione. Questo elimina tutti i file di carte.
+dialog;Are you sure that you want to reset the entire application. This will delete all card files.;Etes-vous sûr que vous voulez réinitialiser l'application entière. Cette opération va supprimer tous les fichiers de la carte.;Sei sicuro di voler azzerare l'intera applicazione. Questo elimina tutti i file di carte.
+dialogResetCard;Are you sure that you want to reset the stats of this cardfile.;Sind Sie sicher, dass Sie diese Kartei zurücksetzen möchten?;Etes-vous sûr que vous voulez reculer cette fichier;Sei sicuro di voler azzerare agguingere cartoteca.
+dialogDeletCard;Are you sure that you want to delete this cardfile.;Sind Sie sicher, dass Sie diese Kartei löschen möchten?;Etes-vous sûr que vous voulez annulation cette fichier.;Sei sicure di voler cancellare agguingere cartoteca.
+bonusLink;Your Reward;Ihre Belohnung;Votre récompense;Il vostro premio
