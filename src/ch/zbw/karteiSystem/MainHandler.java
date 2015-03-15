@@ -8,10 +8,9 @@ import ch.zbw.karteiSystem.CardFile;
 import ch.zbw.karteiSystem.ViewMainFrame;
 
 /**
- * @author M.Riedener & J.Nagel
- * 
  * This class handles all the cardFiles and save part. It's the main logic part.
  * 
+ * @author M.Riedener & J.Nagel
  */
 public class MainHandler
 {
@@ -24,8 +23,8 @@ public class MainHandler
 	/**
 	 * Creats an Instance of Mainhandler
 	 * 
-	 * @param cardfiles an arryList<CardFile> which includes cardfiles.
-	 * @param initLanguage the language in witch the application should start
+	 * @param cardfiles an arryList<CardFile>
+	 * @param initLanguage start language of the Application
 	 * @param score the state of score by initialisation.
 	 */
 	public MainHandler(ArrayList<CardFile> cardfiles, String initLanguage,
@@ -94,9 +93,9 @@ public class MainHandler
 	}
 	
 	/**
-	 * This method calculates how many words are tipped right in percent.
+	 * This method calculates how many words are tipped in correct in percent.
 	 * 
-	 * @return an integer betwenn 0 and 100 
+	 * @return an integer between 0 and 100 
 	 */
 	public int getPercentOfRights(){
 		int wrongAnswers = 0;
@@ -158,14 +157,14 @@ public class MainHandler
 	}
 	
 	/**
-	 * increase the score for 1. 
+	 * increase the score 
 	 */
 	public void increaseScore(){
 		this.score++;
 	}
 	
 	/**
-	 * @return  the last used languageCode:
+	 * @return  the last used languageCode
 	 */
 	public String getInitLanguage()
 	{
@@ -183,9 +182,9 @@ public class MainHandler
 		this.initLanguage = languageCode;
 	}
 	
-	public void setScore(int _score)
+	public void setScore(int score)
 	{
-		this.score = _score;
+		this.score = score;
 	}
 	
 	/**

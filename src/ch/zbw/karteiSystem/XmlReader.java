@@ -16,7 +16,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 /**
- * Read the XML file data.bin to the which is in the jar folder. 
+ * Read the XML file data.bin witch must be in the same folder than the jar file.
  * this File includes all data of the Cardfile App and the readFile() methode returns a filled Object of MainHandler. 
  * 
  * @author Jwo
@@ -39,7 +39,7 @@ public class XmlReader {
 	/**
 	 * This methode reads the file data.bin in the jar folder. and return a
 	 * MainHandler objects with all settings and Cardfiles inside. if there
-	 * isn't a file attached or corrupt it will return a empty instace of
+	 * isn't a file attached or corrupt it would return a empty instace of
 	 * Mainhandler.
 	 * 
 	 * @return a filled Object of Mainhandler with all important datas.

@@ -10,14 +10,18 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
+/**
+ * Imports a csv file to. 
+ * It reads just the first two colums of the csv.
+ * 
+ * @author Jwo Nagel
+ */
 public class ImportCSV{
-	
-	public ImportCSV() {
-		// TODO Auto-generated constructor stub
-	}
 
 	
 	/**
+	 * Reads the first two colums of a .csv file and returns the content in a two dimensional ArrayList.
+	 * 
 	 * @return returns a 2 Dimensional ArrayList filled with Strings. The first Index are the words, the second are the two different languages.
 	 * @throws FileNotFoundException 
 	 * @throws Exception If the Tokenizer fails, it will throw a Exception with Message TokenizerException.
@@ -36,7 +40,7 @@ public class ImportCSV{
 	 * @param url place where the file is saved.
 	 * @return ArrayList with Strings.
 	 */
-	public ArrayList<String> readFile(String url) throws FileNotFoundException{
+	private ArrayList<String> readFile(String url) throws FileNotFoundException{
 		ArrayList<String> temp = new ArrayList<>();
 		BufferedReader reader;
 		try {

@@ -10,10 +10,17 @@ import java.util.ArrayList;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class ExportCSV {
-	
+/**
+ * Exports a CardFile into a .csv file. 
+ * This file has two columns filled with words.
+ * It's includes JFileChooser for choosing the path where the file should be stored.
+ * @author Jwo Nagel
+ *
+ */
+public class ExportCSV {	
 	/**
 	 * this methode opens a Filechooser where you can select and export a word list.
+	 * It stores at the choosen path all words of a cardfile into a csv file.
 	 * @param list A two dimensional ArrayList filled with Strings
 	 * @return true if it works.
 	 * @throws IOException if an Error happens during writing the File.

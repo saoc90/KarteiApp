@@ -15,8 +15,11 @@ import javax.swing.JTextField;
 
 
 /**
- * @author Jwo Nagel
  * This class is for handling all the shown Strings in the application.
+ * It does also change the language during the Runtime.
+ * It's reads the strings from Strins.csv which must be in the same path.
+ * 
+ * @author Jwo Nagel
  *
  */
 public class Strings{
@@ -108,7 +111,6 @@ public class Strings{
 	
 	/**
 	 * 
-	 * 
 	 * @param List of Strings whitch are delemited by semicolon.
 	 */
 	private void generateTokens(ArrayList<String> line){
@@ -123,6 +125,13 @@ public class Strings{
 		}
 	}
 	
+	/**
+	 * Add here all objects which change could change the language during runtime. 
+	 * With the method changeLanguage(String languageCode) can you change the shown text
+	 * in any added object.
+	 * @param obj must be an object from the Instance JTextfield, ViewBigButton, JLabel or JButton.
+	 * @return true when the object is added.
+	 */
 	public boolean add(Object obj){
 		if(obj instanceof JTextField){
 			return JTextfieldList.add((JTextField)(obj));
@@ -136,6 +145,10 @@ public class Strings{
 		return false;
 	}
 	
+	/**
+	 * changes the language during runtime of all object which are added by the add method.
+	 * @param languageCode get the codes from this class (Strings.ENGLISH.....)
+	 */
 	public void changeLanguage(String languageCode){
 		this.choosenLanguageCode = languageCode;
 		for(JTextField tmp: JTextfieldList){

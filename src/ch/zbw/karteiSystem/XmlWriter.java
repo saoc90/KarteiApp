@@ -20,10 +20,11 @@ import org.w3c.dom.Element;
 
 
 /**
+ * This class is used for save all the application data into an XML file.
+ * It writes all important data to the data.bin file in the same folder as the jar file. 	
+ * 
  * @author Jwo Nagel
  * 
- * This class is used for save all the application data into an XML file. for saving call the method save(MainHandler mainhandler)
- * The data are stored in data.xml
  */
 	
 public class XmlWriter {
@@ -35,7 +36,7 @@ public class XmlWriter {
 	public static final String URI = "data.bin";
 	
 	/**
-	 * save all data of the programm into data.xml into the application dir.
+	 * save all data of the application into data.bin into the same directory as the jar file..
 	 * @param mainHandler object filled with the data to save.
 	 * @return true if it worked else false.
 	 */

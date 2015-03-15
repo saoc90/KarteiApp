@@ -6,9 +6,10 @@ import java.util.Random;
 import ch.zbw.karteiSystem.Card;
 
 /**
+ *  This Class handels a Card File, icluding the languages and titel. 
+ * 
  * @author M.Riedener & J.Nagel
  * 
- * This Class handels a Card File.
  */
 public class CardFile
 {
@@ -21,12 +22,14 @@ public class CardFile
 	private static final int MAXBOXES = 5; //number of boxes 
 	
 	/**
-	 * @param wordList
-	 * @param titel
-	 * @param language1
-	 * @param language2
-	 * @param id
-	 * @param languageSwitched
+	 * Creats a new Cardfile.
+	 * 
+	 * @param wordList ArrayList of Card which should be inside of this Cardfile.
+	 * @param titel Title of this cardFile
+	 * @param language1 Language 1 must be equal to the language of the word 1 of the Cards.
+	 * @param language2 Language 2 must be equal to the language of the word 2 of the Cards.
+	 * @param id of CardFile
+	 * @param languageSwitched when the Languege is switched.
 	 */
 	public CardFile(ArrayList<Card> wordList, String titel, String language1,
 			String language2, int id, boolean languageSwitched)
@@ -40,32 +43,50 @@ public class CardFile
 		this.languageSwitched = languageSwitched;
 	}
 	
+	/**
+	 * @param titel
+	 */
 	public void setTitle(String titel)
 	{
 		this.titel = titel;
 		
 	}
 	
+	/**
+	 * @return titel of cardfile
+	 */
 	public String getTitle()
 	{
 		return this.titel;
 	}
 	
+	/**
+	 * @return id of CardFile
+	 */
 	public int getCardFileId()
 	{
 		return this.id;
 	}
 	
+	/**
+	 * @return language1 of cardfile
+	 */
 	public String getLanguage1()
 	{
 		return this.language1;
 	}
 
+	/**
+	 * @return language2 of Cardfile
+	 */
 	public String getLanguage2()
 	{
 		return this.language2;
 	}
 
+	/**
+	 * @return the progress in percent of the whole cardfile.
+	 */
 	public int getProgress()
 	{
 		if(wordList==null)
@@ -83,13 +104,19 @@ public class CardFile
 		return progress;
 	}
 	
+	/**
+	 * @return the number of Cards in the Cardfile.
+	 */
 	public int getNumberOfCards()
 	{
 		if(wordList==null)
-			return 1;
+			return 0;
 		return wordList.size();
 	}
 	
+	/**
+	 * @return true when the language is switched, else false.
+	 */
 	public boolean isLanguageSwitched()
 	{
 		return this.languageSwitched;
@@ -151,11 +178,19 @@ public class CardFile
 		return tmp.get(cardnr);
 	}
 	
+	/**
+	 * @return all cards as ArrayList.
+	 */
 	public ArrayList<Card> getAllCards()
 	{
 		return this.wordList;
 	}
 	
+	/**
+	 * returns the number of cards in a boxnr.
+	 * @param BoxNr 
+	 * @return the number of cards in the given bornumber.
+	 */
 	public int getNrOfCardsOfBox(int BoxNr)
 	{
 		int cardZaehler = 0;
@@ -168,6 +203,9 @@ public class CardFile
 		return cardZaehler;
 	}
 	
+	/**
+	 * resets all Cards to default values.
+	 */
 	public void resetCounters()
 	{
 		for(Card card:wordList){
@@ -175,19 +213,28 @@ public class CardFile
 		}
 	}
 	
+	/**
+	 * Adds a new Card to the cardfile.
+	 * @param newCard the card which shoud be added to the cardFile.
+	 * @return true when the card is added.
+	 */
 	public boolean addCard(Card newCard)
 	{
 		if(wordList==null)
 			wordList = new ArrayList<Card>();
-		this.wordList.add(newCard);
-		
-		return true;
+		return this.wordList.add(newCard);
 	}
 	
+	/**
+	 * @param language1
+	 */
 	public void setLanguage1(String language)
 	{
 		this.language1 = language;
 	}
+	/**
+	 * @param language2
+	 */
 	public void setLanguage2(String language)
 	{
 		this.language2 = language;
