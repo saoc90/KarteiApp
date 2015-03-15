@@ -3,9 +3,6 @@ import java.awt.Dimension;
 
 
 
-/**
- * 
- */
 
 /**
  * @author samuelochsner

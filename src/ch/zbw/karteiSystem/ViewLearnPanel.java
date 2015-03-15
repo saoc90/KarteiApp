@@ -28,14 +28,16 @@ import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
 
 
 /**
+ * This class generates a UI View Panel. Which displays the given cardfile. Also it displays the different boxes in the cardfile.
+ * The central element is the actual card, which takes user inputs and controls if the given input is correct.
+ * 
+ * 
  * @author samuelochsner
  *
  */
 public class ViewLearnPanel extends JPanel {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private ViewMainFrame mainframe;
 	private CardFile cardfile;
@@ -64,8 +66,11 @@ public class ViewLearnPanel extends JPanel {
 	private boolean alreadyAnswered;
 	private MainHandler mainhandler;
 	
+	
 	/**
-	 * 
+	 * Main Constructor
+	 * @param mainframe instance of ViewMainFrame for delegating
+	 * @param cardfile the cardfile which should be displayed on the learnpanel.
 	 */
 	public ViewLearnPanel(ViewMainFrame mainframe,CardFile cardfile) {
 		
@@ -633,6 +638,10 @@ public class ViewLearnPanel extends JPanel {
 	
 	
 	
+	/**
+	 * @param cardfile cardfile which should be displayed on learnpanel
+	 * @param init true if it's the first time this this method is called. So the cardfile infos are also written. False if its only for refreshig the infos.
+	 */
 	public void fillCardFile(CardFile cardfile, boolean init){
 		
 		this.cardfile = cardfile;

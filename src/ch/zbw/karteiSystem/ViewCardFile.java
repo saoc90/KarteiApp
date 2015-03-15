@@ -26,6 +26,10 @@ import javax.swing.border.Border;
 import com.sun.corba.se.spi.legacy.connection.GetEndPointInfoAgainException;
 
 /**
+ *  This class is UI class. It generates a cardfile which can be displayed on the overview of all cardfile panels which is know as pardfilepanel
+ * It offers different controlls, like switch languages and acces to the cardfile settings.
+ * 
+ * 
  * @author samuelochsner
  *
  */
@@ -67,7 +71,11 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	private boolean isLastCard;
 
 	/**
+	 * Standard Constructor with a normal cardfile in it.
 	 * 
+	 * @param mainframe it needs a reference of a ViewMainFrame, which is the panel manager and contains all informations
+	 * @param cardfile a reference of a cardfile which contains all the data of a cardfile.
+	 * @param strings Strings handels all changes of languages and buttons. It fires an event, if the language has changed.
 	 */
 	public ViewCardFile(ViewMainFrame mainframe, CardFile cardfile, Strings strings) {
 		this.cardFile = cardfile;
@@ -95,6 +103,11 @@ public class ViewCardFile extends JPanel implements MouseListener {
 		
 	}
 	
+	
+	/**
+	 * @param isEmty It creates the last cardfile of the list, which is used to add new cardfiles
+	 * @param strings strings Strings handels all changes of languages and buttons. It fires an event, if the language has changed.
+	 */
 	public ViewCardFile(Boolean isEmty,Strings strings) {
 		this.strings = strings;
 		dimension = new Dimension(340,140);
@@ -118,7 +131,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	/*
 	 * This Method paints the standard cardfile panel
 	 */
-	public void paint(){
+	private void paint(){
 		//Add Titel JLabel//
 		gc.gridwidth = 5;
 		gc.weightx = 1;
@@ -293,7 +306,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	 * paints the last card of the list, which is a button to add a new cardfile
 	 * 
 	 */
-	private void paintLastCard(){
+	public void paintLastCard(){
 		
 		Icon add = new ImageIcon("png/add.png");
 		
@@ -310,6 +323,9 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	
 	
 	
+	/**
+	 * @return Cardfile with all cardfiles in it
+	 */
 	public CardFile getCardFile(){
 		
 		
@@ -317,6 +333,9 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	}
 	
 	
+	/**
+	 * @return returns true if this cardfile is the last on the list, which is used as button for a new cardfile
+	 */
 	public boolean isLastCard() {
 		return isLastCard;
 	}

@@ -14,14 +14,14 @@ import javax.swing.JPanel;
 
 
 /**
+ * 
+ * This class handles all the panels of the application. Also it contains the colorpallet as static datafields.
  * @author samuelochsner
  *
  */
 public class ViewMainFrame extends JFrame {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	public final static Color COLOR1 = Color.decode("#ead177");
 	public final static Color COLOR2 = Color.decode("#d95b45");
@@ -43,6 +43,10 @@ public class ViewMainFrame extends JFrame {
 	private ViewSettingsPanel settingsPanel;
 	
 	
+	/**
+	 * Main Contructor
+	 * 
+	 */
 	public ViewMainFrame(){
 		
 		super("Kartei System");
@@ -159,17 +163,28 @@ public class ViewMainFrame extends JFrame {
 		
 	}
 	
+	/**
+	 * @return Instance of strings class, which handles all the elements for multilanguage.
+	 */
 	public Strings getStrings(){
 		
 		return strings;
 	}
 	
+	/**
+	 * @return Instance of MainHandler class, which handles all the inport export stuff.
+	 */
 	public MainHandler getMainHandler(){
 		
 			return mainHandler;
 	}
 		
 	
+	/**
+	 * This method refreshes the Learnpanel with the given cardfile.
+	 * 
+	 * @param cardfile Instance of carfile
+	 */
 	public void changeLearnPaneltoCardFile(CardFile cardfile){
 		
 		
@@ -178,6 +193,11 @@ public class ViewMainFrame extends JFrame {
 		
 	}
 	
+	
+	
+	/**
+	 * This method refreshes the CardFilePanel to the actual informations of the cardfile ArrayList. It should be called on every call of the cardfilepanel.
+	 */
 	public void refreshCardFilePanel(){
 		
 		cardLayout.removeLayoutComponent(cardFilePanel);
@@ -186,7 +206,13 @@ public class ViewMainFrame extends JFrame {
 		
 		
 	}
-public void refreshStatsPanel(){
+
+	
+	
+	/**
+	 * This method refreshes the statistics panel. It should be called on every call of the statisticspanel.
+	 */
+	public void refreshStatsPanel(){
 		
 		cardLayout.removeLayoutComponent(statsPanel);
 		statsPanel = new ViewDiagramm(this);
@@ -194,6 +220,11 @@ public void refreshStatsPanel(){
 		
 		
 	}
+	
+	
+	/**
+	 * This method refreshes the Edit Cardfile panel. It should be called on every call of the editCardFilePanel.
+	 */
 	public void refreshViewEditCardFilePanel(){
 		
 		
@@ -204,6 +235,11 @@ public void refreshStatsPanel(){
 	}
 	
 	
+	/**
+	 * This method refreshes the Edit Cardfile panel to the given cardfile.
+	 * 
+	 * @param cardfile the cardfile which should be configured.
+	 */
 	public void changeEditCardFilePaneltoCardFile(CardFile cardfile){
 		
 		
@@ -222,6 +258,8 @@ public void refreshStatsPanel(){
 	}
 
 	/**
+	 *This method changes the showed panel in the application. 
+	 *
 	 *
 	 * @param panelName Takes a name of a panel, on which you want to change on Mainframe
 	 * @throws Exception 

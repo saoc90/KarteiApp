@@ -19,10 +19,11 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 /**
- * @author samuelochsner
- *
+ * 
+ * *
  *         This class paints the big buttons on the ViewStartPanel. It
  *         implements the MouseListener for the buttons.
+ * @author samuelochsner
  *
  */
 public class ViewBigButton extends JPanel implements MouseListener {
@@ -37,10 +38,14 @@ public class ViewBigButton extends JPanel implements MouseListener {
 	private Color color;
 	private JLabel title1;
 
-	/*
-	 * constructor
-	 * 
-	 * @param name, title, imageIcon, x width, y height, color
+	
+	/**
+	 * @param name name of the button (not the text on it)
+	 * @param title title of the button (text on the button)
+	 * @param imageIcon icon which is diplayed on the left on the button
+	 * @param x weight of the button in pixels
+	 * @param y height of the button in pixels
+	 * @param color color of the button background (intance of COLOR) eg. ViewMainFrame.COLOR1 
 	 */
 	public ViewBigButton(String name, String title, ImageIcon imageIcon, int x,
 			int y, Color color) {
@@ -82,10 +87,16 @@ public class ViewBigButton extends JPanel implements MouseListener {
 		setVisible(true);
 	}
 
+	/**
+	 * @param text changes the text of the button to the given string
+	 */
 	public void setText(String text) {
 		title1.setText(text);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+	 */
 	public void mousePressed(MouseEvent e) {
 		hit = true;
 		repaint();
@@ -93,29 +104,51 @@ public class ViewBigButton extends JPanel implements MouseListener {
 
 	}
 
+	
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+	 */
 	public void mouseReleased(MouseEvent e) {
 		hit = false;
 		repaint();
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+	 */
 	public void mouseClicked(MouseEvent e) {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+	 */
 	public void mouseEntered(MouseEvent e) {
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+	 */
 	public void mouseExited(MouseEvent e) {
 	}
 
+	/**
+	 * @param listener adds the given ActionListener to the action fire list.
+	 */
 	public void addActionListener(ActionListener listener) {
 		listeners.addElement(listener);
 	}
 
+	/**
+	 * @param listener remove the given ActionListener from the fire list.
+	 */
 	public void removeActionListener(ActionListener listener) {
 		listeners.removeElement(listener);
 	}
 
+	/**
+	 * @param event fires a event to the Actionlistener in the list.
+	 */
 	private void fireEvent(ActionEvent event) {
 		for (int i = 0; i < listeners.size(); i++) {
 			ActionListener listener = listeners.elementAt(i);

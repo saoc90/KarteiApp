@@ -28,6 +28,14 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import org.jfree.util.Rotation;
 
+/**
+ * This class generates a View Panel which displays an Overview with diagrams
+ * and Userlevel. The userlevel is defined through the amount of correct answered cards. Every correct answered card is
+ * one point plus. Also for userlevel is the bardiagramm.
+ * 
+ * @author Jwo Nagel (Diagramms) Samuel Ochsner (UI)
+ * 
+ */
 public class ViewDiagramm extends JPanel {
 	
 	private ViewMainFrame mainframe;
@@ -69,7 +77,7 @@ public class ViewDiagramm extends JPanel {
 	private JLabel bonusLinkLabel;
 
 	/**
-	 * @param mainframe
+	 * @param mainframe instance of ViewMainFrame for delegation
 	 */
 	public ViewDiagramm(ViewMainFrame mainframe) {
 		super();
