@@ -215,9 +215,11 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	}
 	
 	
+	
+	
 	/*creates a ViewCardFile with the data out of the given cardfiel
 	 * 
-	 * @param tmpCardFile Must be an object of Cardfile
+	 * @param tmpCardFile Must be an object of Cardfile.
 	 * 
 	 */
 	
