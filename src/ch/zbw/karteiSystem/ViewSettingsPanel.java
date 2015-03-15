@@ -162,6 +162,7 @@ public class ViewSettingsPanel extends JPanel implements ActionListener {
 		gcp.gridx = 1;
 		
 		reset = new JButton(strings.getString("reset"));
+		reset.setName("reset");
 		strings.add(reset);
 		reset.addMouseListener(new MouseListener() {
 			

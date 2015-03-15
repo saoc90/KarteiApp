@@ -23,7 +23,7 @@ public class App {
 		
 				ViewMainFrame mainframe = new ViewMainFrame();
 				mainframe.setSize(800, 600);
-				Dimension dimension = new Dimension(850,650);
+				Dimension dimension = new Dimension(900,700);
 				mainframe.setMinimumSize(dimension);
 				mainframe.setLocationRelativeTo(null);
 				mainframe.setVisible(true);
