@@ -123,9 +123,13 @@ public class ViewMyTableModel implements TableModel {
 	 * 
 	 * @return the changed CardFile with the new words.
 	 */
+	@SuppressWarnings("unchecked")
 	public CardFile updatedCardFile() {
 		deleteNullRows();
 		// if(checkNullFields());
+		if(wordListJTable.isEmpty()){
+			wordListJTable.add(new ViewEditCardFileWords("",""));
+		}
 		if (cardFile == null)
 			cardFile = new CardFile(null, null, null, null, 0, false);
 		cardFile.setTitle(editCardFilePanel.getTitle());
@@ -183,19 +187,20 @@ public class ViewMyTableModel implements TableModel {
 	 */
 	@SuppressWarnings("unchecked")
 	public void impTable(ViewMainFrame viewMainFrame) {
-		wordListJTable.clear();
 		ImportCSV imp = new ImportCSV();
 		try {
-			ArrayList<ArrayList<String>> tempWordListAL = imp
-					.importList(viewMainFrame);
+			ArrayList<ArrayList<String>> tempWordListAL = imp.importList(viewMainFrame);
 
-			for (int i = 0; i < tempWordListAL.size(); i++) {
-				ArrayList<String> tempWordList = tempWordListAL.get(i);
-				String tempWord1 = tempWordList.get(0);
-				String tempWord2 = tempWordList.get(1);
-				ViewEditCardFileWords tempWords = new ViewEditCardFileWords(
-						tempWord1, tempWord2);
-				wordListJTable.add(tempWords);
+			if(tempWordListAL!=null){
+				wordListJTable.clear();
+				for (int i = 0; i < tempWordListAL.size(); i++) {
+					ArrayList<String> tempWordList = tempWordListAL.get(i);
+					String tempWord1 = tempWordList.get(0);
+					String tempWord2 = tempWordList.get(1);
+					ViewEditCardFileWords tempWords = new ViewEditCardFileWords(
+							tempWord1, tempWord2);
+					wordListJTable.add(tempWords);
+				}
 			}
 
 		} catch (Exception e) {
