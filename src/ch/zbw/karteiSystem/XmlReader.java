@@ -133,8 +133,8 @@ public class XmlReader {
 		if (node.getNodeType() == Node.ELEMENT_NODE) {
 			Element element = (Element) node;
 			title = getValue("title", element);
-			l1 = getValue("title", element);
-			l2 = getValue("language1", element);
+			l1 = getValue("language1", element);
+			l2 = getValue("language2", element);
 			id = parseInt(getValue("id", element));
 			int tmp = parseInt(getValue("languageSwitched", element));
 			if (tmp == 1) {

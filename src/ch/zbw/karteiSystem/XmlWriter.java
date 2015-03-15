@@ -23,8 +23,7 @@ import org.w3c.dom.Element;
  * This class is used for save all the application data into an XML file.
  * It writes all important data to the data.bin file in the same folder as the jar file. 	
  * 
- * @author Jwo Nagel
- * 
+ * @author Jwo Nagel 
  */
 	
 public class XmlWriter {
