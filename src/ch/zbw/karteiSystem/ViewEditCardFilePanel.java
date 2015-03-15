@@ -425,8 +425,11 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 			p.setVisible(false);
 		model=new ViewMyTableModel(cardFile,this,viewMainFrame);
 		table=new JTable(model);
-		if(cardFile!=null)
-		titleBar.changeTitleJTextField(cardFile.getTitle());
+		if(cardFile!=null){
+			languageJTF1.setText(cardFile.getLanguage1());
+			languageJTF2.setText(cardFile.getLanguage2());
+			titleBar.changeTitleJTextField(cardFile.getTitle());	
+		}
 		scrollPane = new JScrollPane(table);
 		p = new JPanel(new GridLayout(0, 1, 0, 20));
 		p.setVisible(true);
