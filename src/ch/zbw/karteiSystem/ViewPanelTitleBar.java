@@ -64,7 +64,6 @@ public class ViewPanelTitleBar extends JPanel {
 	}
 	
 	/**
-	 * 
 	 * This method changes the JLabel in the titlebar to a JTextField and changes the text in it.
 	 * @param name text which is displayed as dummytext in the JTextField.
 	 */

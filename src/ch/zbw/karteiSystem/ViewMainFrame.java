@@ -261,7 +261,7 @@ public class ViewMainFrame extends JFrame {
 	 *This method changes the showed panel in the application. 
 	 *
 	 *
-	 * @param panelName Takes a name of a panel, on which you want to change on Mainframe
+	 * @param buttonName Takes a name of a panel, on which you want to change on Mainframe
 	 * @throws Exception 
  	 */
 	

@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 /**
- *  This class is UI class. It generates a cardfile which can be displayed on the overview of all cardfile panels which is know as pardfilepanel
+ * This class is UI class. It generates a cardfile which can be displayed on the overview of all cardfile panels which is know as pardfilepanel
  * It offers different controlls, like switch languages and acces to the cardfile settings.
  * 
  * 
@@ -96,6 +96,7 @@ public class ViewCardFile extends JPanel implements MouseListener {
 	
 	
 	/**
+	 * This constructor is for the last cardfile, wich is used as button to add a new cardfile.
 	 * @param isEmty It creates the last cardfile of the list, which is used to add new cardfiles
 	 * @param strings strings Strings handels all changes of languages and buttons. It fires an event, if the language has changed.
 	 */

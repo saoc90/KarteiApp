@@ -19,10 +19,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 /**
- * 
- * *
- *         This class paints the big buttons on the ViewStartPanel. It
- *         implements the MouseListener for the buttons.
+ *This class paints the big buttons on the ViewStartPanel. It
+ *implements the MouseListener for the buttons.
  * @author samuelochsner
  *
  */

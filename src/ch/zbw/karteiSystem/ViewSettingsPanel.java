@@ -21,11 +21,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
- * @author samuelochsner
- *
  * This class shows the settings. 
  * You can choose the application language and reset the stats.
  * It extends JPanel and implements the ActionListener.
+ * @author samuelochsner
+ *
  */
 public class ViewSettingsPanel extends JPanel implements ActionListener {
 

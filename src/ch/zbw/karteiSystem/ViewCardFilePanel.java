@@ -31,9 +31,6 @@ import javax.swing.ScrollPaneConstants;
  */
 public class ViewCardFilePanel extends JPanel implements MouseListener{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private Strings strings;
@@ -105,7 +102,7 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	}
 	
 	
-	public void paint(){
+	private void paint(){
 		// Title Panel Hinzufügen
 		gc.anchor = GridBagConstraints.PAGE_START;
 		gc.insets = new Insets(20,0,0,0);
@@ -149,6 +146,9 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	}
 	
 	
+	/**
+	 * fills the scrollpanel with the actuall data.
+	 */
 	public void fillScrollPane(){
 		
 		if(jsp!=null)
@@ -211,12 +211,11 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 	
 	
 	
-	/*creates a ViewCardFile with the data out of the given cardfiel
-	 * 
-	 * @param tmpCardFile Must be an object of Cardfile.
-	 * 
+	/**
+	 * creates a ViewCardFile with the data out of the given cardfiel
+	 * @param tmpCardFile  Must be an object of Cardfile.
+	 * @return
 	 */
-	
 	public ViewCardFile createViewCardFiles(CardFile tmpCardFile){
 		
 		ViewCardFile panel = new ViewCardFile(viewMainFrame,tmpCardFile,strings);
@@ -233,12 +232,10 @@ public class ViewCardFilePanel extends JPanel implements MouseListener{
 		
 	}
 	
-	/*
+	/**
 	 * This methode iterrates through all ViewCardFiles and refreshes all paramtet on UI
 	 * 
-	 * 
 	 */
-	
 	public void refreshAllViewCardFiles(){
 		
 		Iterator<ViewCardFile> it = viewCardFiles.iterator();

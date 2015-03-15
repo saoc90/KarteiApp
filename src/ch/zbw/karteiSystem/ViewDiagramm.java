@@ -33,9 +33,6 @@ import org.jfree.util.Rotation;
  */
 public class ViewDiagramm extends JPanel {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private ViewMainFrame mainframe;
 	private Strings strings;

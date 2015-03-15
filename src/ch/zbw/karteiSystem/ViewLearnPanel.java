@@ -24,8 +24,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
-import com.sun.corba.se.impl.oa.poa.ActiveObjectMap.Key;
-
 
 /**
  * This class generates a UI View Panel. Which displays the given cardfile. Also it displays the different boxes in the cardfile.
