@@ -166,6 +166,7 @@ public class ViewMyTableModel implements TableModel {
 		while (it.hasNext()) {
 			ViewEditCardFileWords words = it.next();
 			if(words.getWord1()==null||words.getWord2()==null){
+				it.remove();
 				return;
 			}
 			if (words.getWord1().equals("") && words.getWord2().equals("")) {

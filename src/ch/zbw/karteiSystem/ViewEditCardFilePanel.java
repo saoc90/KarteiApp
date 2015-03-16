@@ -172,7 +172,7 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		resetButton.setName("resetCardfile");
 		deleteButton = new JButton(strings.getString("deleteCardfile"));
 		strings.add(deleteButton);
-		deleteButton.setName("deleteCardilfe");
+		deleteButton.setName("deleteCardfile");
 		backButtonIcon = new ImageIcon("png/back.png");
 		backButton = new JLabel(backButtonIcon);
 		backButton.addMouseListener(new MouseListener() {
