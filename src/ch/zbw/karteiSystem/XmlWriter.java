@@ -109,6 +109,7 @@ public class XmlWriter {
 			cardFileElement.appendChild(l1);
 			l1.appendChild(doc.createTextNode(cardFile.getLanguage1()));
 			
+			
 			Element l2 = doc.createElement("language2");
 			cardFileElement.appendChild(l2);
 			l2.appendChild(doc.createTextNode(cardFile.getLanguage2()));

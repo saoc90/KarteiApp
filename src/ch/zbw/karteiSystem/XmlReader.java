@@ -120,7 +120,11 @@ public class XmlReader {
 		NodeList nodes = element.getElementsByTagName(tag).item(0)
 				.getChildNodes();
 		Node node = (Node) nodes.item(0);
+		if(node==null){
+			return("");
+		}
 		return node.getNodeValue();
+
 	}
 
 	private CardFile generateCardFileList(Node node) {

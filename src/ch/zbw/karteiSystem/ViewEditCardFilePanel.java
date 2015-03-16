@@ -1,6 +1,7 @@
 package ch.zbw.karteiSystem;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -160,8 +161,10 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		
 		button1 = new JButton(strings.getString("importButton")); //creates the Import button
 		button1.setName("importButton");
+		strings.add(button1);
 		button2 = new JButton(strings.getString("exportButton")); //creates the Export button
 		button2.setName("exportButton");
+		strings.add(button2);
 		button1.addActionListener(this);
 		button2.addActionListener(this);
 		addButton = new JButton(strings.getString("addButton"));
@@ -233,10 +236,11 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 		// adds language panel to GridBag-Layout
 		languagePanel.setBackground(Color.decode("#52787b"));
 		languagePanel.setLayout(new FlowLayout());
-		
+		Dimension d = new Dimension(150,20);
+		languageJTF1.setPreferredSize(d);
 		languagePanel.add(langLabel1);
 		languagePanel.add(languageJTF1);
-
+		languageJTF2.setPreferredSize(d);
 		languagePanel.add(langLabel2);
 		languagePanel.add(languageJTF2);
 		gc.anchor = GridBagConstraints.BASELINE;
@@ -451,8 +455,15 @@ public class ViewEditCardFilePanel extends JPanel implements ActionListener {
 	 */
 	private void writeToCardfile(boolean deleteThisCardfile){
 		
+		
 		model.setLanguage1(languageJTF1.getText());
+		if(model.getLanguage1()==null||model.getLanguage1().equals("")){
+			model.setLanguage1("Unknown");
+		}
 		model.setLanguage2(languageJTF2.getText());
+		if(model.getLanguage2()==null||model.getLanguage2().equals("")){
+			model.setLanguage2("Unknown");
+		}
 		
 		cardFile = model.updatedCardFile();
 
